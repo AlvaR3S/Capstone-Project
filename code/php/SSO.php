@@ -7,7 +7,7 @@
 
 <!-- Navbar -->
 <div class="loginnav">
-	<a href="">
+	<a href="https://capping2017-erinacafe.c9users.io/SSO.php">
 	     <img src="ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
 	</a>
 </div>

@@ -35,18 +35,18 @@
         <a href="https://capping2017-erinacafe.c9users.io/Apps.php">Applications
             <span class="fa fa-tasks"></span>
         </a>
-        <a href="#">About
-        <span class="fa fa-question-circle"></span>
+        <a href="https://capping2017-erinacafe.c9users.io/AboutPage.php">About
+            <span class="fa fa-question-circle"></span>
         </a>
         <a href="https://capping2017-erinacafe.c9users.io/Search.php">Search
             <span class="fa fa-search"></span>
         </a>
-        <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Sign Out
+        <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Sign In
             <span class="fa fa-space-shuttle"></span>
         </a>
     </div> 
     
-    <!-- Search form -->    
+    <!-- Search form -->
     <div id="main" class="main" align="center">
         
         <h1>Welcome to the ACME DB!</h1><br>

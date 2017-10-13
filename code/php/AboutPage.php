@@ -1,6 +1,6 @@
 <html>
 
-<title>ACME Profile Page</title>
+<title>ACME About Page</title>
 
 
 <header>
@@ -22,7 +22,7 @@
              
              <!-- Open Hamburger Menu -->
             <div id="main">
-        	    <span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>
+        	    <span style="font-size:30px;cursor:pointer" align=left onclick="openNav()">&#9776;</span>
         	    <img src="ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
             </div>
             
@@ -41,7 +41,7 @@
                 <a href="https://capping2017-erinacafe.c9users.io/Search.php">Search
                     <span class="fa fa-search"></span>
                 </a>
-                <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Sign Out
+                <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Sign In
                     <span class="fa fa-space-shuttle"></span>
                 </a>
             </div>
@@ -63,16 +63,7 @@
             
         </nav>
 
-    </header>
-    
-    <div class="container page_info">
-        
-		<div class="col_md_12">
-		    <img src="ACMElogo.png" alt="Test Image">
-		    <h1>Matvey Ananew</h1>
-		    <span class="status">Traveller</span>
-	    </div>
-    </div>
+    </header>  
        
     
 </body>
