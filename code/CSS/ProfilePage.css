@@ -1,54 +1,31 @@
-/*.TopNav {
-    background: #3e474f;
-    z-index: 100;
-    transition: height 600ms 0s ease;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-}
-
-.TopNav-head {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 100%;
-}
-
+/* Centers left and right nav objects */
 .container {
     position: relative;
     max-width: 1260px;
     margin: 0 auto;
 }
 
-.TopNav-head-list {
-    list-style: none;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-}
-*/
 
-/* Add a black background color to the top navigation */
+/* Add a black background color to the top navigation 
 .topnav {
     background-color: #333;
     overflow: hidden;
 }
+*/
 
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: black;
+    color: #ddd;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -56,9 +33,9 @@
     display: none;
 }
 
-
-/* Part 2 */
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+/* When the screen is less than 600 pixels wide, hide all links, 
+except for the first one ("Home"). 
+Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -67,7 +44,8 @@
   }
 }
 
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. 
+This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
@@ -80,4 +58,114 @@
     display: block;
     text-align: left;
   }
+}
+
+/* Separates the top nav list to the right away from logo and hamburger menu and aligns */
+.topnav-list {
+  float:right;
+  margin-top: -60px;
+}
+
+/* Aligns topnav with search bar. */
+.topnav-list .topnav-list-search  {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  margin-top: 17px;
+  float: right;
+}
+
+/* Search bar css */
+input#search {
+  font-size: 120%; width: 120px; height: 30px;
+  border-radius: 10px;
+  background-image: url(iconSearch.png);
+  background-size: 23px;
+  background-repeat: no-repeat;
+  background-position: 4px 3px;
+  padding-left: 30px;
+  background-color: transparent;
+  margin-top: -5;
+  float: right;
+  transition: all 0.7s ease-in-out;
+  border:0px;
+  cursor: pointer;
+}
+
+/* When search is clicked on */
+#search:focus {
+  background-color: #EEE;
+  width: 250px;
+  outline: 0;
+  float: right;
+  transition: all .9s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+  border: 2px solid black;
+  cursor: text;
+}
+
+/* Line under TopNav */
+#topHR {
+  margin: -3px;
+}
+
+/* Aligns Profile pic and Name/description */
+.container-profile {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page_info {
+    padding: 90px 150px 60px;
+}
+
+.page_info h1 {
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+.page_info img {
+    width: 100px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 20px;
+    
+}
+
+.page_info .status {
+    color: black;
+}
+
+div {
+  display: block;
+}
+
+.picAndName {
+  line-height: normal;
+  color: black;
+}
+
+/* Aligns profile info */
+
+ #edit {
+  float: right;
+  color: #0000EE;
+  font-size: 15px;
+  padding-top: 10px;
+  width: auto;
+  margin-top: 70px;
+  
+}
+
+.profile-info {
+  background: #cde0e7;
+  margin-top: 83px;
+}
+
+#response {
+    margin-top: -25px;
+    padding-bottom: 40px;
 }

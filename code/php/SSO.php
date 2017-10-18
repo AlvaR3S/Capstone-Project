@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="StyleSheet.css">
 
-
 <!-- Navbar -->
 <div class="loginnav">
 	<a href="https://capping2017-erinacafe.c9users.io/SSO.php">

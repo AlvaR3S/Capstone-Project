@@ -18,46 +18,37 @@
     <header class="topnav" role="banner">
         
         <nav class="topnav container" role="navigation">
-             
-             
-             <!-- Open Hamburger Menu -->
+
+            
             <div id="main">
-        	    <span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>
+        	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
         	    <img src="ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
             </div>
             
-            <!-- Close Hamburger Menu-->
-            <div id="hamburger" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="https://capping2017-erinacafe.c9users.io/profile.php">Profile
+            
+            <div id="myTopnav" class="topnav-list">
+                <a href="https://capping2017-erinacafe.c9users.io/profile.php">Home
                     <span class="fa fa-address-card"></span>
-                </a>
-                <a href="https://capping2017-erinacafe.c9users.io/Apps.php">Applications
-                    <span class="fa fa-tasks"></span>
                 </a>
                 <a href="https://capping2017-erinacafe.c9users.io/AboutPage.php">About
                     <span class="fa fa-question-circle"></span>
                 </a>
-                <a href="https://capping2017-erinacafe.c9users.io/Search.php">Search
-                    <span class="fa fa-search"></span>
+                <a href="https://capping2017-erinacafe.c9users.io/Apps.php">Apps
+                    <span class="fa fa-tasks"></span>
                 </a>
-                <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Sign Out
-                    <span class="fa fa-space-shuttle"></span>
-                </a>
-            </div>
-            
-            <div id="myTopnav" class="topnav-list">
-                <a href="#home">Home</a>
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="https://capping2017-erinacafe.c9users.io/AboutPage.php">About</a>
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>-->
-            
                 <form class="topnav-list-search">
                     <input type="text" id="search" name="search" placeholder="Search...">
-                </form>
+                </form>                
+                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>-->
+                <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Log Out
+                    <span class="fa fa-space-shuttle"></span>
+                </a>
+                <!--<form class="topnav-list-search">
+                    <input type="text" id="search" name="search" placeholder="Search...">
+                </form>-->
             
             </div>
+            <hr id="topHR" noshade>
             <hr id="topHR" noshade>
             
             
@@ -98,6 +89,24 @@
     <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
         <a href="https://icons8.com"><font color=grey size="1">All Applications Icons credited to icons8.com.</font></a>
     </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-info">
+            <h4>Contact</h4><br>
+            <a href="">contact@acme.com</a>
+        </div>
+        <div class="footer-info">
+            <h4>Applications</h4><br>
+                <a href="">Salesforce.com</a><br>
+                <a href="">Artifactory</a><br>
+                <a href="">Teamcity</a><br>
+                <a href="">Outlook</a><br>
+                <a href="">Skype for Business</a><br>
+                <a href="">Assest Management</a>
+        </div>
+        
+    </div>
 </body>
 
 </html>
@@ -113,11 +122,13 @@
         padding: 50px;
         transition-duration: 0.4s;
         margin: 5px;
+        cursor: pointer;
     }
     
     .appcontainer {
         max-width: 50%;
         margin-left: 25%;
+        margin-bottom: 5%;
     }
 
 </style>
