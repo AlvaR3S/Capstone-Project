@@ -14,37 +14,35 @@
 
 /* Footer */
 .footer {
-    position: static;
     left: 0;
     bottom: 0;
+    right: 0;
     width: 100%;
     height: 250px;
-    padding: 20px;
     background-color: black;
     color: white;
     text-align: center;
     font-size: 10px;
+    margin-top: 12%;
+    
 }
 
-.footer-info {
-    padding: 20px 20px 20px 100px;
+.footer-contact {
     float: left;
-    background-color: black;
+    padding-left: 10%;
+    padding-top: 3%;
 }
 
-a:link {
-    color: white;
+.footer-apps {
+    float: left;
+    padding-left: 10%;
+    padding-top: 3%;
+}
+
+.footer a {
     text-decoration: none;
 }
 
-a:hover {
-    color: #f44336;
-    transition: 0.4s;
-}
-
-a:active {
-    color: grey;
-}
 
 /* Navigation Menu Bar */
 .navbar {
@@ -104,17 +102,25 @@ a:active {
 
 /* Main Body Stuff */
 body {
-	background-color: lightblue;
-	font-family: helvetica;
-	transition: background-color .5s;
+    background-color: lightblue;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color .5s;
 }
-
 
 
 #main {
     transition: margin-left .5s;
     padding: 16px;
     
+}
+
+#message{
+    font-size: 12px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 450px;
 }
 
 @media screen and (max-height: 450px) {
@@ -163,4 +169,62 @@ button:hover {
     border-radius: 4px;
     border: 2px solid grey;
     
+}
+
+/* ---------- Access Denied Page -----------*/
+
+
+.login {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 450px;
+}
+
+/* Drop down Menu */
+.blue select {
+    color: #222;
+}
+
+.styled-select {
+   background: url("/Assets/DropDownArrow.png") no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   background-color: lightgrey; /* background color of entire box */
+   margin: 31px;
+}
+
+.styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    width: 268px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* Gain Access button */
+
+.buttonAccess {
+    width: auto;
+}
+
+.inputAndButton {
+    margin-top: 22px;
+}
+
+#applyAccess {
+    font-size: 29px;
 }

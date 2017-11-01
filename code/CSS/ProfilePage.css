@@ -1,17 +1,20 @@
 /* Centers left and right nav objects */
 .container {
     position: relative;
-    max-width: 1260px;
-    margin: 0 auto;
+    min-width: 100%;
+    padding-right: 2%;
 }
 
 
-/* Add a black background color to the top navigation 
+ 
 .topnav {
-    background-color: #333;
+    background-color: lightgrey;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
 }
-*/
 
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -83,7 +86,7 @@ input#search {
   background-size: 23px;
   background-repeat: no-repeat;
   background-position: 4px 3px;
-  padding-left: 30px;
+  padding-left: 5px;
   background-color: transparent;
   margin-top: -5;
   float: right;
@@ -105,8 +108,14 @@ input#search {
 
 /* Line under TopNav */
 #topHR {
-  margin: -3px;
+  margin: 0%;
+  border-color: black;
+  width: 100%;
+  padding-right: 2%;
 }
+
+
+/* --------TOP Page ----------- */
 
 /* Aligns Profile pic and Name/description */
 .container-profile {
@@ -114,49 +123,46 @@ input#search {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 107px;
+    background-color: white;
 }
 
-.page_info {
-    padding: 90px 150px 60px;
+
+
+ #name {
+  color: black;
+  font-weight: 100;
+  font-size: 40px;
+  padding-top: 10px;
+  
 }
 
-.page_info h1 {
-    color: #ffffff;
-    font-weight: 100;
-    font-size: 40px;
-    padding-top: 10px;
+.picInfo {
+  width: 27%;
+  border-radius: 3px;
+  float: left;
+  margin-right: 20px;
 }
 
-.page_info img {
-    width: 100px;
-    border-radius: 3px;
-    float: left;
-    margin-right: 20px;
-    
-}
-
-.page_info .status {
-    color: black;
+.status {
+  color: black;
 }
 
 div {
   display: block;
 }
 
-.picAndName {
-  line-height: normal;
-  color: black;
-}
 
 /* Aligns profile info */
 
  #edit {
   float: right;
-  color: #0000EE;
+  color: black;
   font-size: 15px;
   padding-top: 10px;
   width: auto;
   margin-top: 70px;
+  cursor: pointer;
   
 }
 
@@ -166,6 +172,20 @@ div {
 }
 
 #response {
-    margin-top: -25px;
-    padding-bottom: 40px;
+  margin-top: -25px;
+  padding-bottom: 40px;
 }
+
+#belowProfilePic {
+  
+}
+
+.TopInfo {
+  
+}
+
+.BotttomInfo {
+  
+}
+
+

@@ -1,11 +1,11 @@
 <?php
-$db_host = "10.10.7.169";
-$db_name = "Corporate_Directory";
-$username = "postgres";
-$password = "password";
-$dbconn = pg_connect("host=$db_host dbname=$db_name user=$username password=$password")
-    or die('Could not connect: ' . pg_last_error());
+    
+$mysqli = new mysqli("10.10.7.168", "root", "password", "Corporate_Directory");
 
-$query = 'SELECT * FROM Employee';
-$result = pg_query($query) or die('Query failed' . pg_last_error());
+ $result = $mysqli->query("SELECT * FROM title");
+
+while($row = $result->fetch_assoc()){
+echo $row['posname'] . '<br>';
+}
+
 ?>

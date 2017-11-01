@@ -1,6 +1,6 @@
 <html>
 
-    <title>My Applications</title>
+    <title>ACME Access Denied</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/Code/CSS/StyleSheet.css">
@@ -22,8 +22,8 @@
     
                 
                 <div id="main">
-                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-                    <img src="/Assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+            	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+            	    <img src="/Assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
                 </div>
                 
                 
@@ -57,41 +57,39 @@
     
         </header>
         <br>
+        <div id="main" class="main" align="center" style="margin-top:10%;">
+            <h1>ACCESS DENIED</h1>
+            <h2>It appears you do not have access to this application...</h2>
+            <hr noshade>
+        </div>
+        <div id="message" align="center">
+            <h2 id="applyAccess">Apply for access down below.</h2>
+            <!-- ** QUESTION ** => Input username or email address for access thats sent to admin inbox?
+                            ALSO => user should already be logged in, to access apps page,
+                                    when a guest clicks on apps it takes them to log in page-->
+            <form method="post" action="/Code/php/AccessRequest.php" id="accessForm">
+                
+                <div class="styled-select blue semi-square">
+                    <select>
+                        <option value="" color="white;" disabled selected>Pick an application</option>
+                        <option value="Salesforce">Salesforce</option>
+                        <option value="Artifactory">Artifactory</option>
+                        <option value="Assets">Assets Management</option>
+                        <option value="Outlook">Outlook</option>
+                        <option value="Skype">Skype for Business</option>
+                        <option value="Teamcity">Teamcity</option>
+                        
+                    </select>
+                </div>
+                
+                <div class="inputAndButton">
+                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="access">
+                    <button class="buttonAccess" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
     
     
-        <div class="appcontainer" align=center style="margin-top:10%;">
-            <!--<div class="topApps">-->
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding="10px" src="/Assets/salesforce-icon.png"><br><br>Salesforce</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding="10px" src="/Assets/artifactory-icon.png"><br><br>Artifactory</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding="10px" src="/Assets/assetmanage-icon.png"><br><br>Assets</img>
-                </button>
-            <!--</div>-->
-        
-            <!--<div class="bottomApps">-->
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding=10px src="/Assets/outlook-icon.png"><br><br>Outlook</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding=10px src="/Assets/skype-icon.png"><br><br>Skype</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='https://capping2017-erinacafe.c9users.io/Code/php/AccessDenied.php'">
-                    <img padding=10px src="/Assets/teamcity-icon.png"><br><br>Teamcity</img>
-                </button>
-            <!--</div>-->
-        </div>
-        <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
-            <a href="https://icons8.com"><font color=grey size="1">All Applications Icons credited to icons8.com.</font></a>
-        </div>
-        
         <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
@@ -108,28 +106,22 @@
                 <a href="/Code/php/AccessDenied.php">Assest Management</a>
             </div>
         </div>
+        
     </body>
 
 </html>
 
 <style>
-    .app {
-        width: 185px;
-        height: 185px;
-        background-color: #f44336;
-        color: white;
-        border: 2px solid #f44336;
-        border-radius: 8px;
-        padding: 50px;
-        transition-duration: 0.4s;
-        margin: 5px;
-        cursor: pointer;
+    .inputAccess {
+        padding: 2%;
+        margin-right: 2%;
+        width: 67%;
+        
     }
     
-    .appcontainer {
-        max-width: 50%;
-        margin-left: 25%;
-        margin-bottom: 5%;
+    .buttonAccess {
+        padding: 2%;
+        width: 17%;
+        cursor: pointer;
     }
-
 </style>

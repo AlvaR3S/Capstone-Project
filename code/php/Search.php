@@ -12,10 +12,10 @@
 
 <head>
      <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="ProfilePage.css">
-    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
-    <script type="text/javascript" src="ProfilePage.js"></script> 
-    <script type="text/javascript" src="Script.js"></script> <!--Links Script.js to this page-->
+    <link rel="stylesheet" type="text/css" href="/Code/CSS/ProfilePage.css">
+    <link rel="stylesheet" type="text/css" href="/Code/CSS/StyleSheet.css">
+    <script type="text/javascript" src="/Code/js/ProfilePage.js"></script> 
+    <script type="text/javascript" src="/Code/js/Script.js"></script> <!--Links Script.js to this page-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,28 +28,28 @@
         <nav class="topnav container" role="navigation">
              
              
-             <!-- Open Hamburger Menu -->
+            <!-- Open Hamburger Menu -->
             <div id="main">
-        	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-        	    <img src="ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+                <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+                <img src="/Assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
             </div>
             
             
             <div id="myTopnav" class="topnav-list">
-                <a href="https://capping2017-erinacafe.c9users.io/profile.php">Home
+                <a href="/Code/php/Search.php">Home
                     <span class="fa fa-address-card"></span>
                 </a>
-                <a href="https://capping2017-erinacafe.c9users.io/AboutPage.php">About
+                <a href="/Code/php/profile.php">Profile
                     <span class="fa fa-question-circle"></span>
                 </a>
-                <a href="https://capping2017-erinacafe.c9users.io/Apps.php">Apps
+                <a href="/Code/php/Apps.php">Apps
                     <span class="fa fa-tasks"></span>
                 </a>
                 <form class="topnav-list-search">
-                    <input type="text" id="search" name="search" placeholder="Search...">
+                    <input type="text" id="search" name="search" placeholder="&#128269; Search...">
                 </form>                
-                <!--<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>-->
-                <a href="https://capping2017-erinacafe.c9users.io/SSO.php">Log Out
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                <a href="/Code/php/SSO.php">Log Out
                     <span class="fa fa-space-shuttle"></span>
                 </a>
                 <!--<form class="topnav-list-search">
@@ -58,6 +58,7 @@
             
             </div>
             <hr id="topHR" noshade>
+            <hr id="topHR" noshade>
             
             
         </nav>
@@ -65,12 +66,11 @@
     </header>
     
     <!-- Search form -->
-    <div id="main" class="main" align="center">
+    <div id="main" class="main" align="center" style="margin-top:10%;">
         
-        <h1>Welcome to the ACME employee database!</h1><br>
-        <hr noshade>
-        <br>Search the ACME Directory<br>
-        <form method="post" action="SearchResults.php" id="searchform">
+        <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
+        <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
+        <form method="post" action="/Code/php/SearchResults.php" id="searchform" style="margin-top: 7%;">
                 <input id="searchbar" class="search" type="text" placeholder="&#128269; Search employees by name or location" name="search">
                 <button class="short" type="submit">
                     <span class="fa fa-search"></span> Search
@@ -78,23 +78,23 @@
         </form>
        
     </div>
+    
     <!-- Footer -->
-    <div class="footer">
-        <div class="footer-info">
-            <h4>Contact</h4><br>
-            <a href="">contact@acme.com</a>
+        <div class="footer">
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="">contact@acme.com</a>
+            </div>
+            <div class="footer-apps">
+                <h4>Applications</h4>
+                <a href="/Code/php/AccessDenied.php">Salesforce.com</a><br>
+                <a href="/Code/php/AccessDenied.php">Artifactory</a><br>
+                <a href="/Code/php/AccessDenied.php">Teamcity</a><br>
+                <a href="/Code/php/AccessDenied.php">Outlook</a><br>
+                <a href="/Code/php/AccessDenied.php">Skype for Business</a><br>
+                <a href="/Code/php/AccessDenied.php">Assest Management</a>
+            </div>
         </div>
-        <div class="footer-info">
-            <h4>Applications</h4><br>
-                <a href="">Salesforce.com</a><br>
-                <a href="">Artifactory</a><br>
-                <a href="">Teamcity</a><br>
-                <a href="">Outlook</a><br>
-                <a href="">Skype for Business</a><br>
-                <a href="">Assest Management</a>
-        </div>
-        
-    </div>
     
 </body>
 
