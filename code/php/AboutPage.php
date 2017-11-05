@@ -1,5 +1,4 @@
 <html>
-	<!-- Hey kai -->
     <title>ACME About</title>
  
     
