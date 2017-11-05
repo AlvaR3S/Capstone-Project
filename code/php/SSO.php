@@ -32,12 +32,12 @@
 
     <title>ACME</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/Code/CSS/StyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
     <!-- Navbar -->
     <div class="loginnav">
-    	<a href="/Code/php/SSO.php">
-    	     <img src="/Assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
+    	<a href="SSO.php">
+    	     <img src="../../ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
     	</a>
     </div>
     
@@ -45,7 +45,7 @@
         <!-- login form -->
         <div class="login" style=center>
             <h2>Sign In</h2>
-        	<form action="/Code/php/profile.php">
+        	<form action="profile.php">
                 <label><b>Username</b></label><br>
                 <input class="fmt" type="text" placeholder="Enter Username" name="username" required><br>
                 <br>
@@ -61,7 +61,7 @@
                 <br>
                 <hr noshade>
                 <br>
-                <font size=2>Not an employee? <a href="/Code/php/guestSearch.php">Sign in as guest.</a></font>
+                <font size=2>Not an employee? <a href="guestSearch.php">Sign in as guest.</a></font>
             </form>
         </div>	
     </body>
