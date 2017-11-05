@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Title
 
 SELECT * FROM Title;
 
-DROP TABLE Employees;
+--DROP TABLE Employees;
 CREATE TABLE IF NOT EXISTS Employees
 (
 	eid		serial		not null unique,
@@ -90,7 +90,7 @@ ON Login
 FOR EACH ROW
 EXECUTE PROCEDURE new_user();
 
-DROP TABLE Expired_PW;
+--DROP TABLE Expired_PW;
 CREATE TABLE IF NOT EXISTS Expired_PW (
 	changeID	serial		not null unique,
 	username	text		not null references Login (username),
@@ -139,6 +139,8 @@ END;
 $$
 LANGUAGE PLPGSQL;
 
+/* Test Data
+
 SELECT update_password('testing', 'mynewPa$$word', 'anutha1', CURRENT_DATE);
 SELECT * FROM Login;
 
@@ -155,7 +157,7 @@ SELECT * FROM Login;
 SELECT user_PW = CRYPT('mypasswordis', user_PW)
 FROM Login;
 
-
+*/
 
 
 
