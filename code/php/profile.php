@@ -96,12 +96,12 @@
             </div>
             <div class="footer-apps">
                 <h4>Applications</h4>
-                <a href="/Code/php/AccessDenied.php">Salesforce.com</a><br>
-                <a href="/Code/php/AccessDenied.php">Artifactory</a><br>
-                <a href="/Code/php/AccessDenied.php">Teamcity</a><br>
-                <a href="/Code/php/AccessDenied.php">Outlook</a><br>
-                <a href="/Code/php/AccessDenied.php">Skype for Business</a><br>
-                <a href="/Code/php/AccessDenied.php">Assest Management</a>
+                <a href="AccessDenied.php">Salesforce.com</a><br>
+                <a href="AccessDenied.php">Artifactory</a><br>
+                <a href="AccessDenied.php">Teamcity</a><br>
+                <a href="AccessDenied.php">Outlook</a><br>
+                <a href="AccessDenied.php">Skype for Business</a><br>
+                <a href="AccessDenied.php">Assest Management</a>
             </div>
         </div>
         

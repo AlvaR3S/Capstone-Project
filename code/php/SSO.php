@@ -37,7 +37,7 @@
     <!-- Navbar -->
     <div class="loginnav">
     	<a href="SSO.php">
-    	     <img src="../../ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
+    	     <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
     	</a>
     </div>
     
