@@ -27,7 +27,7 @@
                 
                 
                 <div id="myTopnav" class="topnav-list">
-                    <a href="Search.php">Home
+                    <a href="GuestSearch.php">Home
                         <span class="fa fa-address-card"></span>
                     </a>
                     <a href="AboutPage.php">About
