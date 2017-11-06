@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/SearchResult.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -64,7 +65,8 @@
            
            
         </div>
-        <div>
+        <div class="table">
+            
             <?php
                 if(isset($_POST['submit'])){
                     if(isset($_GET['go'])){
@@ -79,10 +81,7 @@
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
-                            while($row=mysqli_fetch_array($result)) {
-                                  echo $row['firstname'] . '<br>';
-                                  echo $row['lastname'] . '<br>';
-                            }
+                            $row=mysqli_fetch_array($result); 
                         }
                         else{
                             echo  "<p>Please enter a search query</p>";
@@ -90,6 +89,20 @@
                     }
                 }
             ?>
+            <table class="employee">
+              <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Title</th>
+                <th>Location</th>
+              </tr>
+              <tr>
+                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
+                <td>Peanuts</td>
+                <td>Roasted</td>
+                <td>Germany</td>
+              </tr>
+            </table>
         </div>
 
         <!-- Footer -->
