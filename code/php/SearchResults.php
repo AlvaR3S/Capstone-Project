@@ -64,6 +64,33 @@
            
            
         </div>
+        <div>
+            <?php
+                if(isset($_POST['submit'])){
+                    if(isset($_GET['go'])){
+                        if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
+                            $name=$_POST['name'];
+                            //connect  to the database
+                            $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
+                            //-select  the database to use
+                            $mydb=mysqli_select_db($db,"corporate_directory");
+                            //-query  the database table
+                            $sql="SELECT firstname, lastname FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%'";
+                            //-run  the query against the mysql query function
+                            $result=mysqli_query($db,$sql);
+                            //-create  while loop and loop through result set
+                            while($row=mysqli_fetch_array($result)) {
+                                  echo $row['firstname'] . '<br>';
+                                  echo $row['lastname'] . '<br>';
+                            }
+                        }
+                        else{
+                            echo  "<p>Please enter a search query</p>";
+                        }
+                    }
+                }
+            ?>
+        </div>
 
         <!-- Footer -->
         <div class="footer">

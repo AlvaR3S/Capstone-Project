@@ -1,11 +1,11 @@
 <?php
     
-$mysqli = new mysqli("10.10.7.168", "root", "password", "Corporate_Directory");
+$mysqli = new mysqli("localhost", "root", "", "corporate_directory");
 
- $result = $mysqli->query("SELECT * FROM title");
+ $result = $mysqli->query("SELECT * FROM employee");
 
 while($row = $result->fetch_assoc()){
-echo $row['posname'] . '<br>';
+echo $row['firstname'] . '<br>';
 }
 
 ?>
