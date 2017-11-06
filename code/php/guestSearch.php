@@ -12,11 +12,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/Code/CSS/ProfilePage.css">
-    <link rel="stylesheet" type="text/css" href="/Code/CSS/StyleSheet.css">
-    <link rel="stylesheet" type="text/css" href="/Code/CSS/AboutPage.css">
-    <script type="text/javascript" src="/Code/js/ProfilePage.js"></script> 
-    <script type="text/javascript" src="/Code/js/Script.js"></script> <!--Links Script.js to this page-->
+    <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/AboutPage.css">
+    <script type="text/javascript" src="../js/ProfilePage.js"></script> 
+    <script type="text/javascript" src="../js/Script.js"></script> <!--Links Script.js to this page-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes Page Responsive -->
@@ -33,22 +33,22 @@
              <!-- Open Hamburger Menu -->
             <div id="main">
         	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-        	    <img src="/Assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+        	    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
             </div>
             
             
             <div id="myTopnav" class="topnav-list">
-                <a href="/Code/php/guestSearch.php">Home
+                <a href="guestSearch.php">Home
                     <span class="fa fa-address-card"></span>
                 </a>
-                <a href="/Code/php/AboutPage.php">About
+                <a href="AboutPage.php">About
                     <span class="fa fa-question-circle"></span>
                 </a>
                 <form class="topnav-list-search">
                     <input type="text" id="search" name="search" placeholder="&#128269; Search...">
                 </form>               
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-                <a href="/Code/php/SSO.php">Login
+                <a href="SSO.php">Login
                     <span class="fa fa-space-shuttle"></span>
                 </a>
                 <!--<form class="topnav-list-search">
@@ -69,7 +69,7 @@
         
         <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
         <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
-        <form method="post" action="/Code/php/SearchResults.php" id="searchform" style="margin-top: 7%;">
+        <form method="post" action="SearchResults.php" id="searchform" style="margin-top: 7%;">
                 <input id="searchbar" class="search" type="text" placeholder="&#128269; Search employees by name or location" name="search">
                 <button class="short" type="submit">
                     <span class="fa fa-search"></span> Search
