@@ -72,7 +72,9 @@
         <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
         <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 7%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
-                <input class="short" type="submit" value="Search" name="submit">
+                <button class="short" type="submit" name="submit">
+                    <span class="fa fa-search"></span> Search
+                </button>
         </form>
        
         <?php

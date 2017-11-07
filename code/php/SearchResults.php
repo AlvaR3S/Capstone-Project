@@ -59,7 +59,15 @@
         
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; font-family: 'Montserrat', sans-serif;">
-            
+        <form action="Search.php">
+            <button class="short" type="submit" name="again" width="20%">
+                    <span class="fa fa-search"></span> Search Again
+            </button>
+        </form>
+            <br>
+
+
+
             <h1 style="float:left; margin-left:10%;">Employees</h1><br>
            
            
@@ -119,8 +127,8 @@
     }
     
     .short {
-        padding: 20px;
-        width: 140px;
+        padding: .5%;
+        width: 12%;
         cursor: pointer;
     }
     
