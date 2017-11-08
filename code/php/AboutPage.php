@@ -55,7 +55,7 @@
             <div class="aboutInfo">
                 <div class="body1">
                     <h2>About ACME</h2><br>
-                    ACME is a company that makes stuff. We are the best, don't ya know. Blah blah blah. Nice.
+                    ACME is a company for the purpose of our capping project.
                     <br><br>
                     <h4>Contact Us:</h4>
                     contact@acme.com

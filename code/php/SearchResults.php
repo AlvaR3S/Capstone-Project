@@ -58,7 +58,6 @@
             </nav>
     
         </header>
-        
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
         <form action="Search.php">
@@ -77,26 +76,16 @@
         <div class="table">
             
             <?php
-                if(isset($_POST['name'])){
+                if(isset($_POST['submit'])){
                     if(isset($_GET['go'])){
                         if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
                             $name=$_POST['name'];
-                            $opt=$_POST['searchby'];
                             //connect  to the database
                             $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
                             //-select  the database to use
                             $mydb=mysqli_select_db($db,"corporate_directory");
                             //-query  the database table
-                            if ($opt == "by_name"){
-                                $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
-                            }
-                            else if ($opt == "by_location"){
-                                $sql="(SELECT * FROM employee WHERE employee.oid IN (SELECT oid FROM organization WHERE organization.location LIKE '%" . $name ."%'))";
-                            }
-                            else if ($opt == "by_position") {
-                                $sql="(SELECT * FROM employee WHERE employee.tid IN (SELECT tid FROM title WHERE title.posname LIKE '%" . $name ."%'))";
-                            }
-
+                            $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%')";
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
