@@ -70,27 +70,13 @@
         
         <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
         <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
-        <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 7%;">
+        <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
                 <button class="short" type="submit" name="submit">
                     <span class="fa fa-search"></span> Search
                 </button>
         </form>
-       
-        <?php
 
-        if(!(isset($_POST['submit']))) {
-            $mysqli = new mysqli("localhost", "root", "", "corporate_directory");
-
-            $result = $mysqli->query("SELECT * FROM employee");
-
-            while($row = $result->fetch_assoc()){
-                echo $row['firstname'] . '<br>';
-            }
-        }else
-            echo ("hello hello");
-
-        ?>
     </div>
     
     <!-- Footer -->

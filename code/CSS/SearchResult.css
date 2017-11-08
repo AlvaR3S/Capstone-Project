@@ -11,19 +11,21 @@
     padding: 8px;
 }
 
-.employee tr:nth-child(even){background-color: #f2f2f2;}
+.employee tr{
+    background-color: #f2f2f2;
+}
 
-.employee tr:hover {background-color: #ddd;}
+.employee tr:hover {background-color: #f3ebb7;}
 
 .employee th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #f44336;
     color: white;
 }
 
 .table {
-	margin-left: 10%;
+    margin-left: 10%;
     margin-right: 10%;
 }

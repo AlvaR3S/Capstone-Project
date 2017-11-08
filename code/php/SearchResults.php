@@ -23,8 +23,8 @@
     
                 
                 <div id="main">
-            	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-            	    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+                    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
                 </div>
                 
                 
@@ -59,7 +59,7 @@
         </header>
         
         <!-- Search form -->    
-        <div id="main" class="main" align="center" style="margin-top:10%; font-family: 'Montserrat', sans-serif;">
+        <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
         <form action="Search.php">
             <button class="short" type="submit" name="again" width="20%">
                     <span class="fa fa-search"></span> Search Again
@@ -69,7 +69,7 @@
 
 
 
-            <h1 style="float:left; margin-left:10%;">Employees</h1><br>
+            <h1 style="float:left; margin-left:10%;"><?php echo "Displaying search results for '" . htmlspecialchars($_POST['name']) . "'.";?></h1><br>
            
            
         </div>
@@ -85,11 +85,30 @@
                             //-select  the database to use
                             $mydb=mysqli_select_db($db,"corporate_directory");
                             //-query  the database table
-                            $sql="SELECT firstname, lastname FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%'";
+                            $sql="SELECT * FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%'";
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
-                            $row=mysqli_fetch_array($result); 
+            ?>
+            <table class="employee">
+              <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Location</th>
+              </tr>
+            <?php
+                            $i=1;
+                            while($row=mysqli_fetch_array($result)) {
+
+            ?>
+              <tr>
+                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
+                <td><?php echo $row['tid'];?></td>
+                <td><?php echo $row['oid'];?></td>
+              </tr>
+            <?php
+                            $i++;
+                            }
                         }
                         else{
                             echo  "<p>Please enter a search query</p>";
@@ -97,19 +116,6 @@
                     }
                 }
             ?>
-            <table class="employee">
-              <tr>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Title</th>
-                <th>Location</th>
-              </tr>
-              <tr>
-                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
-                <td>Peanuts</td>
-                <td>Roasted</td>
-                <td>Germany</td>
-              </tr>
             </table>
         </div>
 
