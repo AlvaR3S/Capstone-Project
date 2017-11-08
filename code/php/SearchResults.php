@@ -86,7 +86,7 @@
                             //-select  the database to use
                             $mydb=mysqli_select_db($db,"corporate_directory");
                             //-query  the database table
-                            $sql="(SELECT * FROM employee_db WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%' OR posname LIKE '%" . $name . "%' OR location LIKE '%" . $name . "%')";
+                            $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%')";
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
