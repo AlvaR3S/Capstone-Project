@@ -103,8 +103,22 @@
             ?>
               <tr>
                 <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
-                <td><?php echo $row['tid'];?></td>
-                <td><?php echo $row['oid'];?></td>
+                 <td>
+                    <?php 
+                        $sql="SELECT posname FROM title WHERE title.tid = ". $row['tid'];
+                        $res=mysqli_query($db,$sql);
+                        $r=mysqli_fetch_array($res);
+                        echo $r['posname'];
+                    ?>
+                </td>
+                <td>
+                    <?php 
+                        $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
+                        $res=mysqli_query($db,$sql);
+                        $r=mysqli_fetch_array($res);
+                        echo $r['location'];
+                    ?>
+                </td>
               </tr>
             <?php
                             $i++;
