@@ -8,8 +8,7 @@
 
  
 .topnav {
-    /*background-color: lightgrey;*/
-    background-image: url("../../assets/Background/chairs.png") ;
+    background-color: lightgrey;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -30,18 +29,14 @@
     float: left;
     display: block;
     text-align: center;
-    font-weight: bold;
     padding: 14px 16px;
     text-decoration: none;
-    color: white;
-    -webkit-text-stroke: black .7px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: black;
     color: #ddd;
-    -webkit-text-stroke: none;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
