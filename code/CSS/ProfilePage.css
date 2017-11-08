@@ -30,11 +30,10 @@
     float: left;
     display: block;
     text-align: center;
-    font-weight: bold;
     padding: 14px 16px;
     text-decoration: none;
-    color: white;
-    -webkit-text-stroke: black .7px;
+    color: black;
+    -webkit-text-stroke: lightgrey .1px;
 }
 
 /* Change the color of links on hover */
