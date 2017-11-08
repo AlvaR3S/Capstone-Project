@@ -89,48 +89,52 @@
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
-            ?>
-            <table class="employee">
-              <tr>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Location</th>
-              </tr>
-            <?php
-                            $i=1;
-                            while($row=mysqli_fetch_array($result)) {
+                            if(mysqli_num_rows($result) > 0) {
+                            ?>
+                            <table class="employee">
+                              <tr>
+                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                              </tr>
+                            <?php
+                                            $i=1;
+                                            while($row=mysqli_fetch_array($result)) {
 
-            ?>
-              <tr>
-                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
-                 <td>
-                    <?php 
-                        $sql="SELECT posname FROM title WHERE title.tid = ". $row['tid'];
-                        $res=mysqli_query($db,$sql);
-                        $r=mysqli_fetch_array($res);
-                        echo $r['posname'];
-                    ?>
-                </td>
-                <td>
-                    <?php 
-                        $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
-                        $res=mysqli_query($db,$sql);
-                        $r=mysqli_fetch_array($res);
-                        echo $r['location'];
-                    ?>
-                </td>
-              </tr>
-            <?php
-                            $i++;
+                            ?>
+                              <tr>
+                                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
+                                <td>
+                                    <?php 
+                                        $sql="SELECT posname FROM title WHERE title.tid = ". $row['tid'];
+                                        $res=mysqli_query($db,$sql);
+                                        $r=mysqli_fetch_array($res);
+                                        echo $r['posname'];
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php 
+                                        $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
+                                        $res=mysqli_query($db,$sql);
+                                        $r=mysqli_fetch_array($res);
+                                        echo $r['location'];
+                                    ?>
+                                </td>
+                              </tr>
+                            <?php
+                                            $i++;
+                                            }
+                            }else {
+                                echo "<p>No entries matched your search.</p>";
                             }
-                        }
-                        else{
+
+                        } else{
                             echo  "<p>Please enter a search query</p>";
                         }
                     }
                 }
-            ?>
-            </table>
+                            ?>
+                            </table>
         </div>
 
         <!-- Footer -->
