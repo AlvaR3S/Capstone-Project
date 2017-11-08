@@ -106,6 +106,7 @@
                                 <th onclick="sortTable(0)">Name</th>
                                 <th onclick="sortTable(1)">Title</th>
                                 <th onclick="sortTable(2)">Location</th>
+                                <th onclick="sortTable(3)">Email</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -130,6 +131,7 @@
                                         echo $r['location'];
                                     ?>
                                 </td>
+                                <td><?php echo $row['email'];?></td>
                               </tr>
                             <?php
                                             $i++;
