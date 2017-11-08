@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/SearchResult.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
+        <script type="text/javascript" src="../js/SearchResults.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
@@ -91,11 +92,11 @@
                             //-create  while loop and loop through result set
                             if(mysqli_num_rows($result) > 0) {
                             ?>
-                            <table class="employee">
+                            <table class="employee" id="myTable">
                               <tr>
-                                <th>Name</th>
-                                <th>Title</th>
-                                <th>Location</th>
+                                <th onclick="sortTable(0)">Name</th>
+           						<th onclick="sortTable(1)">Title</th>
+            					<th onclick="sortTable(2)">Location</th>
                               </tr>
                             <?php
                                             $i=1;
