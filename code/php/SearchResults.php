@@ -76,16 +76,26 @@
         <div class="table">
             
             <?php
-                if(isset($_POST['submit'])){
+                if(isset($_POST['name'])){
                     if(isset($_GET['go'])){
                         if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
                             $name=$_POST['name'];
+                            $opt=$_POST['searchby'];
                             //connect  to the database
                             $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
                             //-select  the database to use
                             $mydb=mysqli_select_db($db,"corporate_directory");
                             //-query  the database table
-                            $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name .  "%' OR lastname LIKE '%" . $name ."%')";
+                            if ($opt == "by_name"){
+                                $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
+                            }
+                            else if ($opt == "by_location"){
+                                $sql="(SELECT * FROM employee WHERE employee.oid IN (SELECT oid FROM organization WHERE organization.location LIKE '%" . $name ."%'))";
+                            }
+                            else if ($opt == "by_position") {
+                                $sql="(SELECT * FROM employee WHERE employee.tid IN (SELECT tid FROM title WHERE title.posname LIKE '%" . $name ."%'))";
+                            }
+
                             //-run  the query against the mysql query function
                             $result=mysqli_query($db,$sql);
                             //-create  while loop and loop through result set
@@ -94,8 +104,8 @@
                             <table class="employee" id="myTable">
                               <tr>
                                 <th onclick="sortTable(0)">Name</th>
-           						<th onclick="sortTable(1)">Title</th>
-            					<th onclick="sortTable(2)">Location</th>
+                                <th onclick="sortTable(1)">Title</th>
+                                <th onclick="sortTable(2)">Location</th>
                               </tr>
                             <?php
                                             $i=1;
