@@ -108,6 +108,7 @@
 <style>
     .search {
         padding: 20px;
+        width: 40%;
     }
 
     #searchby {
