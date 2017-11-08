@@ -67,7 +67,7 @@
             <!-- ** QUESTION ** => Input username or email address for access thats sent to admin inbox?
                             ALSO => user should already be logged in, to access apps page,
                                     when a guest clicks on apps it takes them to log in page-->
-            <form method="post" action="/Code/php/AccessRequest.php" id="accessForm">
+            <form method="post" action="AccessRequest.php" id="accessForm">
                 
                 <div class="styled-select blue semi-square">
                     <select>
