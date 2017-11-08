@@ -58,7 +58,6 @@
             </nav>
     
         </header>
-        
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
         <form action="Search.php">
