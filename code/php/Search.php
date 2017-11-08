@@ -72,6 +72,11 @@
         <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
         <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
+                <select name="searchby" id="searchby">
+                    <option value="by_name">Name</option>
+                    <option value="by_position">Position</option>
+                    <option value="by_location">Location</option>
+                </select>
                 <button class="short" type="submit" name="submit">
                     <span class="fa fa-search"></span> Search
                 </button>
@@ -104,12 +109,23 @@
     .search {
         padding: 20px;
     }
+
+    #searchby {
+        width: 12%;
+        padding: 17px;
+        border-radius: 7px;
+        font-size: 18px;
+        border-width: 2px;
+        border-color: #555555;
+        cursor:pointer;
+    }
     
     .short {
         padding: 20px;
         width: 140px;
         cursor: pointer;
     }
+
     
     .main {
         margin-bottom: 13%;
