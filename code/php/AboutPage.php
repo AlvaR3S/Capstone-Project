@@ -27,11 +27,11 @@
                 
                 
                 <div id="myTopnav" class="topnav-list">
-                    <a href="GuestSearch.php">Home
-                        <span class="fa fa-address-card"></span>
+                    <a href="Search.php">Home
+                        <span class="fa fa-home"></span>
                     </a>
-                    <a href="AboutPage.php">About
-                        <span class="fa fa-question-circle"></span>
+                    <a href="profile.php">Profile
+                        <span class="fa fa-address-card"></span>
                     </a>
                     <form class="topnav-list-search">
                         <input type="text" id="search" name="search" placeholder="&#128269; Search...">
@@ -60,9 +60,9 @@
                     <h4>Contact Us:</h4>
                     contact@acme.com
                     <br><br>
-                    <button class="media" id="mail">&#9993;</font></button>
-                    <button class="media" id="fb"><b>f</b></font></button>
-                    <button class="media" id="tweet"><b>t</b></font></button>
+                    <button class="media" id="mail"><span class="fa fa-envelope-o" style="font-size: 20px;"></span></button>
+                    <button class="media" id="fb"><span class="fa fa-facebook-square" style="font-size: 20px;"></span></button>
+                    <button class="media" id="tweet"><span class="fa fa-twitter" style="font-size: 20px;"></span></button>
                 </div>
                 <div class ="body2">
                     <img src="../../assets/ACMElogo.png"></img>

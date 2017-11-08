@@ -9,6 +9,7 @@
 .employee td, .employee th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-transform: capitalize;
 }
 
 .employee tr{

@@ -37,10 +37,10 @@
             
             <div id="myTopnav" class="topnav-list">
                 <a href="Search.php">Home
-                    <span class="fa fa-address-card"></span>
+                    <span class="fa fa-home"></span>
                 </a>
                 <a href="profile.php">Profile
-                    <span class="fa fa-question-circle"></span>
+                    <span class="fa fa-address-card"></span>
                 </a>
                 <a href="Apps.php">Apps
                     <span class="fa fa-tasks"></span>
