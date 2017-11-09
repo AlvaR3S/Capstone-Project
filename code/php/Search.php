@@ -44,10 +44,7 @@
                 </a>
                 <a href="Apps.php">Apps
                     <span class="fa fa-tasks"></span>
-                </a>
-                <form class="topnav-list-search">
-                    <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                </form>                
+                </a>               
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                 <a href="SSO.php">Log Out
                     <span class="fa fa-space-shuttle"></span>
