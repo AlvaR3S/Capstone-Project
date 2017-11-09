@@ -58,7 +58,7 @@
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
         <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
-                <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
+                <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name, position, or location">
                 <select name="searchby" id="searchby">
                     <option value="by_name">Name</option>
                     <option value="by_position">Position</option>
@@ -69,10 +69,19 @@
                 </button>
         </form>
             <br>
-
-
-
-            <h1 style="float:left; margin-left:10%;"><?php echo "Displaying search results for '" . htmlspecialchars($_POST['name']) . "'.";?></h1><br>
+            <?php
+            $term = "";
+            if ($_POST['searchby'] == "by_name") {
+                $term = "Displaying employees with names containing '" . htmlspecialchars($_POST['name']) . "'.";
+            }
+            else if ($_POST['searchby'] == "by_position") {
+                $term = "Displaying employees with positions containing '" . htmlspecialchars($_POST['name']) . "'.";
+            }
+            else if ($_POST['searchby'] == "by_location") {
+                $term = "Displaying employees from locations containing '" . htmlspecialchars($_POST['name']) . "'.";
+            }
+            ?>
+            <h1 style="float:left; margin-left:10%;"><?php echo $term;?></h1><br>
            
            
         </div>
