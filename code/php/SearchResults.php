@@ -38,7 +38,10 @@
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
-                    </a>                
+                    </a>
+                    <form class="topnav-list-search">
+                        <input type="text" id="search" name="search" placeholder="&#128269; Search...">
+                    </form>                
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                     <a href="SSO.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
@@ -57,6 +60,7 @@
         </header>
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
+          
         <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name, position, or location">
                 <select name="searchby" id="searchby">
@@ -101,6 +105,7 @@
                             if ($opt == "by_name"){
                                 $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
                             }
+							
                             else if ($opt == "by_location"){
                                 $sql="(SELECT * FROM employee WHERE employee.oid IN (SELECT oid FROM organization WHERE organization.location LIKE '%" . $name ."%'))";
                             }
@@ -119,7 +124,6 @@
                                 <th onclick="sortTable(1)">Title</th>
                                 <th onclick="sortTable(2)">Location</th>
                                 <th onclick="sortTable(3)">Email</th>
-                                <th onclick="sortTable(4)">Extension</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -144,8 +148,7 @@
                                         echo $r['location'];
                                     ?>
                                 </td>
-                                <td id="emailaddr"><?php echo $row['email'];?></td>
-                                <td><?php echo $row['workExt'];?></td>                                                               
+                                <td><?php echo $row['email'];?></td>
                               </tr>
                             <?php
                                             $i++;
@@ -186,28 +189,13 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
     .search {
-        padding: 6px;
-        width: 30%;
+        padding: 20px;
     }
     
     .short {
         padding: .5%;
         width: 12%;
         cursor: pointer;
-    }
-
-     #searchby {
-        width: 10%;
-        padding: 5px;
-        border-radius: 7px;
-        font-size: 18px;
-        border-width: 2px;
-        border-color: #555555;
-        cursor:pointer;
-    }   
-
-    #emailaddr {
-        text-transform: lowercase;
     }
     
     .main {
