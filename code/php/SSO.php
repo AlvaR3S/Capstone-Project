@@ -1,3 +1,4 @@
+<html>
 <?php
    include("config.php");
    session_start();
@@ -22,14 +23,17 @@
          
          header("location: profile.php");
       }else {
-         $error = "Your Login Name or Password is invalid";
-		 echo 'Your username or password is invalid. Try again.';
+      ?>
+      <div class="login_err">
+          <?php  
+         //$error = "Your Login Name or Password is invalid";
+
+		     echo 'Your username or password is invalid. Try again.';
       }
    }
 
 ?>
-
-<html>
+      </div>
 
     <title>ACME</title>
     <meta charset="UTF-8">
@@ -41,11 +45,12 @@
     	     <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
     	</a>
     </div>
-    
+
     <body>
         <!-- login form -->
         <div class="login" style=center>
             <h2>Sign In</h2>
+
         	<form action="" method="post">
                 <label><b>Username</b></label><br>
                 <input class="fmt" type="text" placeholder="Enter Username" name="username" required><br>
@@ -77,5 +82,16 @@
     a:hover {
         color: #f44336;
         transition: 0.4s;
+    }
+
+    .login_err {
+      background-color: rgb(255,255,182);
+      width: 50%;
+      color: red;
+      text-align: center;
+      padding: 7px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      margin-left: 25%;
     }
 </style>
