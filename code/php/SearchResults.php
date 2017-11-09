@@ -89,6 +89,7 @@
                             if ($opt == "by_name"){
                                 $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
                             }
+							
                             else if ($opt == "by_location"){
                                 $sql="(SELECT * FROM employee WHERE employee.oid IN (SELECT oid FROM organization WHERE organization.location LIKE '%" . $name ."%'))";
                             }
