@@ -38,13 +38,7 @@
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
-                    </a>
-					<!-- REMOVING SEARCH BAR
-                    <form class="topnav-list-search">
-                        <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                    </form>     
-					-->
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                    </a>              
                     <a href="SSO.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
                     </a>
@@ -125,7 +119,8 @@
                                 <th onclick="sortTable(0)">Name</th>
                                 <th onclick="sortTable(1)">Title</th>
                                 <th onclick="sortTable(2)">Location</th>
-                                <th onclick="sortTable(3)">Email</th>
+                                <th onclick="sortTable(3)">Ext.</th>
+                                <th onclick="sortTable(4)">Email</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -150,7 +145,8 @@
                                         echo $r['location'];
                                     ?>
                                 </td>
-                                <td><?php echo $row['email'];?></td>
+                                <td><?php echo $row['workExt'];?></td>
+                                <td style="text-transform: lowercase;"><?php echo $row['email'];?></td>
                               </tr>
                             <?php
                                             $i++;

@@ -1,4 +1,5 @@
 <html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
    include("config.php");
    session_start();
@@ -17,7 +18,7 @@
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+    
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
@@ -25,14 +26,19 @@
       }else {
       ?>
       <div class="login_err">
+        <span class="fa fa-warning">
           <?php  
          //$error = "Your Login Name or Password is invalid";
 
-		     echo 'Your username or password is invalid. Try again.';
+         echo 'Your username or password is invalid. Try again.
+        </span>
+        <span class="fa fa-warning"></span>';
+
       }
    }
 
 ?>
+
       </div>
 
     <title>ACME</title>
@@ -41,9 +47,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
     <!-- Navbar -->
     <div class="loginnav">
-    	<a href="SSO.php">
-    	     <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
-    	</a>
+      <a href="SSO.php">
+           <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
+      </a>
     </div>
 
     <body>
@@ -51,7 +57,7 @@
         <div class="login" style=center>
             <h2>Sign In</h2>
 
-        	<form action="" method="post">
+          <form action="" method="post">
                 <label><b>Username</b></label><br>
                 <input class="fmt" type="text" placeholder="Enter Username" name="username" required><br>
                 <br>
@@ -69,7 +75,7 @@
                 <br>
                 <font size=2>Not an employee? <a href="guestSearch.php">Sign in as guest.</a></font>
             </form>
-        </div>	
+        </div>  
     </body>
 </html>
 
