@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/AccessDenied.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -87,8 +88,10 @@
                 </div>
                 
                 <div class="inputAndButton">
-                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="access">
-                    <button class="buttonAccess" type="submit">Submit</button>
+                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="access"> 
+                    <button class="buttonAccess" type="submit">Submit</button> <br> <br>
+                    <input class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="access">
+                    
                 </div>
             </form>
         </div>
