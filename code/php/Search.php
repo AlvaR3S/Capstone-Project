@@ -45,9 +45,11 @@
                 <a href="Apps.php">Apps
                     <span class="fa fa-tasks"></span>
                 </a>
+				<!-- REMOVING THE SEARCH BAR
                 <form class="topnav-list-search">
                     <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                </form>                
+                </form>
+				-->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                 <a href="SSO.php">Log Out
                     <span class="fa fa-space-shuttle"></span>
@@ -65,7 +67,9 @@
 
     </header>
     
+	
     <!-- Search form -->
+	
     <div id="main" class="main" align="center" style="margin-top:10%;">
         
         <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
@@ -83,6 +87,7 @@
         </form>
 
     </div>
+	
     
     <!-- Footer -->
         <div class="footer">
