@@ -70,6 +70,7 @@
             <form method="post" action="AccessRequest.php" id="accessForm">
                 
                 <div class="styled-select blue semi-square">
+				<!-- THESE SHOULD BE TAKEN OFF THE DATABASE-->
                     <select>
                         <option value="" color="white;" disabled selected>Pick an application</option>
                         <option value="Salesforce">Salesforce</option>
@@ -78,6 +79,13 @@
                         <option value="Outlook">Outlook</option>
                         <option value="Skype">Skype for Business</option>
                         <option value="Teamcity">Teamcity</option>
+						
+						<!-- PSUEDO SQL CODE 
+						INSERT INTO application_request (appid, eid, description) 
+							values ((SELECT application.appid FROM application WHERE application.description = HTML ARTIFICACT), 
+							(SELECT employee.eid FROM employee where employee.username = HTML ARTIFACT), 
+							HTML DESCRIPTION); 
+						-->
                         
                     </select>
                 </div>
