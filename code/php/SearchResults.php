@@ -105,7 +105,7 @@
                             if ($opt == "by_name"){
                                 $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
                             }
-							
+                            
                             else if ($opt == "by_location"){
                                 $sql="(SELECT * FROM employee WHERE employee.oid IN (SELECT oid FROM organization WHERE organization.location LIKE '%" . $name ."%'))";
                             }
@@ -189,7 +189,8 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
     .search {
-        padding: 20px;
+        padding: 7px;
+        width: 40%;
     }
     
     .short {
@@ -198,6 +199,15 @@
         cursor: pointer;
     }
     
+    #searchby {
+        width: 12%;
+        padding: 7px;
+        border-radius: 7px;
+        font-size: 18px;
+        border-width: 2px;
+        border-color: #555555;
+        cursor:pointer;
+    }
     .main {
         margin-bottom: 13%;
     }
