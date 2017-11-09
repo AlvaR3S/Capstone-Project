@@ -90,8 +90,7 @@
                 <div class="inputAndButton">
                     <input class="inputAccess" type="text" placeholder="Enter email or username..." name="access"> 
                     <button class="buttonAccess" type="submit">Submit</button> <br> <br>
-                    <input class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="access">
-                    
+                    <textarea class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="access"></textarea>
                 </div>
             </form>
         </div>
