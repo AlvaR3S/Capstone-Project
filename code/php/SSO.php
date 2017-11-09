@@ -77,6 +77,14 @@
             </form>
         </div>  
     </body>
+
+    <div class="copyright" style="text-align: center;">
+        Copyright &#9400
+      <?php
+        echo date("Y");
+        ?>
+         Acme Corporation
+    </div>
 </html>
 
 <style>
@@ -99,5 +107,10 @@
       border-radius: 7px;
       margin-bottom: 15px;
       margin-left: 25%;
+    }
+
+    .copyright {
+      margin-top: 15px;
+      font-size: 12px;
     }
 </style>
