@@ -38,10 +38,47 @@
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
+<html>
+
+    <title>ACME Search</title>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/SearchResult.css">
+        <script type="text/javascript" src="../js/ProfilePage.js"></script> 
+        <script type="text/javascript" src="../js/Script.js"></script>
+        <script type="text/javascript" src="../js/SearchResults.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
+    </head>
+    
+    
+    <body>
+    <!-- Navbar -->
+        
+        <header class="topnav" role="banner">
+            
+            <nav class="topnav container" role="navigation">
+    
+                
+                <div id="main">
+                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+                    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+                </div>
+                
+                
+                <div id="myTopnav" class="topnav-list">
+                    <a href="Search.php">Home
+                        <span class="fa fa-home"></span>
                     </a>
-                    <form class="topnav-list-search">
-                        <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                    </form>                
+                    <a href="profile.php">Profile
+                        <span class="fa fa-address-card"></span>
+                    </a>
+                    <a href="Apps.php">Apps
+                        <span class="fa fa-tasks"></span>
+                    </a>                
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                     <a href="SSO.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
@@ -60,10 +97,16 @@
         </header>
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
-        <form action="Search.php">
-            <button class="short" type="submit" name="again" width="20%">
-                    <span class="fa fa-search"></span> Search Again
-            </button>
+        <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
+                <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
+                <select name="searchby" id="searchby">
+                    <option value="by_name">Name</option>
+                    <option value="by_position">Position</option>
+                    <option value="by_location">Location</option>
+                </select>
+                <button class="short" type="submit" name="submit">
+                    <span class="fa fa-search"></span> Search
+                </button>
         </form>
             <br>
 
@@ -108,6 +151,7 @@
                                 <th onclick="sortTable(1)">Title</th>
                                 <th onclick="sortTable(2)">Location</th>
                                 <th onclick="sortTable(3)">Email</th>
+                                <th onclick="sortTable(4)">Extension</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -132,7 +176,8 @@
                                         echo $r['location'];
                                     ?>
                                 </td>
-                                <td><?php echo $row['email'];?></td>
+                                <td id="emailaddr"><?php echo $row['email'];?></td>
+                                <td><?php echo $row['workExt'];?></td>                                                               
                               </tr>
                             <?php
                                             $i++;
@@ -173,13 +218,28 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
     .search {
-        padding: 20px;
+        padding: 6px;
+        width: 30%;
     }
     
     .short {
         padding: .5%;
         width: 12%;
         cursor: pointer;
+    }
+
+     #searchby {
+        width: 10%;
+        padding: 5px;
+        border-radius: 7px;
+        font-size: 18px;
+        border-width: 2px;
+        border-color: #555555;
+        cursor:pointer;
+    }   
+
+    #emailaddr {
+        text-transform: lowercase;
     }
     
     .main {

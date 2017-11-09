@@ -44,9 +44,9 @@
                 <a href="AboutPage.php">About
                     <span class="fa fa-question-circle"></span>
                 </a>
-                <form class="topnav-list-search">
+                <!-- <form class="topnav-list-search">
                     <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                </form>               
+                </form> -->               
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                 <a href="SSO.php">Login
                     <span class="fa fa-space-shuttle"></span>
