@@ -27,11 +27,8 @@
                 
                 
                 <div id="myTopnav" class="topnav-list">
-                    <a href="Search.php">Home
+                    <a href="guestSearch.php">Home
                         <span class="fa fa-home"></span>
-                    </a>
-                    <a href="profile.php">Profile
-                        <span class="fa fa-address-card"></span>
                     </a>
                     <a href="SSO.php">Login
                         <span class="fa fa-unlock-alt"></span>
