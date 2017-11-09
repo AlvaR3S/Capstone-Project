@@ -64,7 +64,7 @@
                 
                 
                     
-                <h1 id="name">John Snow Does Know</h1>
+                <h1 id="name">John Does Know</h1>
                 <span class="status">Traveller</span>
                 <button id="edit">Edit</button>
                 <hr id="belowProfilePic" noshade>
