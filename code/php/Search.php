@@ -48,7 +48,7 @@
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                 <a href="SSO.php">Log Out
                     <span class="fa fa-space-shuttle"></span>
-            
+                </a>
             </div>
             <hr id="topHR" noshade>
             <hr id="topHR" noshade>
