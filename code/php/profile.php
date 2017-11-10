@@ -1,3 +1,23 @@
+<?php
+   include("config.php");
+   session_start();
+   
+   $sqlFirst = "select firstname from employees where username = " . $_SESSION['login_user'] . "";
+   $_SESSION["firstname"] = mysqli_query($db,$sqlFirst);
+   
+   $sqlLast = "select lastname from employees where username = " . $_SESSION['login_user'] . "";   
+   $_SESSION["lastname"] = mysqli_query($db,$sqlLast);   
+   
+   $sqlEmail = "select email from employees where username = " . $_SESSION['login_user'] . "";
+   $_SESSION["email"] = mysqli_query($db,$sqlEmail);
+   
+   $sqlPhone = "select homePhone from employees where username = " . $_SESSION['login_user'] . "";
+   $_SESSION["phone"] = mysqli_query($db,$sqlPhone);
+   
+   $sqlAddress = "select streetAddress from employees where username = " . $_SESSION['login_user'] . "";
+   $_SESSION["address"] = mysqli_query($db,$sqlAddress);
+   
+?>
 <html>
 
     <title>My ACME Profile Page</title>
@@ -37,10 +57,10 @@
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>
-                   <!--  <form class="topnav-list-search">
+                    <form class="topnav-list-search">
                         <input type="text" id="search" name="search" placeholder="&#128269; Search...">
                     </form>                
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a> -->
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                     <a href="SSO.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
                     </a>
@@ -64,7 +84,7 @@
                 
                 
                     
-                <h1 id="name">John Does Know</h1>
+                <h1 id="name"><?php echo '' . $_SESSION["firstname"] . ' ' . $_SESSION["lastname"];?></h1>
                 <span class="status">Traveller</span>
                 <button id="edit">Edit</button>
                 <hr id="belowProfilePic" noshade>
@@ -73,11 +93,11 @@
             <br>
             <div class="BottomInfo">
                 <h3>Email Address:</h3> <br>
-                    <h5 id="response">johndoesknow@peanuts.com</h5>
-                    <h3>Office Phone Number:</h3> <br>
-                    <h5 id="response">+1(717)-845-3000</h5>
-                    <h3>Office Physical Address</h3> <br>
-                    <h5 id="response">75 Clinton Street, New York, NY, 12601</h5>
+                    <h5 id="response"><?php echo '' . $_SESSION["email"];?></h5>
+                    <h3>Phone Number:</h3> <br>
+                    <h5 id="response"><?php echo '' . $_SESSION["phone"];?></h5>
+                    <h3>Address:</h3> <br>
+                    <h5 id="response"><?php echo '' . $_SESSION["address"];?></h5>
             </div>
             
             
