@@ -19,28 +19,6 @@ session_start();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
         <script type="text/javascript">
-        $(function () {
-            $("#dialog").dialog({
-                resizable: false,
-                height: "auto",
-                width: 400,
-                position: {my: "center", at: "top+20%", of: window},
-                modal: true,
-                autoOpen: false,
-                title: "Test Dialog",
-                buttons: {
-                    "Confirm": function() {
-                        $( this ).dialog( "close" );
-                    },
-                    "Cancel": function() {
-                        $( this ).dialog( "close" );
-                    }
-                }
-            });
-            $("#Accept").click(function() {
-                $('#dialog').dialog('open');
-            });
-        });
 
         </script>
     </head>
