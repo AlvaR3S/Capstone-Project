@@ -69,18 +69,44 @@ session_start();
             
         </div>
         
-        <div class="main">
-            <div class="employeeForms">
-
+        <div class="employeeForms">
+            <div id="employeeFormAdd">
+                <h1 style="text-align: center; font-size: 25px;">Enter information to add a new Employee to add to ACME</h1>
                 <form method="post" action="HR.php" id="addEmployee">
-                    
-                </form>
+                    <div class="inputAlign">
+                        <h3 style="margin-top: 20px;">Enter Name*</h3>
+                        <input type="text" name="firstname" placeholder="Enter First Name">
+                        <input type="text" name="lastname" placeholder="Enter Last Name">
+                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
+                        <h3>Home Address*</h3>
+                        <input type="text" name="address" placeholder="Enter Home Address">
+                        <input type="text" name="email" placeholder="Enter Email Address">
+                        <input type="text" name="dob" placeholder="Enter Date of Birth">
+                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
+                        <input type="text" name="phone" placeholder="(">
 
-                <form method="post" action="HR.php" id="removeEmployee">
-                    
+                        <input type="text" name="ext" placeholder="Ext">
+                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
+                        <input type="text" name="country" placeholder="Enter Country">
+                        <input type="text" name="town" placeholder="Enter Town">
+                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
+                        <input type="text" name="city" placeholder="Enter City">
+                        
+                        <input type="text" name="zip" placeholder="Enter Zip Code">
+                        <input type="text" name="date" placeholder="MM/DD/YY">
+                        <input type="text" name="username" placeholder="Enter New Username">
+                        <br><br> <button class="employeeAdd" type="submit" name="submit">Submit </button>
+                    </div>
                 </form>
-            
-            </div>    
+            </div>  
+            <div id="employeeFormRemove">   
+                <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1>         
+                <form method="post" action="HR.php" id="removeEmployee">
+                    <input type="text" name="name">
+                    <br> <button class="employeeAdd" type="submit" name="submit">Submit </button>
+                </form>
+            </div>
+              
         </div>
              
  
