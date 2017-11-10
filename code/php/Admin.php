@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 
     <title>Administrative Duties</title>
