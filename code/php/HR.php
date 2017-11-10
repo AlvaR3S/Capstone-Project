@@ -12,6 +12,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="../CSS/HR.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
+        <script type="text/javascript" src="../js/HR.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
@@ -71,31 +72,38 @@ session_start();
         
         <div class="employeeForms">
             <div id="employeeFormAdd">
-                <h1 style="text-align: center; font-size: 25px;">Enter information to add a new Employee to add to ACME</h1>
+                <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to add to ACME</h1>
+                <hr style="border-top:1px solid darkred;">
                 <form method="post" action="HR.php" id="addEmployee">
                     <div class="inputAlign">
-                        <h3 style="margin-top: 20px;">Enter Name*</h3>
+                        <h4 style="margin-top: 30px;">Employee Information*</h3>
                         <input type="text" name="firstname" placeholder="Enter First Name">
                         <input type="text" name="lastname" placeholder="Enter Last Name">
-                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
-                        <h3>Home Address*</h3>
-                        <input type="text" name="address" placeholder="Enter Home Address">
-                        <input type="text" name="email" placeholder="Enter Email Address">
-                        <input type="text" name="dob" placeholder="Enter Date of Birth">
-                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
-                        <input type="text" name="phone" placeholder="(">
-
-                        <input type="text" name="ext" placeholder="Ext">
-                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
-                        <input type="text" name="country" placeholder="Enter Country">
-                        <input type="text" name="town" placeholder="Enter Town">
-                        <h6 style="margin:0;">First Name</h6> <h6>Last Name</h6>
-                        <input type="text" name="city" placeholder="Enter City">
-                        
-                        <input type="text" name="zip" placeholder="Enter Zip Code">
-                        <input type="text" name="date" placeholder="MM/DD/YY">
+                        <input style="margin-top: 10px; width: 20%" type="text" name="dob" placeholder="(MM/DD/YY)">
+                        <input style="margin-top: 10px; width: 35%;" type="text" name="phone" placeholder="e.g. 7173457575">
+                        <input style="width: 7%;" type="text" name="ext" placeholder="Ext">   
+                        <select style="height: 40px; width: 26.5%">
+                            <option value="" disabled selected>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="saab">Female</option>
+                            <option value="opel">Other</option>
+                            <option value="audi">Prefer Not To Say</option>
+                        </select>
+                        <h6 style="margin:0;">Date of Birth</h6> <h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> <h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
+                        <h4 style="margin-top: 22px;">Home Address*</h4>
+                        <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
+                        <input style="margin-top: 10px; width: 35%;" type="text" name="country" placeholder="Enter Country">
+                        <input style="margin-top: 10px; width: 35%;" type="text" name="city" placeholder="Enter City">
+                        <input style="margin-top: 10px; width: 19.3%;"type="text" name="zip" placeholder="Enter Zip Code">
+                        <h6 style="margin:0;">Country</h6> <h6 style="margin-left: 36%;margin-top: -24px;">City</h6> <h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
+                        <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
-                        <br><br> <button class="employeeAdd" type="submit" name="submit">Submit </button>
+                        <input type="text" name="Password" placeholder="Enter New Password">
+                        <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
+                        <input style="width: 20%;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
+                        <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Today's Date</h6> 
+                        
+                        <br><br> <button class="employeeAdd" type="submit" name="submit">Create</button>
                     </div>
                 </form>
             </div>  
