@@ -1,7 +1,76 @@
 <?php
 session_start();
-?>
 
+            $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysqli_error());
+            //-select  the database to use
+            $mydb=mysqli_select_db($db,"corporate_directory");
+
+if(isset($_POST['inputAcc'])) {
+    if(isset($_POST['desiredApp'])) {
+        if(preg_match("/^[  a-zA-Z]+/", $_POST['inputAcc'])) {
+            $user = mysqli_real_escape_string($db, $_POST['inputAcc']);
+            $app = mysqli_real_escape_string($db, $_POST['desiredApp']);
+            $desc = mysqli_real_escape_string($db, $_POST['descAcc']);
+            
+
+               /* function query ($sql) {
+                    global $db;
+                    return mysqli_query($db,$sql);
+                    echo "ran query...";
+                }
+
+                function insertInto ($table, $cols, $vals) {
+                    $sql = "INSERT INTO $table (". implode(", ", $cols). ")
+                    VALUES (" . implode(", ", $vals) . ")";
+                    return query($sql);
+                    echo "ran insertInto...";
+                }*/
+            $queryUser = "SELECT eid from employee WHERE username = '" . $user . "'";
+                
+            $result = mysqli_query($db,$queryUser);
+            if (!mysqli_query($db,$queryUser)) {
+                echo "User query error: " . mysqli_error($db) . "<br>";
+            }
+            $row = mysqli_fetch_row($result);
+            //echo "$row[0]<br>";
+            $queryApp = "SELECT appid from application WHERE description = '" . $app . "'";
+
+            $res = mysqli_query($db,$queryApp);
+            if (!mysqli_query($db,$queryApp)) {
+                echo "App query error: " . mysqli_error($db) . "<br>";
+            }            
+            $r = mysqli_fetch_row($res);
+            //echo $r[0];
+                    /*echo "<<<" . $row[0] . ">>>";
+            insertInto("application_request", ["reqid", "appid", "eid", "rd", "description"], [NULL, "'" . $app . "'", "'" . $row[0] . "'",  "'" . $desc . "'"]);*/
+
+            /*if (!$db) {
+                echo mysqli_error($db);
+            }
+            else {
+                echo "idk";
+            }*/
+            $sql = "INSERT INTO application_request (reqid, app_id, e_id, rd, description) VALUES (NULL, '" . $r[0] . "', '" . $row[0] . "', NULL, '" . $desc . "')";
+
+            if (!mysqli_query($db, $sql)) {
+                echo "something is wrong..." . mysqli_error($db);
+
+            }
+            //$insertQ = query($sql);
+
+            /*if (!mysqli_query($db,$insertQ)) {
+                echo "something is wrong... " . mysqli_error($db);
+            }
+            else {
+                echo "your data should be there";
+            }
+            echo $user . " ";
+            echo $app . " ";
+            echo $desc . " ";*/
+        }
+    }
+}
+?>
 <html>
 
     <title>ACME Access Request</title>
@@ -26,8 +95,8 @@ session_start();
     
                 
                 <div id="main">
-            	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-            	    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+                    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
                 </div>
                 
                 

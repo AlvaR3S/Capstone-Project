@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <html>
 
     <title>ACME Access Denied</title>
@@ -27,8 +26,8 @@ session_start();
     
                 
                 <div id="main">
-            	    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-            	    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
+                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
+                    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
                 </div>
                 
                 
@@ -58,7 +57,7 @@ session_start();
     
         </header>
         <br>
-        <div id="main" class="main" align="center" style="margin-top:10%;">
+        <div id="main" class="main" align="center" style="margin-top:7%;">
             <h1>ACCESS DENIED</h1>
             <h2>It appears you do not have access to this application...</h2>
             <hr noshade>
@@ -68,33 +67,33 @@ session_start();
             <!-- ** QUESTION ** => Input username or email address for access thats sent to admin inbox?
                             ALSO => user should already be logged in, to access apps page,
                                     when a guest clicks on apps it takes them to log in page-->
-            <form method="post" action="AccessRequest.php" id="accessForm">
+            <form method="post" action="AccessRequest.php?go" id="accessForm">
                 
                 <div class="styled-select blue semi-square">
-				<!-- THESE SHOULD BE TAKEN OFF THE DATABASE-->
-                    <select>
+                <!-- THESE SHOULD BE TAKEN OFF THE DATABASE-->
+                    <select name="desiredApp" id="desiredApp">
                         <option value="" color="white;" disabled selected>Pick an application</option>
-                        <option value="Salesforce">Salesforce</option>
-                        <option value="Artifactory">Artifactory</option>
-                        <option value="Assets">Assets Management</option>
-                        <option value="Outlook">Outlook</option>
-                        <option value="Skype">Skype for Business</option>
-                        <option value="Teamcity">Teamcity</option>
-						
-						<!-- PSUEDO SQL CODE 
-						INSERT INTO application_request (appid, eid, description) 
-							values ((SELECT application.appid FROM application WHERE application.description = HTML ARTIFICACT), 
-							(SELECT employee.eid FROM employee where employee.username = HTML ARTIFACT), 
-							HTML DESCRIPTION); 
-						-->
+                        <option value='Skype'>Skype for Business</option>
+                        <option value='Salesforce'>Salesforce</option>
+                        <option value='Assets'>Assets Management</option>
+                        <option value='Outlook'>Outlook</option>
+                        <option value='Teamcity'>Teamcity</option>
+                        <option value='Artifactory'>Artifactory</option>
+                        
+                        <!-- PSUEDO SQL CODE 
+                        INSERT INTO application_request (appid, eid, description) 
+                            values ((SELECT application.appid FROM application WHERE application.description = HTML ARTIFICACT), 
+                            (SELECT employee.eid FROM employee where employee.username = HTML ARTIFACT), 
+                            HTML DESCRIPTION); 
+                        -->
                         
                     </select>
                 </div>
                 
                 <div class="inputAndButton">
-                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="access"> 
-                    <button class="buttonAccess" type="submit">Submit</button> <br> <br>
-                    <textarea class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="access"></textarea>
+                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="inputAcc"> 
+                    <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
+                    <textarea class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="descAcc"></textarea>
                 </div>
             </form>
         </div>
