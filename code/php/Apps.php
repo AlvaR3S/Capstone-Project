@@ -41,7 +41,7 @@ session_start();
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>
-                    <a href="SSO.php">Log Out
+                    <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
                     </a>
                     <!--<form class="topnav-list-search">

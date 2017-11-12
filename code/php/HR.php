@@ -46,7 +46,7 @@ session_start();
                     <a href="HR.php">Human Resources
                         <span class="fa fa-address-card"></span>
                     </a>
-                    <a href="SSO.php">Log Out
+                    <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
                     </a>
                     <!--<form class="topnav-list-search">
