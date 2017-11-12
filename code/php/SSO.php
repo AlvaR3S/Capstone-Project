@@ -3,7 +3,6 @@
 <?php
    include("config.php");
    session_start();
-   
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
@@ -22,7 +21,7 @@
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: profile.php");
+         header("location: profile.php?login_user=$myusername");
       }else {
       ?>
       <div class="login_err">

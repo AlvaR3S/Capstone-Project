@@ -10,7 +10,8 @@
    
    $login_session = $row['username'];
    
-   if(!isset($_SESSION['login_user'])){
+   if(!isset($login_session)){
+	  mysql_close($db);
       header("location:sso.php");
    }
 ?>

@@ -1,21 +1,32 @@
 <?php
-   include("config.php");
-   session_start();
+   //include("config.php"); 
+   include("session.php");
+   //session_start();
+
+   $sqlFirst = "select firstname from employee where username = '" . $login_session . "'";
+   $first_name = mysqli_query($db,$sqlFirst);
+   $rowFirst = mysqli_fetch_assoc($first_name);
+   $login_first = $rowFirst['firstname'];
    
-   $sqlFirst = "select firstname from employees where username = " . $_SESSION['login_user'] . "";
-   $_SESSION["firstname"] = mysqli_query($db,$sqlFirst);
+   $sqlLast = "select lastname from employee where username = '" . $login_session . "'";   
+   $last_name = mysqli_query($db,$sqlLast);   
+   $rowLast = mysqli_fetch_assoc($last_name);
+   $login_last = $rowLast['lastname'];
    
-   $sqlLast = "select lastname from employees where username = " . $_SESSION['login_user'] . "";   
-   $_SESSION["lastname"] = mysqli_query($db,$sqlLast);   
+   $sqlEmail = "select email from employee where username = '" . $login_session . "'";
+   $email = mysqli_query($db,$sqlEmail);
+   $rowEmail = mysqli_fetch_assoc($email);
+   $login_email = $rowEmail['email'];
    
-   $sqlEmail = "select email from employees where username = " . $_SESSION['login_user'] . "";
-   $_SESSION["email"] = mysqli_query($db,$sqlEmail);
+   $sqlPhone = "select homePhone from employee where username = '" . $login_session . "'";
+   $phone = mysqli_query($db,$sqlPhone);
+   $rowPhone = mysqli_fetch_assoc($phone);
+   $login_phone = $rowPhone['homePhone'];
    
-   $sqlPhone = "select homePhone from employees where username = " . $_SESSION['login_user'] . "";
-   $_SESSION["phone"] = mysqli_query($db,$sqlPhone);
-   
-   $sqlAddress = "select streetAddress from employees where username = " . $_SESSION['login_user'] . "";
-   $_SESSION["address"] = mysqli_query($db,$sqlAddress);
+   $sqlAddress = "select streetAddress from employee where username = '" . $login_session . "'";
+   $address = mysqli_query($db,$sqlAddress);
+   $rowAddress = mysqli_fetch_assoc($address);
+   $login_address = $rowAddress['streetAddress'];
    
 ?>
 <html>
@@ -84,7 +95,7 @@
                 
                 
                     
-                <h1 id="name"><?php echo '' . $_SESSION["firstname"] . ' ' . $_SESSION["lastname"];?></h1>
+                <h1 id="name"><?php echo '' . $login_first . ' ' . $login_last?></h1>
                 <span class="status">Traveller</span>
                 <button id="edit">Edit</button>
                 <hr id="belowProfilePic" noshade>
@@ -93,11 +104,11 @@
             <br>
             <div class="BottomInfo">
                 <h3>Email Address:</h3> <br>
-                    <h5 id="response"><?php echo '' . $_SESSION["email"];?></h5>
+                    <h5 id="response"><?php echo '' . $login_email;?></h5>
                     <h3>Phone Number:</h3> <br>
-                    <h5 id="response"><?php echo '' . $_SESSION["phone"];?></h5>
+                    <h5 id="response"><?php echo '' . $login_phone;?></h5>
                     <h3>Address:</h3> <br>
-                    <h5 id="response"><?php echo '' . $_SESSION["address"];?></h5>
+                    <h5 id="response"><?php echo '' . $login_address;?></h5>
             </div>
             
             
