@@ -1,5 +1,6 @@
 <?php
-session_start();
+include('session.php');
+include('nav_check.php');
 ?>
 
 <html>
@@ -43,8 +44,8 @@ session_start();
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>
-                    <a href="HR.php">Human Resources
-                        <span class="fa fa-address-card"></span>
+                    <a href="HR.php" id="HR">Human Resources
+                        <span id="HR" class="fa fa-address-card"></span>
                     </a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
@@ -72,9 +73,9 @@ session_start();
         
         <div class="employeeForms">
             <div id="employeeFormAdd">
-                <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to ACME</h1>
+                <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to add to ACME</h1>
                 <hr style="border-top:1px solid darkred;">
-                <form method="post" action="HR.php" id="addEmployee">
+                <form method="post" action="HR-Processing.php" id="addEmployee">
                     <div class="inputAlign">
                         <h4 style="margin-top: 30px;">Employee Information*</h3>
                         <input type="text" name="firstname" placeholder="Enter First Name">
@@ -89,33 +90,37 @@ session_start();
                             <option value="opel">Other</option>
                             <option value="audi">Prefer Not To Say</option>
                         </select>
-                        <h6 style="margin:0;">Date of Birth</h6> <h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> <h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
+                        <h6 style="margin:0;">Date of Birth</h6> 
+						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
+						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
+						
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
-                        <input style="margin-top: 10px; width: 35%;" type="text" name="country" placeholder="Enter Country">
-                        <input style="margin-top: 10px; width: 35%;" type="text" name="city" placeholder="Enter City">
+                        <input style="margin-top: 10px; width: 25%;" type="text" name="country" placeholder="Enter Country">
+						<input style="margin-top: 10px; width: 25%;" type="text" name="state" placeholder="Enter State (if applicable)">
+                        <input style="margin-top: 10px; width: 20%;" type="text" name="city" placeholder="Enter City">
                         <input style="margin-top: 10px; width: 19.3%;"type="text" name="zip" placeholder="Enter Zip Code">
-                        <h6 style="margin:0;">Country</h6> <h6 style="margin-left: 36%;margin-top: -24px;">City</h6> <h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
+                        <h6 style="margin:0;">Country</h6> 
+						<h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6> 
+						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
+						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
+						
                         <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
-                        <input type="text" name="Password" placeholder="Enter New Password">
+                        <input type="text" name="password" placeholder="Enter New Password">
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
-                        <input style="width: 20%;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
-                        <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Today's Date</h6> 
+                        <input style="width: 20%;" type="text" name="hiredate" placeholder="(MM/DD/YY)">
+                        <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
                         
                         <br><br> <button class="employeeAdd" type="submit" name="submit">Create</button>
                     </div>
                 </form>
             </div>  
             <div id="employeeFormRemove">   
-                <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1> 
-                <hr style="border-top:1px solid darkred;">        
-                <form style="margin-left: 130px;" method="post" action="HR.php" id="removeEmployee">
-                    <h4 style="margin-top: 30px;">Employee Information*</h3>
-                    <input type="text" name="username" placeholder="Enter Employee Username">
-                    <input style="width: 120px;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
-                    <h6 style="margin:0;">Username</h6> <h6 style="margin-top: -24px;margin-left: 46%;">Today's Date</h6>
-                    <br> <br> <button class="employeeRemove" type="submit" name="remove">Remove</button>
+                <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1>         
+                <form method="post" action="HR.php" id="removeEmployee">
+                    <input type="text" name="name">
+                    <br> <button class="employeeAdd" type="submit" name="submit">Submit </button>
                 </form>
             </div>
               

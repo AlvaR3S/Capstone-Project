@@ -11,7 +11,7 @@
    $login_session = $row['username'];
    
    if(!isset($login_session)){
-	  mysql_close($db);
+	  mysqli_close($db);
       header("location:sso.php");
    }
 ?>

@@ -1,5 +1,6 @@
 <?php
-session_start();
+include("session.php");
+include("nav_check.php");
 
             $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysqli_error());
             //-select  the database to use
@@ -109,6 +110,9 @@ if(isset($_POST['inputAcc'])) {
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
+                    </a>
+                    <a href="HR.php" id="HR">Human Resources
+                        <span id="HR" class="fa fa-address-card"></span>
                     </a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>

@@ -1,12 +1,7 @@
 <?php
-session_start();
 
-$db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
-//-select  the database to use
-$mydb=mysqli_select_db($db,"corporate_directory");
-
-
-
+include('session.php');
+include('nav_check.php');
 ?>
 <html>
 
@@ -50,6 +45,9 @@ $mydb=mysqli_select_db($db,"corporate_directory");
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
+                    </a>
+                    <a href="HR.php" id="HR">Human Resources
+                        <span id="HR" class="fa fa-address-card"></span>
                     </a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>

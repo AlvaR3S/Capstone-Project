@@ -1,7 +1,6 @@
 <?php
-   //include("config.php"); 
-   include("session.php");
-   //session_start();
+   include('session.php');
+   include('nav_check.php');
 
    $sqlFirst = "select firstname from employee where username = '" . $login_session . "'";
    $first_name = mysqli_query($db,$sqlFirst);
@@ -68,6 +67,9 @@
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>        
+                    <a href="HR.php" id="HR">Human Resources
+                        <span id="HR" class="fa fa-address-card"></span>
+                    </a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
@@ -85,28 +87,23 @@
         <div class="container-profile">
             
             <div class="TopInfo">
-                <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">
-                
-                
-                    
+                <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">    
                 <h1 id="name"><?php echo '' . $login_first . ' ' . $login_last?></h1>
                 <span class="status">Traveller</span>
-                <button id="edit">Edit</button>
-                <hr id="belowProfilePic" noshade>
-                
-            </div>
-            <br>
+                <button id="edit">Edit</button>                
+            </div>      
+        </div>
+
+        <div class="bottom-container-profile">
+            <hr id="split">
             <div class="BottomInfo">
-                <h3>Email Address:</h3> <br>
-                    <h5 id="response"><?php echo '' . $login_email;?></h5>
-                    <h3>Phone Number:</h3> <br>
-                    <h5 id="response"><?php echo '' . $login_phone;?></h5>
-                    <h3>Address:</h3> <br>
-                    <h5 id="response"><?php echo '' . $login_address;?></h5>
-            </div>
-            
-            
-         
+              <h3>Email Address:</h3> <br>
+              <h5 id="response"><?php echo '' . $login_email;?></h5>
+              <h3>Phone Number
+              <h5 id="response"><?php echo '' . $login_phone;?></h5>
+              <h3>Address:</h3> <br>
+              <h5 id="response"><?php echo '' . $login_address;?></h5>
+            </div>      
         </div>      
         
          <!-- Footer -->

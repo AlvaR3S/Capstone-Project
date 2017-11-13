@@ -1,5 +1,6 @@
 <?php
-session_start();
+include("session.php");
+include("nav_check.php");
 ?>
 
 <html>
@@ -49,12 +50,9 @@ session_start();
                 <a href="Apps.php">Apps
                     <span class="fa fa-tasks"></span>
                 </a>
-				<!-- REMOVING THE SEARCH BAR
-                <form class="topnav-list-search">
-                    <input type="text" id="search" name="search" placeholder="&#128269; Search...">
-                </form>
-				
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a> -->
+                <a href="HR.php" id="HR">Human Resources
+                    <span id="HR" class="fa fa-address-card"></span>
+                </a>				
                 <a href="logout.php">Log Out
                     <span class="fa fa-space-shuttle"></span>
                 </a>
