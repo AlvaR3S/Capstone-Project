@@ -92,12 +92,18 @@ session_start();
                         <h6 style="margin:0;">Date of Birth</h6> 
 						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
 						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
+						
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
-                        <input style="margin-top: 10px; width: 35%;" type="text" name="country" placeholder="Enter Country">
-                        <input style="margin-top: 10px; width: 35%;" type="text" name="city" placeholder="Enter City">
+                        <input style="margin-top: 10px; width: 25%;" type="text" name="country" placeholder="Enter Country">
+						<input style="margin-top: 10px; width: 25%;" type="text" name="state" placeholder="Enter State (if applicable)">
+                        <input style="margin-top: 10px; width: 20%;" type="text" name="city" placeholder="Enter City">
                         <input style="margin-top: 10px; width: 19.3%;"type="text" name="zip" placeholder="Enter Zip Code">
-                        <h6 style="margin:0;">Country</h6> <h6 style="margin-left: 36%;margin-top: -24px;">City</h6> <h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
+                        <h6 style="margin:0;">Country</h6> 
+						<h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6> 
+						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
+						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
+						
                         <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
                         <input type="text" name="password" placeholder="Enter New Password">

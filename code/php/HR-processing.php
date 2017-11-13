@@ -25,7 +25,7 @@ $ext = mysqli_real_escape_string($link, $_POST['phone']);
 // gender? 
 $address = mysqli_real_escape_string($link, $_POST['address']);
 $country = mysqli_real_escape_string($link, $_POST['country']);
-//state 
+$state = mysqli_real_escape_string($link, $_POST['state']);
 $city = mysqli_real_escape_string($link, $_POST['city']);
 $zip = mysqli_real_escape_string($link, $_POST['zip']);
 $username = mysqli_real_escape_string($link, $_POST['username']);
@@ -36,7 +36,7 @@ $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
 
 
 $sql = "INSERT INTO employee (username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-VALUES ('$username', '$firstname', '$lastname', '$dob', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', null, '$country', '$zip')";
+VALUES ('$username', '$firstname', '$lastname', '$dob', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
 if (!mysqli_query($link, $sql)) {
     die('Error: ' . mysql_error()); 
