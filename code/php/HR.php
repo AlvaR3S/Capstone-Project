@@ -89,7 +89,9 @@ session_start();
                             <option value="opel">Other</option>
                             <option value="audi">Prefer Not To Say</option>
                         </select>
-                        <h6 style="margin:0;">Date of Birth</h6> <h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> <h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
+                        <h6 style="margin:0;">Date of Birth</h6> 
+						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
+						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
                         <input style="margin-top: 10px; width: 35%;" type="text" name="country" placeholder="Enter Country">
@@ -98,10 +100,10 @@ session_start();
                         <h6 style="margin:0;">Country</h6> <h6 style="margin-left: 36%;margin-top: -24px;">City</h6> <h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
                         <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
-                        <input type="text" name="Password" placeholder="Enter New Password">
+                        <input type="text" name="password" placeholder="Enter New Password">
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
-                        <input style="width: 20%;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
-                        <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Today's Date</h6> 
+                        <input style="width: 20%;" type="text" name="hiredate" placeholder="(MM/DD/YY)">
+                        <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
                         
                         <br><br> <button class="employeeAdd" type="submit" name="submit">Create</button>
                     </div>
