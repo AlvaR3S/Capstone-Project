@@ -8,10 +8,7 @@ session_start();
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/Admin.css"> 
-        <link rel="stylesheet" href="../js/jquery.custom/jquery-ui.min.css">
-        <script src="../js/jquery.custom/external/jquery/jquery.js"></script>
-        <script src="../js/jquery.custom/jquery-ui.min.js"></script>       
+        <link rel="stylesheet" type="text/css" href="../CSS/Admin.css">    
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <script type="text/javascript" src="../js/SearchResults.js"></script>        
@@ -114,7 +111,12 @@ session_start();
                             echo date("M j Y  g:m:s",$time);
                         ?>
                     </td> 
-                    <td><button id="Accept">Accept</button><button id="Decline">Decline</button></td> 
+                    <td>
+                        <form id="accDec">
+                            <input type="submit" id="acceptBtn" name="Accept" value="Accept">
+                            <input type="submit" id="declineBtn" name="Delete" value="Decline">  
+                        </form>                          
+                    </td> 
                 </tr>
             <?php
                     $i++;            
@@ -164,4 +166,23 @@ session_start();
         text-align: center;
     }
 
+    #acceptBtn {
+        background-color: #f44336;
+        color: white;
+        border: 2px solid #f44336;
+        border-radius: 8px;
+        padding: 12px 28px;
+        width: 50%;
+        transition-duration: 0.4s;        
+    }
+
+    #declineBtn {
+        background-color: #f44336;
+        color: white;
+        border: 2px solid #f44336;
+        border-radius: 8px;
+        padding: 12px 28px;
+        width: 50%;
+        transition-duration: 0.4s;
+    }
 </style>
