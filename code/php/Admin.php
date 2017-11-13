@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
+//-select  the database to use
+$mydb=mysqli_select_db($db,"corporate_directory");
+
+
+
 ?>
 <html>
 
@@ -78,10 +85,11 @@ session_start();
             ?>
             <table class="requests" id="myTable">
                 <tr>
-                    <th onclick="sortTable(0)">Name</th>
-                    <th onclick="sortTable(1)">Application Requested</th>
-                    <th onclick="sortTable(2)" style="width: 30%">Reason for Request</th>
-                    <th onclick="sortTable(3)">Requested</th>
+                    <th onclick="sortTable(0)">Req.</th>                    
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">Application Requested</th>
+                    <th onclick="sortTable(3)" style="width: 30%">Reason for Request</th>
+                    <th onclick="sortTable(4)">Requested</th>
                     <th style="width:20%; text-align: center;">Actions</th>
                 </tr>
             <?php
@@ -89,6 +97,7 @@ session_start();
                 while ($row=mysqli_fetch_array($result)) {
             ?>
                 <tr>
+                    <td style="text-align: right"><?php echo $row['reqid'];?></td>                    
                     <td>                                    
                         <?php 
                             $sql="SELECT firstname, lastname FROM employee WHERE employee.eid = ". $row['e_id'];
@@ -111,10 +120,11 @@ session_start();
                             echo date("M j Y  g:m:s",$time);
                         ?>
                     </td> 
-                    <td>
-                        <form id="accDec">
-                            <input type="submit" id="acceptBtn" name="Accept" value="Accept">
-                            <input type="submit" id="declineBtn" name="Delete" value="Decline">  
+                    <td><?php 
+                            print '<a href="requestAccepted.php?id='.$row['reqid'].'" class="accDecBtn">Accept</a>' . '&nbsp' .
+                                  '<a href="requestDeclined.php?id='.$row['reqid'].'" class="accDecBtn">Decline</a>';?> 
+                            <!--input type="submit" class="accDecBtn" name="Accept" value="Accept"-->      
+                            <!--input type="submit" class="accDecBtn" name="Decline" value="Decline"-->  
                         </form>                          
                     </td> 
                 </tr>
@@ -126,9 +136,7 @@ session_start();
             }
             ?>
             </table>
-        </div>    
- 
-      
+        </div> 
         <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
@@ -166,23 +174,30 @@ session_start();
         text-align: center;
     }
 
-    #acceptBtn {
-        background-color: #f44336;
-        color: white;
-        border: 2px solid #f44336;
-        border-radius: 8px;
-        padding: 12px 28px;
-        width: 50%;
-        transition-duration: 0.4s;        
+    .divider {
+        width: 5px;
+        height: auto;
+        display:inline-block;
     }
 
-    #declineBtn {
+    #accDec {
+       text-align:center;
+       margin-bottom: 3px;
+    }
+
+    .accDecBtn {
         background-color: #f44336;
         color: white;
         border: 2px solid #f44336;
         border-radius: 8px;
-        padding: 12px 28px;
-        width: 50%;
-        transition-duration: 0.4s;
+        padding: 3px;
+        width: 40%;
+        transition-duration: 0.4s;  
+        text-decoration: none;
+        margin: 9%;      
+    }
+
+    .accDecBtn:hover {
+        cursor:pointer;
     }
 </style>
