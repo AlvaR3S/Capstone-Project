@@ -133,29 +133,42 @@ input#search {
 
 /* Aligns Profile pic and Name/description */
 .container-profile {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 107px;
-    background-color: white;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 165px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid darkred;
 }
 
-
+.bottom-container-profile {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid darkred;
+  padding-bottom: 88px;
+}
 
  #name {
   color: black;
   font-weight: 100;
   font-size: 40px;
-  padding-top: 10px;
-  
+  padding-top: 60px;
 }
 
 .picInfo {
   width: 27%;
-  border-radius: 3px;
+  border-radius: 5px;
   float: left;
   margin-right: 20px;
+  margin-top: 40px;
+  border: 1px solid gray;
 }
 
 .status {
@@ -170,14 +183,13 @@ div {
 /* Aligns profile info */
 
  #edit {
-  float: right;
   color: black;
   font-size: 15px;
   padding-top: 10px;
   width: auto;
-  margin-top: 70px;
+  margin-top: 35px;
   cursor: pointer;
-  
+  margin-left: 55%;
 }
 
 .profile-info {
@@ -190,16 +202,20 @@ div {
   padding-bottom: 40px;
 }
 
-#belowProfilePic {
-  
-}
-
 .TopInfo {
-  
+  padding-bottom: 12%;
 }
 
-.BotttomInfo {
-  
+#split {
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%,100);
+  height: 420px;
+  width: 0;
+  margin-left: 47.7%;  
+}
+
+.BottomInfo {
+  margin-top: -420px;
 }
 
 
