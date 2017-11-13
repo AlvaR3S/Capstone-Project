@@ -1,7 +1,6 @@
 <?php
-   //include("config.php"); 
-   include("session.php");
-   //session_start();
+   include('session.php');
+   include('nav_check.php');
 
    $sqlFirst = "select firstname from employee where username = '" . $login_session . "'";
    $first_name = mysqli_query($db,$sqlFirst);
@@ -68,6 +67,9 @@
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>        
+                    <a href="HR.php" id="HR">Human Resources
+                        <span id="HR" class="fa fa-address-card"></span>
+                    </a>
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
