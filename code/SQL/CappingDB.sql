@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2017 at 05:45 AM
+-- Generation Time: Nov 13, 2017 at 06:09 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -121,6 +121,29 @@ INSERT INTO `application_request` (`reqid`, `app_id`, `e_id`, `rd`, `description
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `did` int(11) NOT NULL,
+  `description` varchar(96) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`did`, `description`) VALUES
+(1, 'Sales'),
+(2, 'Marketing'),
+(3, 'Human Resources'),
+(4, 'Information Technology'),
+(5, 'Plant and Infrastructure '),
+(6, 'Product Development');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee`
 --
 
@@ -128,6 +151,7 @@ CREATE TABLE `employee` (
   `eid` int(11) NOT NULL,
   `oid` int(11) NOT NULL,
   `tid` int(11) NOT NULL,
+  `did` int(11) DEFAULT NULL,
   `username` varchar(96) NOT NULL,
   `reportsTo` int(11) DEFAULT NULL,
   `firstname` varchar(96) NOT NULL,
@@ -148,15 +172,15 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`eid`, `oid`, `tid`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
-(1, 1, 1, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
-(2, 2, 5, 'leokeefe', 1, 'leo', 'keefe', '1996-09-01', '2017-11-06', 989809090, 898, 'leokeefe@hotmail.com', '777 Clarke Street', 'Minneapolis', 'MN', 'USA', 82909),
-(3, 3, 4, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
-(4, 4, 3, 'Masahiro.Sakurai', 1, 'Masashiro ', 'Sakurai', '2015-07-13', '2017-09-18', 9810929091, 761, 'supersmash@gmail.com', '78 Ico Avenue', 'Tokyo', NULL, 'JP', 87192),
-(5, 5, 2, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
-(6, 2, 2, 'kwest', 5, 'Kanye ', 'West', '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
-(7, 5, 4, 'quentintarantino', 6, 'quentin', 'tarantino', '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
-(8, 1, 2, 'hov', 1, 'shawn', 'carter', '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785);
+INSERT INTO `employee` (`eid`, `oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
+(1, 1, 1, NULL, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
+(2, 2, 5, NULL, 'leokeefe', 1, 'leo', 'keefe', '1996-09-01', '2017-11-06', 989809090, 898, 'leokeefe@hotmail.com', '777 Clarke Street', 'Minneapolis', 'MN', 'USA', 82909),
+(3, 3, 4, NULL, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
+(4, 4, 3, NULL, 'Masahiro.Sakurai', 1, 'Masashiro ', 'Sakurai', '2015-07-13', '2017-09-18', 9810929091, 761, 'supersmash@gmail.com', '78 Ico Avenue', 'Tokyo', NULL, 'JP', 87192),
+(5, 5, 2, NULL, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
+(6, 2, 2, NULL, 'kwest', 5, 'Kanye ', 'West', '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
+(7, 5, 4, NULL, 'quentintarantino', 6, 'quentin', 'tarantino', '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
+(8, 1, 2, NULL, 'hov', 1, 'shawn', 'carter', '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785);
 
 -- --------------------------------------------------------
 
@@ -301,14 +325,20 @@ ALTER TABLE `application_request`
   ADD KEY `foreign_key2` (`e_id`);
 
 --
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`did`);
+
+--
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`eid`),
-  ADD UNIQUE KEY `eid` (`eid`),
   ADD KEY `FOREIGN_KEY` (`oid`) COMMENT 'foreign_key',
   ADD KEY `FOREIGN_KEY3` (`username`) COMMENT 'foreign_key3',
-  ADD KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2';
+  ADD KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2',
+  ADD KEY `did` (`did`);
 
 --
 -- Indexes for table `login`
@@ -351,10 +381,22 @@ ALTER TABLE `title`
 --
 
 --
+-- AUTO_INCREMENT for table `access_log`
+--
+ALTER TABLE `access_log`
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `application_request`
 --
 ALTER TABLE `application_request`
   MODIFY `reqid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -370,8 +412,16 @@ ALTER TABLE `access_log`
 -- Constraints for table `application_access_log`
 --
 ALTER TABLE `application_access_log`
-  ADD CONSTRAINT `application_access_log_ibfk_1` FOREIGN KEY (`appid`) REFERENCES `application` (`appid`),
-  ADD CONSTRAINT `application_access_log_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `appid` FOREIGN KEY (`appid`) REFERENCES `application` (`appid`),
+  ADD CONSTRAINT `eid` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+
+--
+-- Constraints for table `employee`
+--
+ALTER TABLE `employee`
+  ADD CONSTRAINT `did` FOREIGN KEY (`did`) REFERENCES `department` (`did`),
+  ADD CONSTRAINT `oid` FOREIGN KEY (`oid`) REFERENCES `organization` (`oid`),
+  ADD CONSTRAINT `tid` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
