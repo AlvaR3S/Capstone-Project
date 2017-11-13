@@ -11,14 +11,15 @@ $sql = "SELECT * FROM application_request WHERE reqid = '" . $id . "'";
 $result = mysqli_query($db,$sql);
 
 while ($row = mysqli_fetch_array($result)) {
-	echo "Request Granted!";
-	echo "<br>";
-	echo $row['reqid'];
-	echo "<br>";
-	echo $row['app_id'];
-	echo "<br>";
-	echo $row['e_id'];
-	echo "<br>";	
+	$eid = $row['e_id'];
+	$appid = $row['app_id'];
+	$query = "INSERT INTO application_access_log (appid, eid) VALUES ('" . $appid . "', '" . $eid . "')";
+	$res = mysqli_query($db,$sql);
+	if ($res) {
+		echo "done";
+	} else {
+		echo "oops";
+	}
 }
  
 $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());

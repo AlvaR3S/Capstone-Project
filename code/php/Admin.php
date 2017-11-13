@@ -88,7 +88,7 @@ include('nav_check.php');
                     <th onclick="sortTable(2)">Application Requested</th>
                     <th onclick="sortTable(3)" style="width: 30%">Reason for Request</th>
                     <th onclick="sortTable(4)">Requested</th>
-                    <th style="width:20%; text-align: center;">Actions</th>
+                    <th style="width:18%; text-align: center;">Actions</th>
                 </tr>
             <?php
                 $i=1;
@@ -189,7 +189,7 @@ include('nav_check.php');
         border: 2px solid #f44336;
         border-radius: 8px;
         padding: 3px;
-        width: 40%;
+        width: 100%;
         transition-duration: 0.4s;  
         text-decoration: none;
         margin: 9%;      
