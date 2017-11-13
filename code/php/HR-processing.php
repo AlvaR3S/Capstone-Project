@@ -17,28 +17,33 @@ if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
 }
 
-$firstname = mysql_real_escape_string($_POST['firstname']);
-$lastname = mysql_real_escape_string($_POST['lastname']);
-$dob = mysql_real_escape_string($_POST['dob']);
-$phone = mysql_real_escape_string($_POST['phone']);
-$ext = mysql_real_escape_string($_POST['phone']);
+$firstname = mysqli_real_escape_string($link, $_POST['firstname']);
+$lastname = mysqli_real_escape_string($link, $_POST['lastname']);
+$dob = mysqli_real_escape_string($link, $_POST['dob']);
+$phone = mysqli_real_escape_string($link, $_POST['phone']);
+$ext = mysqli_real_escape_string($link, $_POST['phone']);
 // gender? 
-$address = mysql_real_escape_string($_POST['address']);
-$country = mysql_real_escape_string($_POST['country']);
-$city = mysql_real_escape_string($_POST['city']);
-$zip = mysql_real_escape_string($_POST['zip']);
-$username = mysql_real_escape_string($_POST['username']);
-$password = mysql_real_escape_string($_POST['password']);
-$email = mysql_real_escape_string($_POST['email']);
-$hiredate = mysql_real_escape_string($_POST['hiredate']);
+$address = mysqli_real_escape_string($link, $_POST['address']);
+$country = mysqli_real_escape_string($link, $_POST['country']);
+//state 
+$city = mysqli_real_escape_string($link, $_POST['city']);
+$zip = mysqli_real_escape_string($link, $_POST['zip']);
+$username = mysqli_real_escape_string($link, $_POST['username']);
+$password = mysqli_real_escape_string($link, $_POST['password']);
+$email = mysqli_real_escape_string($link, $_POST['email']);
+$hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
 
 
 
 $sql = "INSERT INTO employee (username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-VALUES ('$username', '$firstname', '$lastname', '$dob', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+VALUES ('$username', '$firstname', '$lastname', '$dob', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', null, '$country', '$zip')";
 
-if (!mysql_query($sql)) {
+if (!mysqli_query($link, $sql)) {
     die('Error: ' . mysql_error()); 
 }
+
+echo "1 record added";
+
+mysqli_close($link);
 
 ?>
