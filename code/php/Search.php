@@ -109,7 +109,11 @@ include("nav_check.php");
         </div>
     
 </body>
-
+<script>
+function hideHR() {
+	document.getElementById("HR").style.display = "none";
+}
+</script>
 </html>
 
 <style>

@@ -190,7 +190,11 @@ include("nav_check.php");
         </div>
         
     </body>
-
+<script>
+function hideHR() {
+	document.getElementById("HR").style.display = "none";
+}
+</script>
 </html>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
