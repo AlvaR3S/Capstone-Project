@@ -72,7 +72,7 @@ session_start();
         
         <div class="employeeForms">
             <div id="employeeFormAdd">
-                <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to add to ACME</h1>
+                <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to ACME</h1>
                 <hr style="border-top:1px solid darkred;">
                 <form method="post" action="HR.php" id="addEmployee">
                     <div class="inputAlign">
@@ -110,10 +110,14 @@ session_start();
                 </form>
             </div>  
             <div id="employeeFormRemove">   
-                <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1>         
-                <form method="post" action="HR.php" id="removeEmployee">
-                    <input type="text" name="name">
-                    <br> <button class="employeeAdd" type="submit" name="submit">Submit </button>
+                <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1> 
+                <hr style="border-top:1px solid darkred;">        
+                <form style="margin-left: 130px;" method="post" action="HR.php" id="removeEmployee">
+                    <h4 style="margin-top: 30px;">Employee Information*</h3>
+                    <input type="text" name="username" placeholder="Enter Employee Username">
+                    <input style="width: 120px;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
+                    <h6 style="margin:0;">Username</h6> <h6 style="margin-top: -24px;margin-left: 46%;">Today's Date</h6>
+                    <br> <br> <button class="employeeRemove" type="submit" name="remove">Remove</button>
                 </form>
             </div>
               
