@@ -5,12 +5,12 @@ include('nav_check.php');
 ?>
 <html>
 
-    <title>Administrative Duties</title>
+    <title>Manager Duties</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/Admin.css">    
+        <link rel="stylesheet" type="text/css" href="../CSS/Manager.css">    
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <script type="text/javascript" src="../js/SearchResults.js"></script>        
@@ -68,7 +68,7 @@ include('nav_check.php');
         
         <div id="mainContent" align="center" style="margin-top:10%;">
             
-            <h1>Administrative Duties</h1>
+            <h1>Application Access Requests</h1>
             <h3>You have the following requests awaiting approval:</h3>
             
         </div>

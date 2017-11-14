@@ -17,7 +17,7 @@ while ($row = mysqli_fetch_array($result)) {
 		echo "Oh no!: " . mysqli_error($db);
 	} else {
 		echo "Request processed.";
-		header("location:Admin.php");
+		header("location:Manager.php");
 	}
 }
 ?>
