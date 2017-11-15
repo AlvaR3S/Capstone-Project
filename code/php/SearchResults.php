@@ -136,13 +136,13 @@ include("nav_check.php");
 
                             ?>
                               <tr>
-                                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>
+                                <td><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['firstname'] . '&nbsp' . $row['lastname'] . '</a>'?></td>
                                 <td>
                                     <?php 
                                         $sql="SELECT posname FROM title WHERE title.tid = ". $row['tid'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
-                                        echo $r['posname'];
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['posname'] . '</a>'
                                     ?>
                                 </td>
                                 <td>
@@ -150,11 +150,11 @@ include("nav_check.php");
                                         $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
-                                        echo $r['location'];
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $r['location'] . '</a>'
                                     ?>
                                 </td>
-                                <td><?php echo $row['workExt'];?></td>
-                                <td style="text-transform: lowercase;"><?php echo $row['email'];?></td>
+                                <td><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
+                                <td style="text-transform: lowercase;"><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
                               </tr>
                             <?php
                                             $i++;
@@ -217,6 +217,10 @@ function hideHR() {
         border-width: 2px;
         border-color: #555555;
         cursor:pointer;
+    }
+
+    .profileLink {
+        text-decoration: none;
     }
     .main {
         margin-bottom: 13%;
