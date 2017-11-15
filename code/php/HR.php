@@ -86,9 +86,9 @@ include('nav_check.php');
                         <select style="height: 40px; width: 26.5%">
                             <option value="" disabled selected>Gender</option>
                             <option value="Male">Male</option>
-                            <option value="saab">Female</option>
-                            <option value="opel">Other</option>
-                            <option value="audi">Prefer Not To Say</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                            <option value="Private">Prefer Not To Say</option>
                         </select>
                         <h6 style="margin:0;">Date of Birth</h6> 
 						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 

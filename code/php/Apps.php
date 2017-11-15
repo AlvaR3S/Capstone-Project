@@ -92,6 +92,11 @@ include('nav_check.php');
                     <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
                 </button>
 
+            <!--FRANKIE THE FOX NOTES-->
+                <!--Timing-->
+                <!--Transparency-->
+                <!--Underwhelming Name-->
+
             <!--</div>-->
         </div>
         <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">

@@ -15,7 +15,7 @@
    $rowLast = mysqli_fetch_assoc($last_name);
    $login_last = $rowLast['lastname'];
 
-   $sqlPosition = "select tid from employee where username = '" . $login_session . "'";
+   $sqlPosition = "select tid from employee where username = '" . $user . "'";
    $position = mysqli_query($db, $sqlPosition);
    $rowPos = mysqli_fetch_assoc($position);
    $login_pos = $rowPos['tid'];
@@ -39,6 +39,24 @@
    $address = mysqli_query($db,$sqlAddress);
    $rowAddress = mysqli_fetch_assoc($address);
    $login_address = $rowAddress['streetAddress'];
+
+   $sqlCity = "select city_town from employee where username = '" . $user . "'";
+   $city = mysqli_query($db,$sqlCity);
+   $rowCity = mysqli_fetch_assoc($city);
+   $login_city = $rowCity['city_town']; 
+
+   $sqlState = "select state from employee where username = '" . $user . "'";
+   $state = mysqli_query($db,$sqlState);
+   $rowState = mysqli_fetch_assoc($state);
+   $login_state = $rowState['state'];
+   if ($login_state == NULL) {
+      $login_state == "";
+   }
+
+   $sqlCountry = "select country from employee where username = '" . $user . "'";
+   $country = mysqli_query($db,$sqlCountry);
+   $rowCountry = mysqli_fetch_assoc($country);
+   $login_country = $rowCountry['country'];
    
 ?>
 <html>
@@ -118,7 +136,7 @@
               <h5 id="response"><?php 
                   echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
               <h3>Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_address;?></h5>
+              <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
             </div>      
         </div>      
         

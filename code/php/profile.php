@@ -38,6 +38,24 @@
    $rowAddress = mysqli_fetch_assoc($address);
    $login_address = $rowAddress['streetAddress'];
    
+   $sqlCity = "select city_town from employee where username = '" . $login_session . "'";
+   $city = mysqli_query($db,$sqlCity);
+   $rowCity = mysqli_fetch_assoc($city);
+   $login_city = $rowCity['city_town']; 
+
+   $sqlState = "select state from employee where username = '" . $login_session . "'";
+   $state = mysqli_query($db,$sqlState);
+   $rowState = mysqli_fetch_assoc($state);
+   $login_state = $rowState['state'];
+   if ($login_state == NULL) {
+      $login_state == "";
+   }
+
+   $sqlCountry = "select country from employee where username = '" . $login_session . "'";
+   $country = mysqli_query($db,$sqlCountry);
+   $rowCountry = mysqli_fetch_assoc($country);
+   $login_country = $rowCountry['country']; 
+
 ?>
 <html>
 
@@ -110,7 +128,7 @@
             <div class="BottomInfo">
               <div class="addressInfo">
                 <h3>Address:</h3> <br>
-                <h5 id="response"><?php echo '' . $login_address;?></h5>
+                <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
               </div> 
               <h3>Email Address:</h3> <br>
               <h5 id="response"><?php echo '' . $login_email;?></h5>

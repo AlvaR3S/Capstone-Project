@@ -20,8 +20,10 @@ if (!$link) {
 $firstname = mysqli_real_escape_string($link, $_POST['firstname']);
 $lastname = mysqli_real_escape_string($link, $_POST['lastname']);
 $dob = mysqli_real_escape_string($link, $_POST['dob']);
+$date = strtotime($dob);
+$birthdate =  date("Y-m-d",$date);
 $phone = mysqli_real_escape_string($link, $_POST['phone']);
-$ext = mysqli_real_escape_string($link, $_POST['phone']);
+$ext = mysqli_real_escape_string($link, $_POST['ext']);
 // gender? 
 $address = mysqli_real_escape_string($link, $_POST['address']);
 $country = mysqli_real_escape_string($link, $_POST['country']);
@@ -32,11 +34,13 @@ $username = mysqli_real_escape_string($link, $_POST['username']);
 $password = mysqli_real_escape_string($link, $_POST['password']);
 $email = mysqli_real_escape_string($link, $_POST['email']);
 $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
+$hired = strtotime($hiredate);
+$joined = date("Y-m-d", $hired);
 
 
 
 $sql = "INSERT INTO employee (username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-VALUES ('$username', '$firstname', '$lastname', '$dob', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+VALUES ('$username', '$firstname', '$lastname', '$birthdate', '$hiredate', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
 if (!mysqli_query($link, $sql)) {
     die('Error: ' . mysql_error()); 
