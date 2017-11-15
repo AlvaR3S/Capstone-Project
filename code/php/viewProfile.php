@@ -14,6 +14,16 @@
    $last_name = mysqli_query($db,$sqlLast);   
    $rowLast = mysqli_fetch_assoc($last_name);
    $login_last = $rowLast['lastname'];
+
+   $sqlPosition = "select tid from employee where username = '" . $login_session . "'";
+   $position = mysqli_query($db, $sqlPosition);
+   $rowPos = mysqli_fetch_assoc($position);
+   $login_pos = $rowPos['tid'];
+
+   $sqlTitle = "select posname from title where tid = '" . $login_pos . "'";
+   $title = mysqli_query($db, $sqlTitle);
+   $rowTitle = mysqli_fetch_assoc($title);
+   $login_title = $rowTitle['posname'];   
    
    $sqlEmail = "select email from employee where username = '" . $user . "'";
    $email = mysqli_query($db,$sqlEmail);

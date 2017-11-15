@@ -12,6 +12,16 @@
    $rowLast = mysqli_fetch_assoc($last_name);
    $login_last = $rowLast['lastname'];
    
+   $sqlPosition = "select tid from employee where username = '" . $login_session . "'";
+   $position = mysqli_query($db, $sqlPosition);
+   $rowPos = mysqli_fetch_assoc($position);
+   $login_pos = $rowPos['tid'];
+
+   $sqlTitle = "select posname from title where tid = '" . $login_pos . "'";
+   $title = mysqli_query($db, $sqlTitle);
+   $rowTitle = mysqli_fetch_assoc($title);
+   $login_title = $rowTitle['posname'];
+
    $sqlEmail = "select email from employee where username = '" . $login_session . "'";
    $email = mysqli_query($db,$sqlEmail);
    $rowEmail = mysqli_fetch_assoc($email);
@@ -88,8 +98,8 @@
             
             <div class="TopInfo">
                 <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">    
-                <h1 id="name"><?php echo '' . $login_first . ' ' . $login_last?></h1>
-                <span class="status">Traveller</span>
+                <h1 id="name"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
+                <span class="status"><?php echo '' . $login_title;?></span>
                 <button id="edit">Edit</button>                
             </div>      
         </div>
