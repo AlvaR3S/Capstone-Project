@@ -77,7 +77,7 @@ include('nav_check.php');
                 <hr style="border-top:1px solid darkred;">
                 <form method="post" action="HR-Processing.php" id="addEmployee">
                     <div class="inputAlign">
-                        <h4 style="margin-top: 30px;">Employee Information*</h3>
+                        <h4 style="margin-top: 30px;">Employee Information*</h4>
                         <input type="text" name="firstname" placeholder="Enter First Name">
                         <input type="text" name="lastname" placeholder="Enter Last Name">
                         <input style="margin-top: 10px; width: 20%" type="text" name="dob" placeholder="(MM/DD/YY)">
@@ -94,6 +94,24 @@ include('nav_check.php');
 						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
 						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
 						
+                        <select style="height:40px; width: 25%" name="location">
+                            <option value = "" disabled selected>Location</option>
+                            <option value = "1">New York</option>
+                            <option value = "2">Chicago</option>
+                            <option value = "3">Los Angeles</option>
+                            <option value = "4">Tokyo</option>
+                            <option value = "5">Paris</option>
+                            <option value = "6">London</option>
+                        </select>
+                        <select style="height:40px; width: 25%" name="title">
+                            <option value = "" disabled selected>Position</option>
+                            <option value = "1">CEO/Board</option>
+                            <option value = "2">Administrator</option>
+                            <option value = "3">HR</option>
+                            <option value = "4">Manager</option>
+                            <option value = "5">Employee</option>
+                        </select>
+
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
                         <input style="margin-top: 10px; width: 25%;" type="text" name="country" placeholder="Enter Country">
@@ -105,7 +123,7 @@ include('nav_check.php');
 						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
 						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
 						
-                        <h4 style="margin-top: 22px;">Login Information*</h4>
+                        <h4 style="margin-top: 22px;">Login Information</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
                         <input type="text" name="password" placeholder="Enter New Password">
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
