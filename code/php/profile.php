@@ -109,8 +109,9 @@
             <div class="BottomInfo">
               <h3>Email Address:</h3> <br>
               <h5 id="response"><?php echo '' . $login_email;?></h5>
-              <h3>Phone Number
-              <h5 id="response"><?php echo '' . $login_phone;?></h5>
+              <h3>Phone Number</h3> <br>
+              <h5 id="response"><?php 
+                  echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
               <h3>Address:</h3> <br>
               <h5 id="response"><?php echo '' . $login_address;?></h5>
             </div>      
