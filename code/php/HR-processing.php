@@ -39,9 +39,6 @@ echo $address . "<br>";
 $country = mysqli_real_escape_string($link, $_POST['country']);
 echo $country . "<br>";
 $state = mysqli_real_escape_string($link, $_POST['state']);
-if ($state = NULL) {
-	$state = "";
-}
 echo $state . "<br>";
 $city = mysqli_real_escape_string($link, $_POST['city']);
 echo $city . "<br>";
@@ -80,5 +77,6 @@ if (!mysqli_query($link, $query)) {
 
 
 mysqli_close($link);
+header("location:HR.php");
 
 ?>
