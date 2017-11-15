@@ -125,7 +125,7 @@ include('nav_check.php');
 						
                         <h4 style="margin-top: 22px;">Login Information</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
-                        <input type="text" name="password" placeholder="Enter New Password">
+                        <input type="password" name="password" placeholder="Enter New Password">
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
                         <input style="width: 20%;" type="text" name="hiredate" placeholder="(MM/DD/YY)">
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
