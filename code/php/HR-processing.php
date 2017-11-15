@@ -80,5 +80,6 @@ if (!mysqli_query($link, $query)) {
 
 
 mysqli_close($link);
+header("location:HR.php");
 
 ?>
