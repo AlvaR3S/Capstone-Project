@@ -65,12 +65,13 @@ include('nav_check.php');
     
         <div class="appcontainer" align=center style="margin-top:10%;">
             <!--<div class="topApps">-->
+
+                <button class="app" onclick="window.location.href='AccessDenied.php'">
+                    <img padding=10px src="../../assets/skype-icon.png"><br><br>Skype</img>
+                </button>
+
                 <button class="app" onclick="window.location.href='AccessDenied.php'">
                     <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Salesforce</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
                 </button>
                 
                 <button class="app" onclick="window.location.href='AccessDenied.php'">
@@ -84,12 +85,13 @@ include('nav_check.php');
                 </button>
                 
                 <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding=10px src="../../assets/skype-icon.png"><br><br>Skype</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
                     <img padding=10px src="../../assets/teamcity-icon.png"><br><br>Teamcity</img>
                 </button>
+
+                <button class="app" onclick="window.location.href='AccessDenied.php'">
+                    <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
+                </button>
+
             <!--</div>-->
         </div>
         <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
