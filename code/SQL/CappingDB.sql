@@ -100,20 +100,20 @@ INSERT INTO `application_access_log` (`appid`, `eid`) VALUES
 
 CREATE TABLE IF NOT EXISTS `application_request` (
   `reqid` int(11) NOT NULL AUTO_INCREMENT,
-  `appid` int(11) NOT NULL,
-  `eid` int(11) NOT NULL,
+  `app_id` int(11) NOT NULL,
+  `e_id` int(11) NOT NULL,
   `rd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `description` text,
   PRIMARY KEY (`reqid`),
-  KEY `foreign_key` (`appid`),
-  KEY `foreign_key2` (`eid`)
+  KEY `foreign_key` (`app_id`),
+  KEY `foreign_key2` (`e_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `application_request`
 --
 
-INSERT INTO `application_request` (`appid`, `eid`, `rd`, `description`) VALUES
+INSERT INTO `application_request` (`app_id`, `e_id`, `rd`, `description`) VALUES
 (1, 2, '2017-10-03 04:00:00', NULL),
 (4, 3, '2017-06-19 04:00:00', 'I would like access to this since I need to use it for video editing.'),
 (5, 5, '2017-05-15 04:00:00', 'Hi, I need to Skype clients in Russia.'),
@@ -307,8 +307,8 @@ ALTER TABLE `application_access_log`
 -- Constraints for table `application_request`
 --
 ALTER TABLE `application_request`
-  ADD CONSTRAINT `application_request_ibfk_1` FOREIGN KEY (`appid`) REFERENCES `application` (`appid`),
-  ADD CONSTRAINT `application_request_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `application_request_ibfk_1` FOREIGN KEY (`app_id`) REFERENCES `application` (`appid`),
+  ADD CONSTRAINT `application_request_ibfk_2` FOREIGN KEY (`e_id`) REFERENCES `employee` (`eid`);
 
 --
 -- Constraints for table `employee`
