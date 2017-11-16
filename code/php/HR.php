@@ -66,7 +66,7 @@ include('nav_check.php');
         
         <div class="title">
             
-            <h1>Human Resources</h1>
+            <h1>Add or Remove an Employee</h1>
             
             
         </div>
