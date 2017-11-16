@@ -1,17 +1,20 @@
 <?php
-$sqlHR = "select tid from employee where username = '" . $login_session . "'";
-$hr = mysqli_query($db,$sqlHR);
-$rowHR = mysqli_fetch_assoc($hr);
-$login_HR = $rowHR['tid'];
-if ($login_HR != 3){ 
-   echo '<BODY onLoad="hideHR()">';
-}
+$sql = "select tid from employee where username = '" . $login_session . "'";
+$nav = mysqli_query($db,$sql);
+$rowNav = mysqli_fetch_assoc($nav);
+$login_nav = $rowNav['tid'];
 
-$sqlAdmin = "select tid from employee where username = '" . $login_session . "'";
-$admin = mysqli_query($db,$sqlAdmin);
-$rowAdmin = mysqli_fetch_assoc($admin);
-$login_admin = $rowAdmin['tid'];
-if ($login_admin != 3){ 
-   echo '<BODY onLoad="hideAdmin()">';
+switch ($login_nav) {
+    case "2":
+        include('navbar_admin.php');
+        break;
+    case "3":
+         include('navbar_HR.php');
+        break;
+	case "4":
+		include('navbar_manager.php');
+	break;
+    default:
+         include('navbar_reg.php');
 }
 ?>

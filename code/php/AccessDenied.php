@@ -19,48 +19,7 @@ include("nav_check.php");
     
     
     <body>
-    <!-- Navbar -->
-        
-        <header class="topnav" role="banner">
-            
-            <nav class="topnav container" role="navigation">
-    
-                
-                <div id="main">
-                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
-                    <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
-                </div>
-                
-                
-                <div id="myTopnav" class="topnav-list">
-                    <a href="Search.php">Home
-                        <span class="fa fa-home"></span>
-                    </a>
-                    <a href="profile.php">Profile
-                        <span class="fa fa-address-card"></span>
-                    </a>
-                    <a href="Apps.php">Apps
-                        <span class="fa fa-tasks"></span>
-                    </a>
-                    <a href="HR.php" id="HR">Human Resources
-                        <span id="HR" class="fa fa-address-card"></span>
-                    </a>
-                    <a href="logout.php">Log Out
-                        <span class="fa fa-space-shuttle"></span>
-                    </a>
-                    <!--<form class="topnav-list-search">
-                        <input type="text" id="search" name="search" placeholder="Search...">
-                    </form>-->
-                
-                </div>
-                <hr id="topHR" noshade>
-                <hr id="topHR" noshade>
-                
-                
-            </nav>
-    
-        </header>
-        <br>
+
         <div id="main" class="main" align="center" style="margin-top:7%;">
             <h1>ACCESS DENIED</h1>
             <h2>It appears you do not have access to this application...</h2>
@@ -121,11 +80,7 @@ include("nav_check.php");
         </div>
         
     </body>
-<script>
-function hideHR() {
-	document.getElementById("HR").style.display = "none";
-}
-</script>
+
 </html>
 
 <style>
