@@ -37,7 +37,7 @@ echo $location . "<br>";
 $title = mysqli_real_escape_string($link, $_POST['title']);
 echo $title . "<br>";
 $dept = mysqli_real_escape_string($link, $_POST['department']);
-echo $dept;
+echo $dept . "<br>";
 $address = mysqli_real_escape_string($link, $_POST['address']);
 echo $address . "<br>";
 $country = mysqli_real_escape_string($link, $_POST['country']);
