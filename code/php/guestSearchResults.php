@@ -38,10 +38,7 @@
                     </a>
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
-                    </a>
-					<a href="HR.php" id="HR">Human Resources
-						<span id="HR" class="fa fa-address-card"></span>
-					</a>	              
+                    </a>              
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
                     </a>
