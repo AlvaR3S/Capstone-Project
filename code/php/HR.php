@@ -37,10 +37,10 @@ include('nav_check.php');
                 <form method="post" action="HR-Processing.php" id="addEmployee">
                     <div class="inputAlign">
                         <h4 style="margin-top: 30px;">Employee Information*</h4>
-                        <input type="text" name="firstname" placeholder="Enter First Name">
-                        <input type="text" name="lastname" placeholder="Enter Last Name">
+                        <input type="text" pattern="[A-Za-z]"name="firstname" placeholder="Enter First Name">
+                        <input type="text" pattern="[A-Za-z]"name="lastname" placeholder="Enter Last Name">
                         <input style="margin-top: 10px; width: 20%" type="text" name="dob" placeholder="(MM/DD/YY)">
-                        <input style="margin-top: 10px; width: 35%;" type="text" name="phone" placeholder="e.g. 7173457575">
+                        <input style="margin-top: 10px; width: 35%;" type="text" pattern="\d*" maxlength="12" name="phone" placeholder="e.g. 7173457575">
                         <input style="width: 7%;" type="text" name="ext" placeholder="Ext">   
                         <select style="height: 40px; width: 26.5%">
                             <option value="" disabled selected>Gender</option>
@@ -81,10 +81,10 @@ include('nav_check.php');
                         </select>
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
-                        <input style="margin-top: 10px; width: 25%;" type="text" name="country" placeholder="Enter Country">
-						<input style="margin-top: 10px; width: 25%;" type="text" name="state" placeholder="Enter State (if applicable)">
-                        <input style="margin-top: 10px; width: 20%;" type="text" name="city" placeholder="Enter City">
-                        <input style="margin-top: 10px; width: 19.3%;"type="text" name="zip" placeholder="Enter Zip Code">
+                        <input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]" name="country" placeholder="Enter Country">
+						<input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]"name="state" placeholder="Enter State (if applicable)">
+                        <input style="margin-top: 10px; width: 20%;" type="text" pattern="[A-Za-z]"name="city" placeholder="Enter City">
+                        <input style="margin-top: 10px; width: 19.3%;"type="text" pattern="\d*"name="zip" placeholder="Enter Zip Code">
                         <h6 style="margin:0;">Country</h6> 
 						<h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6> 
 						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
