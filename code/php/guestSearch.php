@@ -65,7 +65,7 @@
         
         <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
         <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
-        <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
+        <form method="post" action="guestSearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
                 <select name="searchby" id="searchby">
                     <option value="by_name">Name</option>

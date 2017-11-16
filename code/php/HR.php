@@ -123,7 +123,7 @@ include('nav_check.php');
 						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
 						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
 						
-                        <h4 style="margin-top: 22px;">Login Information</h4>
+                        <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" placeholder="Enter New Username">
                         <input type="password" name="password" placeholder="Enter New Password">
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address">
@@ -137,9 +137,9 @@ include('nav_check.php');
             <div id="employeeFormRemove">   
                 <h1 style="text-align: center; font-size: 25px;">Enter the Employee you would like to remove from ACME</h1> 
                 <hr style="border-top:1px solid darkred;">        
-                <form style="margin-left: 130px;" method="post" action="HR.php" id="removeEmployee">
+                <form style="margin-left: 130px;" method="post" action="HR-remove.php" id="removeEmployee">
                     <h4 style="margin-top: 30px;">Employee Information*</h3>
-                    <input type="text" name="username" placeholder="Enter Employee Username">
+                    <input type="text" name="delUsername" placeholder="Enter Employee Username">
                     <input style="width: 120px;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
                     <h6 style="margin:0;">Username</h6> <h6 style="margin-top: -24px;margin-left: 46%;">Today's Date</h6>
                     <br> <br> <button class="employeeRemove" type="submit" name="remove">Remove</button>
