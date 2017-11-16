@@ -155,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `eid` int(11) NOT NULL AUTO_INCREMENT,
   `oid` int(11) NOT NULL,
   `tid` int(11) NOT NULL,
+  `did` int(11) NOT NULL,
   `username` varchar(96) NOT NULL,
   `reportsTo` int(11) DEFAULT NULL,
   `firstname` varchar(96) NOT NULL,
@@ -180,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`oid`, `tid`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
+INSERT INTO `employee` (`oid`, `tid`, `did `, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
 (1, 1, NULL, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
 (2, 5, 1, 'leokeefe', 1, 'leo', 'keefe', '1996-09-01', '2017-11-06', 989809090, 898, 'leokeefe@hotmail.com', '777 Clarke Street', 'Minneapolis', 'MN', 'USA', 82909),
 (3, 4, NULL, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
