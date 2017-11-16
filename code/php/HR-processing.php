@@ -30,6 +30,8 @@ echo $phone . "<br>";
 $ext = mysqli_real_escape_string($link, $_POST['ext']);
 echo $ext . "<br>";
 // gender? 
+//reportsTo
+//department
 $location = mysqli_real_escape_string($link, $_POST['location']);
 echo $location . "<br>";
 $title = mysqli_real_escape_string($link, $_POST['title']);
