@@ -126,7 +126,7 @@
         <div class="bottom-container-profile">
             <!-- <hr id="split"> -->
             <div class="BottomInfo">
-              <hr id="contactInfo">
+              <h5 style="color: gray;">Contact Info</h5><hr id="contactInfo">
               <div class="addressInfo">
                 <h3>Address:</h3> <br>
                 <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
