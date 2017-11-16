@@ -129,7 +129,8 @@ INSERT INTO `application_request` (`appid`, `eid`, `rd`, `description`) VALUES
 
 CREATE TABLE `department` (
   `did` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(96) NOT NULL
+  `description` varchar(96) NOT NULL,
+  PRIMARY KEY(`did`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

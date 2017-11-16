@@ -94,7 +94,7 @@ include('nav_check.php');
 						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
 						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
 						
-                        <select style="height:40px; width: 25%" name="location">
+                        <select style="height:40px; width: 30%" name="location">
                             <option value = "" disabled selected>Location</option>
                             <option value = "1">New York</option>
                             <option value = "2">Chicago</option>
@@ -103,7 +103,7 @@ include('nav_check.php');
                             <option value = "5">Paris</option>
                             <option value = "6">London</option>
                         </select>
-                        <select style="height:40px; width: 25%" name="title">
+                        <select style="height:40px; width: 30%" name="title">
                             <option value = "" disabled selected>Position</option>
                             <option value = "1">CEO/Board</option>
                             <option value = "2">Administrator</option>
@@ -111,7 +111,15 @@ include('nav_check.php');
                             <option value = "4">Manager</option>
                             <option value = "5">Employee</option>
                         </select>
-
+                        <select style="height:40px; width: 30%"" name="department">
+                            <option value = "" disabled selected>Department</option>
+                            <option value = "1">Marketing</option>
+                            <option value = "2">Sales</option>
+                            <option value = "3">Plant and Infrastructure</option>
+                            <option value = "4">Information Technology</option>
+                            <option value = "5">Product Development</option>
+                            <option value = "6">Human Resources</option>
+                        </select>
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address">
                         <input style="margin-top: 10px; width: 25%;" type="text" name="country" placeholder="Enter Country">

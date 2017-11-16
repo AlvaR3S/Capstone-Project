@@ -36,6 +36,8 @@ $location = mysqli_real_escape_string($link, $_POST['location']);
 echo $location . "<br>";
 $title = mysqli_real_escape_string($link, $_POST['title']);
 echo $title . "<br>";
+$dept = mysqli_real_escape_string($link, $_POST['department']);
+echo $dept
 $address = mysqli_real_escape_string($link, $_POST['address']);
 echo $address . "<br>";
 $country = mysqli_real_escape_string($link, $_POST['country']);
@@ -58,8 +60,8 @@ $joined = date("Y-m-d", $hired);
 echo $joined . "<br>";
 
 
-$sql = "INSERT INTO employee (oid, tid, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-VALUES ('$location', '$title', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+$sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
+VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
 if (!mysqli_query($link, $sql)) {
     die('Error: ' . mysqli_error($link)); 
