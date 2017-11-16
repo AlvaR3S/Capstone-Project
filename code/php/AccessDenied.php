@@ -77,7 +77,7 @@ include("nav_check.php");
                 <!-- THESE SHOULD BE TAKEN OFF THE DATABASE-->
                     <select name="desiredApp" id="desiredApp">
                         <option value="" color="white;" disabled selected>Pick an application</option>
-                        <option value='Skype'>Skype for Business</option>
+                        <option value='Skype'>Skype</option>
                         <option value='Salesforce'>Salesforce</option>
                         <option value='Assets'>Assets Management</option>
                         <option value='Outlook'>Outlook</option>
