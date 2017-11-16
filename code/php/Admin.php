@@ -1,6 +1,7 @@
 <?php
 include('session.php');
 include('nav_check.php');
+include('admin_check.php');
 ?>
 
 <html>

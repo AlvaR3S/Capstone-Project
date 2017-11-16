@@ -1,7 +1,7 @@
 <?php
-
 include('session.php');
 include('nav_check.php');
+include('manager_check.php');
 ?>
 <html>
 
