@@ -38,8 +38,8 @@ include('HR_check.php');
                 <form method="post" action="HR-Processing.php" id="addEmployee">
                     <div class="inputAlign">
                         <h4 style="margin-top: 30px;">Employee Information*</h4>
-                        <input type="text" pattern="[A-Za-z]"name="firstname" placeholder="Enter First Name" required>
-                        <input type="text" pattern="[A-Za-z]"name="lastname" placeholder="Enter Last Name" required>
+                        <input type="text" pattern="[A-Za-z]{1,15}" name="firstname" placeholder="Enter First Name" required>
+                        <input type="text" pattern="[A-Za-z]{1,15}" name="lastname" placeholder="Enter Last Name" required>
                         <input style="margin-top: 10px; width: 20%" type="text" name="dob" placeholder="(MM/DD/YY)" required>
                         <input style="margin-top: 10px; width: 35%;" type="text" pattern="\d*" maxlength="12" name="phone" placeholder="e.g. 7173457575" required>
                         <input style="width: 7%;" type="text" pattern="\d*" name="ext" placeholder="Ext" required>   
@@ -82,9 +82,9 @@ include('HR_check.php');
                         </select>
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address" required>
-                        <input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]" name="country" placeholder="Enter Country" required>
-						<input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]"name="state" placeholder="Enter State (if applicable)">
-                        <input style="margin-top: 10px; width: 20%;" type="text" pattern="[A-Za-z]"name="city" placeholder="Enter City" required>
+                        <input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]{1,15}" name="country" placeholder="Enter Country" required>
+						<input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z]{1,15}"name="state" placeholder="Enter State (if applicable)">
+                        <input style="margin-top: 10px; width: 20%;" type="text" pattern="[A-Za-z]{1,15}"name="city" placeholder="Enter City" required>
                         <input style="margin-top: 10px; width: 19.3%;"type="text" pattern="\d*"name="zip" placeholder="Enter Zip Code" required>
                         <h6 style="margin:0;">Country</h6> 
 						<h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6> 
@@ -92,8 +92,8 @@ include('HR_check.php');
 						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
 						
                         <h4 style="margin-top: 22px;">Login Information*</h4>
-                        <input type="text" name="username" placeholder="Enter New Username" required>
-                        <input type="password" name="password" placeholder="Enter New Password" required>
+                        <input type="text" name="username" pattern="[A-Za-z0-9]{6,}placeholder="Enter New Username" required>
+                        <input type="password" name="password" pattern=".{6,}"placeholder="Enter New Password" required>
                         <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address" required>
                         <input style="width: 20%;" type="text" name="hiredate" placeholder="(MM/DD/YY)" required>
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
