@@ -10,6 +10,7 @@ include('nav_check.php');
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/Admin.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -63,15 +64,15 @@ include('nav_check.php');
         <br>
     
     
-        <div class="appcontainer" align=center style="margin-top:10%;">
-            <!--<div class="topApps">-->
-
-                <button class="app" onclick="window.location.href='Manager.php'">
-                    <img padding=10px src="../../assets/skype-icon.png"><br><br>Manager</img>
+        <div class="containerApps" align=center style="margin-top:150px;">
+            <h1> Choose an action to execute </h1>
+            <hr style="border-top:1px solid darkred;">
+                <button class="leftButton" onclick="window.location.href='Manager.php'">
+                    Application Request Form
                 </button>
 
-                <button class="app" onclick="window.location.href='HR.php'">
-                    <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Human Resources</img>
+                <button class="rightButton" onclick="window.location.href='HR.php'">
+                    Add/Remove Employee
                 </button>
 
             <!--</div>-->
