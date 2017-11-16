@@ -23,7 +23,7 @@
                         <span class="fa fa-tasks"></span>
                     </a>
 					<a href="Manager.php">Manager
-                        <span class="fa fa-tasks"></span>
+                        <span class="fa fa-briefcase"></span>
                     </a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>

@@ -23,7 +23,7 @@
                         <span class="fa fa-tasks"></span>
                     </a>
                     <a href="Admin.php" id="admin">Admin
-                        <span id="admin" class="fa fa-address-card"></span>
+                        <span id="admin" class="fa fa-id-badge"></span>
                     </a>
                     <a href="logout.php">Log Out
                         <span class="fa fa-space-shuttle"></span>
