@@ -350,7 +350,8 @@ ALTER TABLE `application_request`
 --
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `organization` (`oid`),
-  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`);
+  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`),
+  ADD CONSTRAINT `did` FOREIGN KEY (`did`) REFERENCES `department`(`did`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `login`
