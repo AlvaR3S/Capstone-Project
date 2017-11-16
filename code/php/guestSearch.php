@@ -69,7 +69,8 @@
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
                 <select name="searchby" id="searchby">
                     <option value="by_name">Name</option>
-                    <option value="by_position">Position</option>
+                    <option value="by_position">Position</option>                    
+                    <option value="by_dept">Department</option>
                     <option value="by_location">Location</option>
                 </select>
                 <button class="short" type="submit" name="submit">

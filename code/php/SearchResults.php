@@ -69,7 +69,8 @@ include("nav_check.php");
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name, position, or location">
                 <select name="searchby" id="searchby">
                     <option value="by_name">Name</option>
-                    <option value="by_position">Position</option>
+                    <option value="by_position">Position</option>                    
+                    <option value="by_dept">Department</option>
                     <option value="by_location">Location</option>
                 </select>
                 <button class="short" type="submit" name="submit">
@@ -82,9 +83,12 @@ include("nav_check.php");
             if ($_POST['searchby'] == "by_name") {
                 $term = "Displaying employees with names containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
-            else if ($_POST['searchby'] == "by_position") {
-                $term = "Displaying employees with positions containing '" . htmlspecialchars($_POST['name']) . "'.";
+            else if ($_POST['searchby'] == "by_dept") {
+                $term = "Displaying employees that work in departments containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
+            else if ($_POST['searchby'] == "by_position") {
+                $term = "Displaying employees that work in positions containing '" . htmlspecialchars($_POST['name']) . "'.";
+            }            
             else if ($_POST['searchby'] == "by_location") {
                 $term = "Displaying employees from locations containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
@@ -115,6 +119,9 @@ include("nav_check.php");
                             }
                             else if ($opt == "by_position") {
                                 $sql="(SELECT * FROM employee WHERE employee.tid IN (SELECT tid FROM title WHERE title.posname LIKE '%" . $name ."%'))";
+                            }                            
+                            else if ($opt == "by_dept") {
+                                $sql="(SELECT * FROM employee WHERE employee.did IN (SELECT did FROM department WHERE department.description LIKE '%" . $name ."%'))";
                             }
 
                             //-run  the query against the mysql query function
@@ -126,9 +133,10 @@ include("nav_check.php");
                               <tr>
                                 <th onclick="sortTable(0)">Name</th>
                                 <th onclick="sortTable(1)">Title</th>
-                                <th onclick="sortTable(2)">Location</th>
-                                <th onclick="sortTable(3)">Ext.</th>
-                                <th onclick="sortTable(4)">Email</th>
+                                <th onclick="sortTable(2)">Dept.</th>
+                                <th onclick="sortTable(3)">Location</th>
+                                <th onclick="sortTable(4)">Ext.</th>
+                                <th onclick="sortTable(5)">Email</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -145,6 +153,14 @@ include("nav_check.php");
                                         print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['posname'] . '</a>'
                                     ?>
                                 </td>
+                                <td>
+                                    <?php 
+                                        $sql="SELECT description FROM department WHERE department.did = ". $row['did'];
+                                        $res=mysqli_query($db,$sql);
+                                        $r=mysqli_fetch_array($res);
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
+                                    ?>
+                                </td>                                
                                 <td>
                                     <?php 
                                         $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];

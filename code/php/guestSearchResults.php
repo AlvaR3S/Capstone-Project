@@ -29,24 +29,21 @@
                 </div>
                 
                 
-                <div id="myTopnav" class="topnav-list">
-                    <a href="Search.php">Home
-                        <span class="fa fa-home"></span>
-                    </a>
-                    <a href="profile.php">Profile
-                        <span class="fa fa-address-card"></span>
-                    </a>
-                    <a href="Apps.php">Apps
-                        <span class="fa fa-tasks"></span>
-                    </a>              
-                    <a href="logout.php">Log Out
-                        <span class="fa fa-space-shuttle"></span>
-                    </a>
-                    <!--<form class="topnav-list-search">
-                        <input type="text" id="search" name="search" placeholder="Search...">
-                    </form>-->
-                
-                </div>
+            <div id="myTopnav" class="topnav-list">
+                <a href="guestSearch.php">Home
+                    <span class="fa fa-address-card"></span>
+                </a>
+                <a href="AboutPage.php">About
+                    <span class="fa fa-question-circle"></span>
+                </a>
+                <a href="SSO.php">Login
+                    <span class="fa fa-unlock-alt"></span>
+                </a>
+                <!--<form class="topnav-list-search">
+                    <input type="text" id="search" name="search" placeholder="Search...">
+                </form>-->
+            
+            </div>
                 <hr id="topHR" noshade>
                 <hr id="topHR" noshade>
                 
@@ -57,11 +54,12 @@
         <!-- Search form -->    
         <div id="main" class="main" align="center" style="margin-top:10%; margin-bottom:5%; font-family: 'Montserrat', sans-serif;">
           
-        <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
+        <form method="post" action="guestSearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name, position, or location">
                 <select name="searchby" id="searchby">
                     <option value="by_name">Name</option>
-                    <option value="by_position">Position</option>
+                    <option value="by_position">Position</option>                    
+                    <option value="by_dept">Department</option>
                     <option value="by_location">Location</option>
                 </select>
                 <button class="short" type="submit" name="submit">
@@ -74,9 +72,12 @@
             if ($_POST['searchby'] == "by_name") {
                 $term = "Displaying employees with names containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
-            else if ($_POST['searchby'] == "by_position") {
-                $term = "Displaying employees with positions containing '" . htmlspecialchars($_POST['name']) . "'.";
+            else if ($_POST['searchby'] == "by_dept") {
+                $term = "Displaying employees that work in departments containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
+            else if ($_POST['searchby'] == "by_position") {
+                $term = "Displaying employees that work in positions containing '" . htmlspecialchars($_POST['name']) . "'.";
+            }            
             else if ($_POST['searchby'] == "by_location") {
                 $term = "Displaying employees from locations containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
@@ -107,6 +108,9 @@
                             }
                             else if ($opt == "by_position") {
                                 $sql="(SELECT * FROM employee WHERE employee.tid IN (SELECT tid FROM title WHERE title.posname LIKE '%" . $name ."%'))";
+                            }                            
+                            else if ($opt == "by_dept") {
+                                $sql="(SELECT * FROM employee WHERE employee.did IN (SELECT did FROM department WHERE department.description LIKE '%" . $name ."%'))";
                             }
 
                             //-run  the query against the mysql query function
@@ -118,9 +122,10 @@
                               <tr>
                                 <th onclick="sortTable(0)">Name</th>
                                 <th onclick="sortTable(1)">Title</th>
-                                <th onclick="sortTable(2)">Location</th>
-                                <th onclick="sortTable(3)">Ext.</th>
-                                <th onclick="sortTable(4)">Email</th>
+                                <th onclick="sortTable(2)">Dept.</th>
+                                <th onclick="sortTable(3)">Location</th>
+                                <th onclick="sortTable(4)">Ext.</th>
+                                <th onclick="sortTable(5)">Email</th>
                               </tr>
                             <?php
                                             $i=1;
@@ -137,6 +142,14 @@
                                         echo $r['posname'];
                                     ?>
                                 </td>
+                                <td>
+                                    <?php 
+                                        $sql="SELECT description FROM department WHERE department.did = ". $row['did'];
+                                        $res=mysqli_query($db,$sql);
+                                        $r=mysqli_fetch_array($res);
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
+                                    ?>
+                                </td>                                 
                                 <td>
                                     <?php 
                                         $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
