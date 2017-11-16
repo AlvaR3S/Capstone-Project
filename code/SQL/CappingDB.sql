@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `eid` int(11) NOT NULL AUTO_INCREMENT,
   `oid` int(11) NOT NULL,
   `tid` int(11) NOT NULL,
-  `did` int(11) NOT NULL,
+  `did` int(11) DEFAULT NULL,
   `username` varchar(96) NOT NULL,
   `reportsTo` int(11) DEFAULT NULL,
   `firstname` varchar(96) NOT NULL,
@@ -174,14 +174,15 @@ CREATE TABLE IF NOT EXISTS `employee` (
   UNIQUE KEY `eid` (`eid`),
   KEY `FOREIGN_KEY` (`oid`) COMMENT 'foreign_key',
   KEY `FOREIGN_KEY3` (`username`) COMMENT 'foreign_key3',
-  KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2'
+  KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2',
+  KEY `did` (`did`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`oid`, `tid`, `did `, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
+INSERT INTO `employee` (`oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
 (1, 1, NULL, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
 (2, 5, 1, 'leokeefe', 1, 'leo', 'keefe', '1996-09-01', '2017-11-06', 989809090, 898, 'leokeefe@hotmail.com', '777 Clarke Street', 'Minneapolis', 'MN', 'USA', 82909),
 (3, 4, NULL, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
@@ -349,9 +350,9 @@ ALTER TABLE `application_request`
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
+  ADD CONSTRAINT `did` FOREIGN KEY (`did`) REFERENCES `department` (`did`),
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `organization` (`oid`),
-  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`),
-  ADD CONSTRAINT `did` FOREIGN KEY (`did`) REFERENCES `department`(`did`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`);
 
 --
 -- Constraints for table `login`

@@ -1,0 +1,22 @@
+.leftButton {
+	padding-bottom: 200px;
+    padding-top: 200px;
+    width: 33%;
+}
+
+.rightButton {
+	margin-left: 4%;
+    padding-bottom: 200px;
+    padding-top: 200px;
+    width: 34%;
+    margin-top: -225px;
+}
+
+.containerApps {
+	background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin:60px  auto;
+    width: 80%;
+    border: solid darkred;
+ }
