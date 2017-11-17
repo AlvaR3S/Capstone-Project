@@ -4,8 +4,9 @@ $id = mysqli_query($db,$sql);
 $row = mysqli_fetch_assoc($id);
 $login_id = $row['tid'];
 
-if(($login_id > 4 && $login_id < 2) || $login_id == 3){
-	header("location: Error.php");
+if($login_id != 4){
+	if($login_id != 2)
+		header("location: Error.php");
 }
 
 ?>
