@@ -90,7 +90,6 @@
         </div>
 
         <div class="bottom-container-profile">
-            <hr id="split">
             <div class="BottomInfo">
               <h3>Email Address:</h3> <br>
               <h5 id="response"><?php echo '' . $login_email;?></h5>
