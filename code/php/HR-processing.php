@@ -36,6 +36,7 @@ $city = mysqli_real_escape_string($link, $_POST['city']);
 $zip = mysqli_real_escape_string($link, $_POST['zip']);
 $username = mysqli_real_escape_string($link, $_POST['username']);
 $password = mysqli_real_escape_string($link, $_POST['password']);
+$hashedpassword = hash('sha512', $_POST['password']);
 $email = mysqli_real_escape_string($link, $_POST['email']);
 $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
 $hired = strtotime($hiredate);
@@ -50,7 +51,7 @@ if (!mysqli_query($link, $sql)) {
 } 
 
 $query = "INSERT INTO login (username, pwd)
-		  VALUES ('$username', '$password')";
+		  VALUES ('$username', '$hashedpassword')";
 
 
 if (!mysqli_query($link, $query)) {
