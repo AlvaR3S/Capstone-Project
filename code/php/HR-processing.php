@@ -42,6 +42,15 @@ $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
 $hired = strtotime($hiredate);
 $joined = date("Y-m-d", $hired);
 
+//password hash
+$password = mysqli_real_escape_string($link, $_POST['password']);
+$options = [
+    'cost' => 11,
+    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+];
+
+$hashedpassword = password_hash($password, PASSWORD_BCRYPT, $options);
+
 
 if ($password == $verifypw) {
     $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
