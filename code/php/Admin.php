@@ -35,11 +35,6 @@ include('admin_check.php');
                     Add/Remove Employee
                 </button>
 
-            <!--</div>-->
-        </div>
-        <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
-            <a href="https://icons8.com"><font color=grey size="1">All Applications Icons credited to icons8.com.</font></a>
-        </div>
         
         <!-- Footer -->
         <div class="footer">
