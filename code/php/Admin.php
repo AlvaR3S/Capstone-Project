@@ -35,7 +35,7 @@ include('admin_check.php');
                     Add/Remove Employee
                 </button>
 
-        
+        </div>
         <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
