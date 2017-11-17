@@ -36,6 +36,7 @@ $city = mysqli_real_escape_string($link, $_POST['city']);
 $zip = mysqli_real_escape_string($link, $_POST['zip']);
 $username = mysqli_real_escape_string($link, $_POST['username']);
 $password = mysqli_real_escape_string($link, $_POST['password']);
+$verifypw = mysqli_real_escape_string($link, $_POST['verifypw']);
 $hashedpassword = hash('sha512', $_POST['password']);
 $email = mysqli_real_escape_string($link, $_POST['email']);
 $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
@@ -43,20 +44,26 @@ $hired = strtotime($hiredate);
 $joined = date("Y-m-d", $hired);
 
 
-$sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+if ($password == $verifypw) {
+    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
+    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
-if (!mysqli_query($link, $sql)) {
-    die('Error: ' . mysqli_error($link)); 
-} 
+    if (!mysqli_query($link, $sql)) {
+        die('Error: ' . mysqli_error($link)); 
+    } 
 
-$query = "INSERT INTO login (username, pwd)
-		  VALUES ('$username', '$hashedpassword')";
+    $query = "INSERT INTO login (username, pwd)
+              VALUES ('$username', '$hashedpassword')";
 
 
-if (!mysqli_query($link, $query)) {
-	die('Error: ' . mysqli_error($link));
+    if (!mysqli_query($link, $query)) {
+        die('Error: ' . mysqli_error($link));
+    }    
+} else {
+    header("location:passworderror.php");
 }
+
+
 
 mysqli_close($link);
 
