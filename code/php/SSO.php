@@ -9,19 +9,20 @@
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT * FROM login WHERE username = '$myusername' and pwd = '$mypassword'";
+      $sql = "SELECT * FROM login WHERE username = '$myusername'";
       $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      
-      
+      //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
     
-      if($count == 1) {
-         $_SESSION['login_user'] = $myusername;
-         
-         header("location: profile.php?login_user=$myusername");
+      if($count > 0) {
+		 $row = mysqli_fetch_array($result);
+		 $password_hash = $row['pwd'];
+			if(password_verify($mypassword, $password_hash)){
+				$_SESSION['login_user'] = $myusername;
+				header("location: profile.php?login_user=$myusername");
+			}
       }else {
       ?>
       <div class="login_err">
@@ -56,7 +57,7 @@
         <div class="login" style=center>
             <h2>Sign In</h2>
 
-          <form action="" method="post">
+          <form method="post" enctype="multipart/form-data" action="SSO.php">
                 <label><b>Username</b></label><br>
                 <input class="fmt" type="text" placeholder="Enter Username" name="username" required><br>
                 <br>

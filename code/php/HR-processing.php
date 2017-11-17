@@ -49,7 +49,7 @@ $options = [
     'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
 ];
 
-$hashedpassword = password_hash($password, PASSWORD_BCRYPT, $options);
+$hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
 
 if ($password == $verifypw) {
