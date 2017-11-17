@@ -75,32 +75,32 @@
     <body>
 
         
-        <div class="container-profile">
+        <div class="container-profile-style">
             
-            <div class="TopInfo">
-                <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">    
-                <h1 id="name"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
-                <span class="status"><?php echo '' . $login_title;?></span>
-                <button id="edit">Edit</button>                
-            </div>      
-        </div>
-
-        <div class="bottom-container-profile">
-            <!-- <hr id="split"> -->
-            <div class="BottomInfo">
-              <h5 style="color: gray;">Contact Info</h5><hr id="contactInfo">
+            <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
+            <h6 class="status"><?php echo '' . $login_title;?></h6>
+            <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">
+          <button id="edit">Edit</button>
+          <hr id="underEdit">
+          <h4 style="margin-top: 35px; color: gray; margin-left: 5%;">Work</h4><hr id="workHr">                
+  
               <div class="addressInfo">
                 <h3>Address:</h3> <br>
                 <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
               </div> 
-              <h3>Email Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_email;?></h5>
-              <h3>Phone Number</h3> <br>
-              <h5 id="response"><?php 
+           
+            
+              <div class="contact-content">
+                <h4 style="color: gray;">Contact Information</h4>
+                <h3>Email Address:</h3> <br>
+                <h5 id="response"><?php echo '' . $login_email;?></h5>
+                <h3>Phone Number</h3> <br>
+                <h5 id="response"><?php 
                   echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
+              </div>
+              
               
             </div>      
-        </div>      
         
          <!-- Footer -->
         <div class="footer">

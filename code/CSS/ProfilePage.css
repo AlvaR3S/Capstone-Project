@@ -130,7 +130,7 @@ input#search {
 
 
 /* Aligns Profile pic and Name/description */
-.container-profile {
+.container-profile-style {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: 10%;
@@ -141,36 +141,25 @@ input#search {
   border: 1px solid darkred;
 }
 
-.bottom-container-profile {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 30px;
-  background-color: white;
-  border-radius: 15px;
-  border: 1px solid darkred;
-  padding-bottom: 180px;
-}
-
- #name {
+ #userName {
   color: black;
   font-weight: 100;
   font-size: 40px;
-  padding-top: 60px;
+  margin-left: 45%;
+  margin-top: 30px;
 }
 
 .picInfo {
-  width: 27%;
+  width: 30%;
   border-radius: 5px;
-  float: left;
-  margin-right: 20px;
-  margin-top: 40px;
+  margin-top: -88px;
   border: 1px solid gray;
+  margin-left: 5%;
 }
 
 .status {
   color: black;
+  margin-left: 47%;
 }
 
 div {
@@ -183,11 +172,11 @@ div {
  #edit {
   color: black;
   font-size: 15px;
-  padding-top: 10px;
+  padding-top: 5px;
   width: auto;
-  margin-top: 35px;
   cursor: pointer;
-  margin-left: 55%;
+  margin-left: 47%;
+  padding-bottom: 5px;
 }
 
 .profile-info {
@@ -204,23 +193,31 @@ div {
   padding-bottom: 12%;
 }
 
-#split {
-  border: none;
-  border-left: 1px solid hsla(200, 10%, 50%,100);
-  height: 420px;
-  width: 0;
-  margin-left: 47.7%;  
-}
-
 .BottomInfo {
-
+  margin-left: 5%;
+  margin-top: 45px;
 }
 
 .addressInfo {
-  margin-top: -8px;
+  margin-left: 5%;
 }
 
-#contactInfo {
+.contact-content {
+  margin-left: 46%;
+  margin-top: -205px;
 
 }
 
+#workHr {
+  width: 25%;
+  margin-left: 12%;
+  margin-top: -20px;
+  border: 0.5px solid grey;
+}
+
+#underEdit {
+  border: 0.5px solid grey;
+  width: 50%;
+  margin-left: 46%;
+  margin-top: -11px;
+}
