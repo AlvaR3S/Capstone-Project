@@ -42,3 +42,9 @@
         </header>
         <br>
 </html>
+
+<style>
+.topnav{
+	z-index: 100000;
+}
+</style>
