@@ -23,9 +23,9 @@ include('admin_check.php');
     <body>
 
     
-    
-        <div class="containerApps" align=center style="margin-top:150px;">
-            <h1> Choose an action to execute </h1>
+        <div class="adminHead" align=center style="font-size: 45px; margin-top:150px;">Admin Control Panel</div>
+        <div class="containerApps" align=center>
+            <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
                 <button class="leftButton" onclick="window.location.href='Manager.php'">
                     Application Request Form
@@ -62,6 +62,10 @@ include('admin_check.php');
 </html>
 
 <style>
+
+    h1 {
+        font-size: 25px;
+    }
     .app {
         width: 185px;
         height: 185px;
