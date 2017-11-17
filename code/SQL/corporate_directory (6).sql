@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `access_log` (
 -- Dumping data for table `access_log`
 --
 
-INSERT INTO `access_log` (`logid`, `eid`, `ad`) VALUES
-(1, 1, '2017-11-01 04:00:00');
+INSERT INTO `access_log` (`eid`, `ad`) VALUES
+(1, '2017-11-01 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -62,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `application` (
 --
 
 INSERT INTO `application` (`appid`, `description`) VALUES
-(1, 'Skype'),
-(2, 'Salesforce'),
-(3, 'Assets'),
-(4, 'Outlook'),
-(5, 'Teamcity'),
-(6, 'Artifactory');
+('Skype'),
+('Salesforce'),
+('Assets'),
+('Outlook'),
+('Teamcity'),
+('Artifactory');
 
 -- --------------------------------------------------------
 
@@ -112,10 +112,10 @@ CREATE TABLE IF NOT EXISTS `application_request` (
 -- Dumping data for table `application_request`
 --
 
-INSERT INTO `application_request` (`reqid`, `app_id`, `e_id`, `rd`, `description`) VALUES
-(8, 4, 3, '2017-06-19 04:00:00', 'I would like access to this since I need to use it for video editing.'),
-(9, 5, 5, '2017-05-15 04:00:00', 'Hi, I need to Skype clients in Russia.'),
-(11, 2, 3, '0000-00-00 00:00:00', 'hello');
+INSERT INTO `application_request` (`app_id`, `e_id`, `rd`, `description`) VALUES
+(4, 3, '2017-06-19 04:00:00', 'I would like access to this since I need to use it for video editing.'),
+(5, 5, '2017-05-15 04:00:00', 'Hi, I need to Skype clients in Russia.'),
+(2, 3, '0000-00-00 00:00:00', 'hello');
 
 -- --------------------------------------------------------
 
@@ -133,13 +133,13 @@ CREATE TABLE IF NOT EXISTS `department` (
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`did`, `description`) VALUES
-(1, 'Marketing'),
-(2, 'Sales'),
-(3, 'Plant and Infrastructure'),
-(4, 'Information Technology'),
-(5, 'Product Development'),
-(6, 'Human Resources');
+INSERT INTO `department` (`description`) VALUES
+('Marketing'),
+('Sales'),
+('Plant and Infrastructure'),
+('Information Technology'),
+('Product Development'),
+('Human Resources');
 
 -- --------------------------------------------------------
 
@@ -178,19 +178,19 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`eid`, `oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
-(1, 1, 1, NULL, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
-(3, 3, 4, NULL, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
-(5, 5, 2, 4, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
-(6, 2, 2, 2, 'kwest', 5, 'Kanye ', 'West', '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
-(7, 5, 4, 5, 'quentintarantino', 6, 'quentin', 'tarantino', '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
-(8, 1, 2, NULL, 'hov', 1, 'shawn', 'carter', '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785),
-(9, 3, 3, 6, 'HR', 1, 'Human', 'Resources', '1990-01-01', '2017-11-01', 7185909384, 876, 'hr@gmail.com', '76 Utopia Lane', 'Astoria', 'New York', 'USA', 11423),
-(10, 3, 4, 3, 'georgebush', NULL, 'George', 'Bush', '1990-02-09', '2011-08-09', 7489507584, 839, 'georgebush@president.com', '900 Rockland St', 'Clarke', '', 'USA', 73849),
-(11, 2, 2, NULL, 'richardgere', NULL, 'Richard', 'Gere', '1970-08-09', '2017-02-03', 7485940392, 748, 'richardgere@gmail.com', '98 Apple Road', 'Rockland', 'Oregon', 'USA', 92830),
-(12, 2, 4, 5, 'levarburton', 1, 'levar', 'burton', '1980-11-09', '2017-01-01', 8379405930, 29, 'levarburton@gmail.com', '80 Karoake Street', 'Portis', 'Utah', 'USA', 9827),
-(13, 4, 5, NULL, 'miyamoto', 11, 'shigeru', 'miyamoto', '1987-02-09', '2017-11-05', 8179483029, 827, 'nintendo@gmail.com', '90 Kirbyville', 'Tontsu', NULL, 'JP', 16273),
-(14, 2, 2, 3, 'opethalice', NULL, 'opeth', 'alice', '1970-01-01', '2017-08-01', 8394098978, 231, 'opethalice@gmail.com', '89 Polle Ave', 'Hollywood', 'New York', 'USA', 32143);
+INSERT INTO `employee` (`oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
+(1, 1, 1, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
+(3, 4, 2, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
+(5, 2, 4, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
+(2, 2, 2, 'kwest', 5, 'Kanye ', 'West', '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
+(5, 4, 5, 'quentintarantino', 6, 'quentin', 'tarantino', '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
+(1, 2, 4, 'hov', 1, 'shawn', 'carter', '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785),
+(3, 3, 6, 'HR', 1, 'Human', 'Resources', '1990-01-01', '2017-11-01', 7185909384, 876, 'hr@gmail.com', '76 Utopia Lane', 'Astoria', 'New York', 'USA', 11423),
+(3, 4, 3, 'georgebush', NULL, 'George', 'Bush', '1990-02-09', '2011-08-09', 7489507584, 839, 'georgebush@president.com', '900 Rockland St', 'Clarke', '', 'USA', 73849),
+(2, 2, 5, 'richardgere', NULL, 'Richard', 'Gere', '1970-08-09', '2017-02-03', 7485940392, 748, 'richardgere@gmail.com', '98 Apple Road', 'Rockland', 'Oregon', 'USA', 92830),
+(2, 4, 5, 'levarburton', 1, 'levar', 'burton', '1980-11-09', '2017-01-01', 8379405930, 29, 'levarburton@gmail.com', '80 Karoake Street', 'Portis', 'Utah', 'USA', 9827),
+(4, 5, 6, 'miyamoto', 11, 'shigeru', 'miyamoto', '1987-02-09', '2017-11-05', 8179483029, 827, 'nintendo@gmail.com', '90 Kirbyville', 'Tontsu', NULL, 'JP', 16273),
+(2, 2, 3, 'opethalice', NULL, 'opeth', 'alice', '1970-01-01', '2017-08-01', 8394098978, 231, 'opethalice@gmail.com', '89 Polle Ave', 'Hollywood', 'New York', 'USA', 32143);
 
 -- --------------------------------------------------------
 
@@ -237,13 +237,12 @@ CREATE TABLE IF NOT EXISTS `organization` (
 --
 
 INSERT INTO `organization` (`oid`, `location`) VALUES
-(2, 'Chicago'),
-(6, 'London'),
-(3, 'Los Angeles'),
-(1, 'New York City'),
-(5, 'Paris'),
-(4, 'Tokyo');
-
+('New York City'),
+('Chicago'),
+('Los Angeles'),
+('Tokyo'),
+('Paris'),
+('London');
 -- --------------------------------------------------------
 
 --
@@ -261,11 +260,11 @@ CREATE TABLE IF NOT EXISTS `systems` (
 -- Dumping data for table `systems`
 --
 
-INSERT INTO `systems` (`sysid`, `descrip`) VALUES
-(2, 'email'),
-(4, 'instant messaging'),
-(1, 'phone'),
-(3, 'web server');
+INSERT INTO `systems` (`descrip`) VALUES
+('phone'),
+('email'),
+('web server'),
+('instant messaging');
 
 -- --------------------------------------------------------
 
@@ -309,11 +308,11 @@ CREATE TABLE IF NOT EXISTS `title` (
 --
 
 INSERT INTO `title` (`tid`, `posname`) VALUES
-(2, 'Administrator'),
-(1, 'CEO/Board'),
-(5, 'Employee'),
-(3, 'HR'),
-(4, 'Manager');
+('CEO/Board'),
+('Administrator'),
+('HR'),
+('Manager'),
+('Employee');
 
 --
 -- Constraints for dumped tables
