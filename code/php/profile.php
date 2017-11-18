@@ -77,16 +77,20 @@
         
         <div class="container-profile-style">
             
-            <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
-            <h6 class="status"><?php echo '' . $login_title;?></h6>
+            <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
+            <h6 class="locationInfo">Washington, DC</h6>
+            <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
             <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">
           <button id="edit">Edit</button>
           <hr id="underEdit">
-          <h4 style="margin-top: 35px; color: gray; margin-left: 5%;">Work</h4><hr id="workHr">                
-  
-              <div class="addressInfo">
+             
+              <div class="underWork">
+                <hr id="workHr">            
+                <h4 style="color: gray;">Work Infromation</h4>
                 <h3>Address:</h3> <br>
                 <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
+                <h3>An employee since:</h3>
+                <h5>2017-11-06</h5>
               </div> 
            
             
