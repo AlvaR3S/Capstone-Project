@@ -73,6 +73,8 @@
     
     
     <body>
+	
+	
 
         
         <div class="container-profile-style">
@@ -81,6 +83,12 @@
             <h6 class="locationInfo">Washington, DC</h6>
             <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
             <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">
+			<!-- profile pic code -->
+			<form action="upload.php" method="post" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="submit" value="Upload Image" name="submit">
+</form>
           <button id="edit">Edit</button>
           <hr id="underEdit">
              
