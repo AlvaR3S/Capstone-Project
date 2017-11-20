@@ -16,6 +16,7 @@ if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
 }
 
+//problems at 21, 51, 79
 $target = "uploads/";
 $target = $target . basename( $_FILES['photo']['name']);
 
