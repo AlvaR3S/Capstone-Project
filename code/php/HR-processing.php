@@ -16,6 +16,10 @@ if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
 }
 
+$target = "uploads/";
+$target = $target . basename( $_FILES['photo']['name']);
+
+
 $firstname = mysqli_real_escape_string($link, $_POST['firstname']);
 $lastname = mysqli_real_escape_string($link, $_POST['lastname']);
 $dob = mysqli_real_escape_string($link, $_POST['dob']);
@@ -42,6 +46,9 @@ $hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
 $hired = strtotime($hiredate);
 $joined = date("Y-m-d", $hired);
 
+//profile picture
+$pic=($_FILES['photo']['name']);
+
 //password hash
 $password = mysqli_real_escape_string($link, $_POST['password']);
 $options = [
@@ -53,8 +60,8 @@ $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
 
 if ($password == $verifypw) {
-    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, picture, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
+    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$pic', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
     if (!mysqli_query($link, $sql)) {
         die('Error: ' . mysqli_error($link)); 
@@ -66,7 +73,16 @@ if ($password == $verifypw) {
 
     if (!mysqli_query($link, $query)) {
         die('Error: ' . mysqli_error($link));
-    }    
+    }
+
+	if(move_uploaded_file($_FILES['photo']['tmp_name'], $target)) {
+		// Tells you if its all ok
+		echo "The file ". basename( $_FILES['uploadedfile']['name']). " has been uploaded, and your information has been added to the directory";
+		} else {
+		// Gives and error if its not
+		echo "Sorry, there was a problem uploading your file.";
+	}
+	
 } else {
     header("location:passworderror.php");
 }

@@ -94,8 +94,10 @@ include('HR_check.php');
                         <h4 style="margin-top: 22px;">Login Information*</h4>
                         <input type="text" name="username" pattern="[A-Za-z0-9]{6,}" placeholder="Enter New Username" required>
                         <input type="password" name="password" pattern=".{6,}" placeholder="Enter New Password" required>
-                        <input type="password" name="verifypw" pattern=".{6,}" style="margin-left: 308px; margin-top: 5px" placeholder="Re-enter Password" required>
-                        <input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address" required>
+                        <input type="password" name="verifypw" pattern=".{6,}" style="margin-left: 0px; margin-top: 5px" placeholder="Re-enter Password" required>
+                        <!-- profile pic code -->
+						<input type="file" name="photo" style="margin-left: 50px; margin-top: 5px" placeholder="Select image to upload:"> 
+						<input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address" required>
                         <input style="width: 20%;" type="date" name="hiredate" required>
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
                         
