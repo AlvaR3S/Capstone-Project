@@ -1,47 +1,46 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 09, 2017 at 09:24 PM
--- Server version: 5.5.58-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.22
+-- Host: 127.0.0.1
+-- Generation Time: Nov 20, 2017 at 06:00 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Corporate_Directory`
+-- Database: `corporate_directory`
 --
-
+CREATE DATABASE IF NOT EXISTS `corporate_directory` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `corporate_directory`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `access_log`
 --
 
-CREATE TABLE IF NOT EXISTS `access_log` (
-  `logid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `access_log` (
+  `logid` int(11) NOT NULL,
   `eid` int(11) NOT NULL,
-  `ad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`logid`),
-  KEY `FOREIGN_KEY` (`eid`) COMMENT 'foreign_key'
+  `ad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `access_log`
 --
 
-INSERT INTO `access_log` (`eid`, `ad`) VALUES
-(1, '2017-11-01 04:00:00'),
-(4, '2017-11-15 05:00:00'),
-(4, '2017-11-02 04:00:00');
+INSERT INTO `access_log` (`logid`, `eid`, `ad`) VALUES
+(1, 1, '2017-11-01 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -49,23 +48,22 @@ INSERT INTO `access_log` (`eid`, `ad`) VALUES
 -- Table structure for table `application`
 --
 
-CREATE TABLE IF NOT EXISTS `application` (
-  `appid` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(96) NOT NULL,
-  PRIMARY KEY (`appid`)
+CREATE TABLE `application` (
+  `appid` int(11) NOT NULL,
+  `description` varchar(96) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `application`
 --
 
-INSERT INTO `application` (`description`) VALUES
-('Skype'),
-('Salesforce'),
-('Assets'),
-('Outlook'),
-('Teamcity'),
-('Artifactory');
+INSERT INTO `application` (`appid`, `description`) VALUES
+(1, 'Skype'),
+(2, 'Salesforce'),
+(3, 'Assets'),
+(4, 'Outlook'),
+(5, 'Teamcity'),
+(6, 'Artifactory');
 
 -- --------------------------------------------------------
 
@@ -73,11 +71,9 @@ INSERT INTO `application` (`description`) VALUES
 -- Table structure for table `application_access_log`
 --
 
-CREATE TABLE IF NOT EXISTS `application_access_log` (
+CREATE TABLE `application_access_log` (
   `appid` int(11) NOT NULL,
-  `eid` int(11) NOT NULL,
-  KEY `FOREIGN_KEY` (`appid`) COMMENT 'foreign_key',
-  KEY `FOREIGN_KEY2` (`eid`) COMMENT 'foreign_key'
+  `eid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -85,12 +81,12 @@ CREATE TABLE IF NOT EXISTS `application_access_log` (
 --
 
 INSERT INTO `application_access_log` (`appid`, `eid`) VALUES
-(1, 2),
-(1, 4),
 (4, 3),
 (3, 5),
-(6, 2),
-(5, 3);
+(5, 3),
+(4, 3),
+(5, 5),
+(2, 3);
 
 -- --------------------------------------------------------
 
@@ -98,28 +94,13 @@ INSERT INTO `application_access_log` (`appid`, `eid`) VALUES
 -- Table structure for table `application_request`
 --
 
-CREATE TABLE IF NOT EXISTS `application_request` (
-  `reqid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `application_request` (
+  `reqid` int(11) NOT NULL,
   `app_id` int(11) NOT NULL,
-  `e_id` int(11) NOT NULL,
+  `e_id` int(11) DEFAULT NULL,
   `rd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `description` text,
-  PRIMARY KEY (`reqid`),
-  KEY `foreign_key` (`app_id`),
-  KEY `foreign_key2` (`e_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `application_request`
---
-
-INSERT INTO `application_request` (`app_id`, `e_id`, `rd`, `description`) VALUES
-(1, 2, '2017-10-03 04:00:00', NULL),
-(4, 3, '2017-06-19 04:00:00', 'I would like access to this since I need to use it for video editing.'),
-(5, 5, '2017-05-15 04:00:00', 'Hi, I need to Skype clients in Russia.'),
-(1, 4, '2016-11-13 05:00:00', 'Hi, I like this app. I want to use it. Thanks. '),
-(2, 3, '0000-00-00 00:00:00', 'hello'),
-(4, 2, '2017-11-10 02:22:35', 'yes');
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -128,22 +109,21 @@ INSERT INTO `application_request` (`app_id`, `e_id`, `rd`, `description`) VALUES
 --
 
 CREATE TABLE `department` (
-  `did` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(96) NOT NULL,
-  PRIMARY KEY(`did`)
+  `did` int(11) NOT NULL,
+  `description` varchar(96) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`description`) VALUES
-('Marketing'),
-('Sales'),
-('Plant and Infrastructure'),
-('Information Technology'),
-('Product Development'),
-('Human Resources');
+INSERT INTO `department` (`did`, `description`) VALUES
+(1, 'Marketing'),
+(2, 'Sales'),
+(3, 'Plant and Infrastructure'),
+(4, 'Information Technology'),
+(5, 'Product Development'),
+(6, 'Human Resources');
 
 -- --------------------------------------------------------
 
@@ -151,8 +131,8 @@ INSERT INTO `department` (`description`) VALUES
 -- Table structure for table `employee`
 --
 
-CREATE TABLE IF NOT EXISTS `employee` (
-  `eid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `employee` (
+  `eid` int(11) NOT NULL,
   `oid` int(11) NOT NULL,
   `tid` int(11) NOT NULL,
   `did` int(11) DEFAULT NULL,
@@ -160,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `reportsTo` int(11) DEFAULT NULL,
   `firstname` varchar(96) NOT NULL,
   `lastname` varchar(96) NOT NULL,
+  `picture` varchar(96) DEFAULT NULL,
   `dob` date NOT NULL,
   `hireDate` date NOT NULL,
   `homePhone` bigint(30) NOT NULL,
@@ -169,33 +150,37 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `city_town` varchar(96) NOT NULL,
   `state` varchar(96) DEFAULT NULL,
   `country` varchar(96) NOT NULL,
-  `zip` int(11) NOT NULL,
-  PRIMARY KEY (`eid`),
-  UNIQUE KEY `eid` (`eid`),
-  KEY `FOREIGN_KEY` (`oid`) COMMENT 'foreign_key',
-  KEY `FOREIGN_KEY3` (`username`) COMMENT 'foreign_key3',
-  KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2',
-  KEY `did` (`did`)
+  `zip` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
-(1, 1, 6, 'kaimanners', NULL, 'kai', 'manners', '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
-(2, 5, 1, 'leokeefe', 1, 'leo', 'keefe', '1996-09-01', '2017-11-06', 989809090, 898, 'leokeefe@hotmail.com', '777 Clarke Street', 'Minneapolis', 'MN', 'USA', 82909),
-(3, 4, 2, 'barackobama', 1, 'barack', 'obama', '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
-(4, 3, 3, 'Masahiro.Sakurai', 1, 'Masashiro ', 'Sakurai', '2015-07-13', '2017-09-18', 9810929091, 761, 'supersmash@gmail.com', '78 Ico Avenue', 'Tokyo', NULL, 'JP', 87192),
-(5, 2, 4, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
-(2, 2, 2, 'kwest', 5, 'Kanye ', 'West', '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
-(5, 4, 5, 'quentintarantino', 6, 'quentin', 'tarantino', '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
-(1, 2, 4, 'hov', 1, 'shawn', 'carter', '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785),
-(3, 3, 6, 'HR', 1, 'Human', 'Resources', '1990-01-01', '2017-11-01', 7185909384, 876, 'hr@gmail.com', '76 Utopia Lane', 'Astoria', 'New York', 'USA', 11423),
-(3, 4, 3, 'georgebush', NULL, 'George', 'Bush', '1990-02-09', '2011-08-09', 7489507584, 839, 'georgebush@president.com', '900 Rockland St', 'Clarke', '', 'USA', 73849),
-(2, 2, 1, 'richardgere', NULL, 'Richard', 'Gere', '1970-08-09', '2017-02-03', 7485940392, 748, 'richardgere@gmail.com', '98 Apple Road', 'Rockland', 'Oregon', 'USA', 92830),
-(2, 4, 5, 'levarburton', 1, 'levar', 'burton', '1980-11-09', '2017-01-01', 8379405930, 29, 'levarburton@gmail.com', '80 Karoake Street', 'Portis', 'Utah', 'USA', 9827),
-(4, 5, 5, 'miyamoto', 11, 'shigeru', 'miyamoto', '1987-02-09', '2017-11-05', 8179483029, 827, 'nintendo@gmail.com', '90 Kirbyville', 'Tontsu', NULL, 'JP', 16273);
+INSERT INTO `employee` (`eid`, `oid`, `tid`, `did`, `username`, `reportsTo`, `firstname`, `lastname`, `picture`, `dob`, `hireDate`, `homePhone`, `workExt`, `email`, `streetAddress`, `city_town`, `state`, `country`, `zip`) VALUES
+(1, 1, 1, 6, 'kaimanners', NULL, 'kai', 'manners', NULL, '1996-02-22', '2001-08-09', 2147483647, 324, 'somethingweird102@gmail.com', '8721 Nero St.', 'Hollis', 'NY', 'USA', 11423),
+(3, 3, 4, 3, 'barackobama', 1, 'barack', 'obama', NULL, '2017-02-05', '2017-11-05', 985059483, 898, 'barackobama@gmail.com', '21 Pennsylvania Avenue', 'Washington DC', 'Virginia', 'USA', 9281),
+(5, 5, 2, 4, 'Hideki.Kamiya', 3, 'Hideki ', 'Kamiya', NULL, '2017-03-26', '2017-11-07', 7189098282, 898, 'viewtifuljoe@gmail.com', '87 Nanako Street', 'Nagano Perfecture', NULL, 'JP', 11433),
+(6, 2, 2, 2, 'kwest', 5, 'Kanye ', 'West', NULL, '1980-11-11', '2017-08-21', 7489830493, 321, 'iamagod@gmail.com', '76 Chitown St.', 'Chicago', 'Illinois', 'USA', 54672),
+(7, 5, 4, 5, 'quentintarantino', 6, 'quentin', 'tarantino', NULL, '1975-11-09', '2017-08-21', 7489580293, 758, 'killbill@hotmail.com', '87 Pulp Lane', 'Los Angeles', 'California', 'USA', 64785),
+(8, 1, 2, 2, 'hov', 1, 'shawn', 'carter', NULL, '1967-08-07', '2017-05-22', 7890987364, 758, 'younghov@gmail.com', '87 Magna Carta St.', 'New York City', 'New York', 'USA', 64785),
+(9, 3, 3, 6, 'HR', 1, 'Human', 'Resources', NULL, '1990-01-01', '2017-11-01', 7185909384, 876, 'hr@gmail.com', '76 Utopia Lane', 'Astoria', 'New York', 'USA', 11423),
+(10, 3, 4, 3, 'georgebush', NULL, 'George', 'Bush', NULL, '1990-02-09', '2011-08-09', 7489507584, 839, 'georgebush@president.com', '900 Rockland St', 'Clarke', '', 'USA', 73849),
+(11, 2, 2, 2, 'richardgere', NULL, 'Richard', 'Gere', NULL, '1970-08-09', '2017-02-03', 7485940392, 748, 'richardgere@gmail.com', '98 Apple Road', 'Rockland', 'Oregon', 'USA', 92830),
+(12, 2, 4, 5, 'levarburton', 1, 'levar', 'burton', NULL, '1980-11-09', '2017-01-01', 8379405930, 29, 'levarburton@gmail.com', '80 Karoake Street', 'Portis', 'Utah', 'USA', 9827),
+(13, 4, 5, 3, 'miyamoto', 11, 'shigeru', 'miyamoto', NULL, '1987-02-09', '2017-11-05', 8179483029, 827, 'nintendo@gmail.com', '90 Kirbyville', 'Tontsu', NULL, 'JP', 16273),
+(14, 2, 2, 3, 'opethalice', NULL, 'opeth', 'alice', NULL, '1970-01-01', '2017-08-01', 8394098978, 231, 'opethalice@gmail.com', '89 Polle Ave', 'Hollywood', 'New York', 'USA', 32143),
+(15, 1, 1, 1, 'mickjagger', 6, 'mick', 'jagger', NULL, '2017-07-17', '2017-11-15', 7182983049, 617, 'mickjagger@gmail.com', '8721 popopo', 'hollis', NULL, 'USA', 15245),
+(16, 1, 2, 5, 'asdasd', NULL, 'asd', 'asd', NULL, '1990-02-09', '1970-01-01', 7648589879, 321, 'somethingweird102@gmail.com', '12318273', 'asd', 'asdasd', 'USA', 11423),
+(17, 2, 1, 2, 'willywonka', NULL, 'willy', 'wonka', NULL, '1970-01-01', '1990-02-22', 7584938123, 321, 'willywonka@gmail.com', '90 Rick Lane', 'Mew York', '', 'USA', 11423),
+(18, 5, 3, 3, 'ninjaturtle', NULL, 'leonardo', 'theturtle', NULL, '2017-11-08', '2017-01-10', 98789798797, 876, 'ninjaturtle@gmail.com', '78 Poop', 'Hollis', '', 'USA', 11423),
+(19, 4, 3, 4, 'hellomyguy', NULL, 'qwe', 'qwe', NULL, '2017-11-23', '2017-11-01', 8768768123, 312, 'password@gmail.com', '87 popop', 'asda', '', 'iuio', 12332),
+(20, 2, 3, 2, 'poopooman', NULL, 'bitch', 'mcconnell', NULL, '2017-11-01', '2017-11-22', 918273912873, 132, 'poo@gmail.com', '90 KAKAKA', 'NEW', '', 'USA', 82822),
+(21, 2, 1, 4, 'billburr', NULL, 'bill', 'burr', '', '2017-11-01', '2017-11-14', 87632111111, 321, 'somethingweird102@gmail.com', '87 bill burr lane', 'Hollis', 'New York', 'USA', 11423),
+(22, 6, 3, 2, 'johnnydepp', NULL, 'johnny', 'depp', '', '2017-11-14', '2017-11-06', 87629382732, 313, 'jdepp@gmail.com', '09 Poop Box', 'Hollis', '', 'USA', 11123),
+(23, 6, 3, 2, 'hannahmontana', NULL, 'hannah', 'montana', '', '2017-11-01', '2017-11-22', 9728374938, 910, 'hm@gmail.com', '87 Kentucky Road', 'Derby', 'Kentucky', 'USA', 17283),
+(24, 3, 1, 3, 'ellaella', NULL, 'ella', 'ella', '20171016_211753.jpg', '2017-11-30', '2017-11-01', 123123817231, 321, 'ella@gmail.com', '98798 asdadasd', 'Loooo', '', 'USA', 32123),
+(25, 2, 4, 5, 'ryanreynolds', NULL, 'ryan', 'reynolds', 'superior-foes-team-meeting.jpg', '2017-11-02', '2017-11-01', 12312313123, 123, 'ryan@gmail.com', 'efqewfqefqefqwq', 'kjhg', 'kjgh', 'gkghkjgh', 654654);
 
 -- --------------------------------------------------------
 
@@ -203,11 +188,10 @@ INSERT INTO `employee` (`oid`, `tid`, `did`, `username`, `reportsTo`, `firstname
 -- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
+CREATE TABLE `login` (
   `username` varchar(96) NOT NULL,
   `pwd` varchar(96) NOT NULL,
-  `pwdset` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`)
+  `pwdset` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -215,16 +199,21 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`username`, `pwd`, `pwdset`) VALUES
-('barackobama', 'realpres1234', '2017-11-02'),
+('asdasd', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af', '0000-00-00'),
+('barackobama', 'password', '2017-11-01'),
 ('georgebush', 'password', '0000-00-00'),
+('hellomyguy', '$2y$11$FDnnEDq9e5MRHRHlXVOiSu9V.527P26G5opvKFAY0Z5GaArt/qvWq', '0000-00-00'),
 ('Hideki.Kamiya', 'bayonetta123', '2017-07-18'),
 ('HR', 'password', '2017-11-15'),
 ('kaimanners', 'ihatemylife647', '2017-07-10'),
-('leokeefe', 'ilovekai898', '2017-11-30'),
 ('levarburton', 'password', '2017-11-01'),
-('Masahiro.Sakurai', 'capcomsucks909', '2016-10-17'),
+('mickjagger', 'password', '2017-11-01'),
 ('miyamoto', 'password', '2017-11-01'),
-('richardgere', 'password', '0000-00-00');
+('ninjaturtle', '$2y$11$H4tgy7zzO9pP5N3gYOLRY.xhtoS71Qvjgkdn9dL/5d9zhJRdIV0Zq', '0000-00-00'),
+('opethalice', '', '0000-00-00'),
+('poopooman', '$2y$11$LRIHmDkdUKvcMvn1.HpwYeNtgoSV4tZwfqrxThkl/3bfk8bycIclq', '0000-00-00'),
+('richardgere', 'password', '0000-00-00'),
+('willywonka', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -232,24 +221,22 @@ INSERT INTO `login` (`username`, `pwd`, `pwdset`) VALUES
 -- Table structure for table `organization`
 --
 
-CREATE TABLE IF NOT EXISTS `organization` (
-  `oid` int(11) NOT NULL AUTO_INCREMENT,
-  `location` varchar(96) NOT NULL,
-  PRIMARY KEY (`oid`),
-  UNIQUE KEY `location` (`location`)
+CREATE TABLE `organization` (
+  `oid` int(11) NOT NULL,
+  `location` varchar(96) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `organization`
 --
 
-INSERT INTO `organization` (`location`) VALUES
-('New York City'),
-('Chicago'),
-('Los Angeles'),
-('Tokyo'),
-('Paris'),
-('London');
+INSERT INTO `organization` (`oid`, `location`) VALUES
+(2, 'Chicago'),
+(6, 'London'),
+(3, 'Los Angeles'),
+(1, 'New York City'),
+(5, 'Paris'),
+(4, 'Tokyo');
 
 -- --------------------------------------------------------
 
@@ -257,22 +244,20 @@ INSERT INTO `organization` (`location`) VALUES
 -- Table structure for table `systems`
 --
 
-CREATE TABLE IF NOT EXISTS `systems` (
-  `sysid` int(11) NOT NULL AUTO_INCREMENT,
-  `descrip` varchar(96) NOT NULL,
-  PRIMARY KEY (`sysid`),
-  KEY `descrip` (`descrip`)
+CREATE TABLE `systems` (
+  `sysid` int(11) NOT NULL,
+  `descrip` varchar(96) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `systems`
 --
 
-INSERT INTO `systems` (`descrip`) VALUES
-('phone'),
-('email'),
-('web server'),
-('instant messaging');
+INSERT INTO `systems` (`sysid`, `descrip`) VALUES
+(2, 'email'),
+(4, 'instant messaging'),
+(1, 'phone'),
+(3, 'web server');
 
 -- --------------------------------------------------------
 
@@ -280,11 +265,9 @@ INSERT INTO `systems` (`descrip`) VALUES
 -- Table structure for table `system_mgmt`
 --
 
-CREATE TABLE IF NOT EXISTS `system_mgmt` (
+CREATE TABLE `system_mgmt` (
   `sysid` int(11) NOT NULL,
-  `eid` int(11) NOT NULL,
-  KEY `FOREIGN_KEY` (`eid`) COMMENT 'foreign_key',
-  KEY `sysid` (`sysid`)
+  `eid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -292,7 +275,6 @@ CREATE TABLE IF NOT EXISTS `system_mgmt` (
 --
 
 INSERT INTO `system_mgmt` (`sysid`, `eid`) VALUES
-(1, 2),
 (2, 3),
 (3, 1),
 (4, 5);
@@ -303,25 +285,153 @@ INSERT INTO `system_mgmt` (`sysid`, `eid`) VALUES
 -- Table structure for table `title`
 --
 
-CREATE TABLE IF NOT EXISTS `title` (
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `posname` varchar(96) NOT NULL,
-  PRIMARY KEY (`tid`),
-  UNIQUE KEY `posname` (`posname`),
-  KEY `tid` (`tid`),
-  KEY `posname_2` (`posname`)
+CREATE TABLE `title` (
+  `tid` int(11) NOT NULL,
+  `posname` varchar(96) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `title`
 --
 
-INSERT INTO `title` (`posname`) VALUES
-('CEO/Board'),
-('Administrator'),
-('HR'),
-('Manager'),
-('Employee');
+INSERT INTO `title` (`tid`, `posname`) VALUES
+(2, 'Administrator'),
+(1, 'CEO/Board'),
+(5, 'Employee'),
+(3, 'HR'),
+(4, 'Manager');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `access_log`
+--
+ALTER TABLE `access_log`
+  ADD PRIMARY KEY (`logid`),
+  ADD KEY `FOREIGN_KEY` (`eid`) COMMENT 'foreign_key';
+
+--
+-- Indexes for table `application`
+--
+ALTER TABLE `application`
+  ADD PRIMARY KEY (`appid`);
+
+--
+-- Indexes for table `application_access_log`
+--
+ALTER TABLE `application_access_log`
+  ADD KEY `FOREIGN_KEY` (`appid`) COMMENT 'foreign_key',
+  ADD KEY `FOREIGN_KEY2` (`eid`) COMMENT 'foreign_key';
+
+--
+-- Indexes for table `application_request`
+--
+ALTER TABLE `application_request`
+  ADD PRIMARY KEY (`reqid`),
+  ADD KEY `foreign_key` (`app_id`),
+  ADD KEY `foreign_key2` (`e_id`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`did`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`eid`),
+  ADD UNIQUE KEY `eid` (`eid`),
+  ADD KEY `FOREIGN_KEY` (`oid`) COMMENT 'foreign_key',
+  ADD KEY `FOREIGN_KEY3` (`username`) COMMENT 'foreign_key3',
+  ADD KEY `FOREIGN_KEY2` (`tid`) COMMENT 'foreign_key2',
+  ADD KEY `did` (`did`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `organization`
+--
+ALTER TABLE `organization`
+  ADD PRIMARY KEY (`oid`),
+  ADD UNIQUE KEY `location` (`location`);
+
+--
+-- Indexes for table `systems`
+--
+ALTER TABLE `systems`
+  ADD PRIMARY KEY (`sysid`),
+  ADD KEY `descrip` (`descrip`);
+
+--
+-- Indexes for table `system_mgmt`
+--
+ALTER TABLE `system_mgmt`
+  ADD KEY `FOREIGN_KEY` (`eid`) COMMENT 'foreign_key',
+  ADD KEY `sysid` (`sysid`);
+
+--
+-- Indexes for table `title`
+--
+ALTER TABLE `title`
+  ADD PRIMARY KEY (`tid`),
+  ADD UNIQUE KEY `posname` (`posname`),
+  ADD KEY `tid` (`tid`),
+  ADD KEY `posname_2` (`posname`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `access_log`
+--
+ALTER TABLE `access_log`
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `application`
+--
+ALTER TABLE `application`
+  MODIFY `appid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `application_request`
+--
+ALTER TABLE `application_request`
+  MODIFY `reqid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `organization`
+--
+ALTER TABLE `organization`
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `systems`
+--
+ALTER TABLE `systems`
+  MODIFY `sysid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `title`
+--
+ALTER TABLE `title`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- Constraints for dumped tables
 --
@@ -330,21 +440,21 @@ INSERT INTO `title` (`posname`) VALUES
 -- Constraints for table `access_log`
 --
 ALTER TABLE `access_log`
-  ADD CONSTRAINT `access_log_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `access_log_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `application_access_log`
 --
 ALTER TABLE `application_access_log`
   ADD CONSTRAINT `application_access_log_ibfk_1` FOREIGN KEY (`appid`) REFERENCES `application` (`appid`),
-  ADD CONSTRAINT `application_access_log_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `application_access_log_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `application_request`
 --
 ALTER TABLE `application_request`
   ADD CONSTRAINT `application_request_ibfk_1` FOREIGN KEY (`app_id`) REFERENCES `application` (`appid`),
-  ADD CONSTRAINT `application_request_ibfk_2` FOREIGN KEY (`e_id`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `application_request_ibfk_2` FOREIGN KEY (`e_id`) REFERENCES `employee` (`eid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `employee`
@@ -352,20 +462,22 @@ ALTER TABLE `application_request`
 ALTER TABLE `employee`
   ADD CONSTRAINT `did` FOREIGN KEY (`did`) REFERENCES `department` (`did`),
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `organization` (`oid`),
-  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`);
+  ADD CONSTRAINT `tid` FOREIGN KEY (`tid`) REFERENCES `title` (`tid`);
+COMMIT;
 
 --
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`username`) REFERENCES `employee` (`username`);
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`username`) REFERENCES `employee` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `system_mgmt`
 --
 ALTER TABLE `system_mgmt`
   ADD CONSTRAINT `system_mgmt_ibfk_1` FOREIGN KEY (`sysid`) REFERENCES `systems` (`sysid`),
-  ADD CONSTRAINT `system_mgmt_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`);
+  ADD CONSTRAINT `system_mgmt_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `employee` (`eid`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
