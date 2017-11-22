@@ -57,6 +57,12 @@
    $country = mysqli_query($db,$sqlCountry);
    $rowCountry = mysqli_fetch_assoc($country);
    $login_country = $rowCountry['country'];
+
+   $sqlHired = "select hireDate from employee where username = '" . $user . "'";
+   $hired = mysqli_query($db, $sqlHired);
+   $rowHired = mysqli_fetch_assoc($hired);
+   $login_hired = $rowHired['hireDate'];
+   $cleanHired = strtotime($login_hired);
    
 ?>
 <html>
@@ -106,7 +112,7 @@
             
           <h3>An employee since:</h3>
             
-          <h5>2017-11-06</h5>
+          <h5><?php echo date ("F j, Y", $cleanHired);?></h5>
           
         </div> 
              
