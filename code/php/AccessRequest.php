@@ -57,7 +57,7 @@ if(isset($_POST['inputAcc'])) {
     <body>
    
         
-        <div id="mainContent" align="center" style="margin-top:10%;">
+        <div id="mainContent" align="center" style="margin-top:150px;">
             
             <h1>Request sent!</h1>
             <h3>We will notify you when access has been granted.</h3>

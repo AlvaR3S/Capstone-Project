@@ -26,7 +26,7 @@ include('manager_check.php');
     <body>
 
         
-        <div id="mainContent" align="center" style="margin-top:10%;">
+        <div id="mainContent" align="center" style="margin-top:150px;">
             
             <h1>Application Access Requests</h1>
             <h3>You have the following requests awaiting approval:</h3>
