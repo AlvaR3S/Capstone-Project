@@ -16,13 +16,13 @@
       
       // If result matched $myusername and $mypassword, table row must be 1 row
     
-      if($count > 0) {
+     if($count > 0) {
 		 $row = mysqli_fetch_array($result);
-		 $password_hash = $row['pwd'];
-			if(password_verify($mypassword, $password_hash)){
+		 //$password_hash = $row['pwd'];
+			//if(password_verify($mypassword, $password_hash)){
 				$_SESSION['login_user'] = $myusername;
 				header("location: profile.php?login_user=$myusername");
-			}
+			//}
       }else {
       ?>
       <div class="login_err">
@@ -35,6 +35,7 @@
         <span class="fa fa-warning"></span>';
 
       }
+    
    }
 
 ?>

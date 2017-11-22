@@ -90,7 +90,7 @@ include('manager_check.php');
                     $i++;            
                 }    
             }else {
-                echo "You have no outstanding requests to process.";
+                echo "<br>" . "<p style='text-align:center'>You have no outstanding requests to process.</p>";
             }
             ?>
             </table>

@@ -81,12 +81,13 @@ include("nav_check.php");
 
     #searchby {
         width: 12%;
-        padding: 17px;
+        /*padding: 17px;*/
         border-radius: 7px;
         font-size: 18px;
         border-width: 2px;
         border-color: #555555;
         cursor:pointer;
+        height: 66px;
     }
     
     .short {
