@@ -76,31 +76,56 @@
     
     <body>
    
-                <button class="return" onclick="window.location.href='Search.php'">
-                    <span class="fa fa-chevron-left"></span> &nbsp Return to Search
-                </button>       
-        <div class="container-profile">
+      <button class="return" onclick="window.location.href='Search.php'">
+          <span class="fa fa-chevron-left"></span> &nbsp Return to Search
+      </button>       
+      
+      <div class="container-profile-style">
+  
+        <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
+
+        <h6 class="locationInfo">Washington, DC</h6>
+
+        <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
+
+        <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
+      
+        <button id="edit">Edit</button>
+          
+        <hr id="underEdit">
              
-            <div class="TopInfo">
+        <div class="underWork">
 
-                <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">    
-                <h1 id="name"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
-                <span class="status">Traveller</span>             
-            </div>      
-        </div>
-
-        <div class="bottom-container-profile">
-            <div class="BottomInfo">
-              <h3>Email Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_email;?></h5>
-              <h3>Phone Number</h3> <br>
-              <h5 id="response"><?php 
+          <hr id="workHr">            
+            
+          <h4 style="color: gray;">Work Infromation</h4>
+            
+          <h3>Address:</h3> <br>
+            
+          <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
+            
+          <h3>An employee since:</h3>
+            
+          <h5>2017-11-06</h5>
+          
+        </div> 
+             
+        <div class="contact-content">
+            
+          <h4 style="color: gray;">Contact Information</h4>
+            
+          <h3>Email Address:</h3> <br>
+                
+          <h5 id="response"><?php echo '' . $login_email;?></h5>
+            
+          <h3>Phone Number</h3> <br>
+            
+          <h5 id="response"><?php 
                   echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
-              <h3>Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
-            </div>      
-        </div>      
-        
+        </div>    
+      
+      </div>          
+       
          <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
@@ -124,10 +149,6 @@
 <style>
 
 
-  .container-profile {
-    margin-top: 15%;
-    padding-bottom: 5%;
-  }
 
   .return {
     width: 20%;
@@ -140,4 +161,5 @@
   .return:hover {
     cursor: pointer;
   }
+</style>
 </html>

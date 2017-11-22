@@ -78,45 +78,52 @@
     
     
     <body>
-	
-	
-
-        
+	      
         <div class="container-profile-style">
-			
-			
-            
-            <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
-            <h6 class="locationInfo">Washington, DC</h6>
-            <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
-            <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
-			
-			
+	
+          <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
+
+          <h6 class="locationInfo">Washington, DC</h6>
+
+          <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
+
+          <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
 			
           <button id="edit">Edit</button>
+          
           <hr id="underEdit">
              
-              <div class="underWork">
-                <hr id="workHr">            
-                <h4 style="color: gray;">Work Infromation</h4>
-                <h3>Address:</h3> <br>
-                <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
-                <h3>An employee since:</h3>
-                <h5>2017-11-06</h5>
-              </div> 
-           
+          <div class="underWork">
+
+            <hr id="workHr">            
             
-              <div class="contact-content">
-                <h4 style="color: gray;">Contact Information</h4>
-                <h3>Email Address:</h3> <br>
-                <h5 id="response"><?php echo '' . $login_email;?></h5>
-                <h3>Phone Number</h3> <br>
-                <h5 id="response"><?php 
+            <h4 style="color: gray;">Work Infromation</h4>
+            
+            <h3>Address:</h3> <br>
+            
+            <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
+            
+            <h3>An employee since:</h3>
+            
+            <h5>2017-11-06</h5>
+          
+          </div> 
+             
+          <div class="contact-content">
+            
+            <h4 style="color: gray;">Contact Information</h4>
+            
+            <h3>Email Address:</h3> <br>
+                
+            <h5 id="response"><?php echo '' . $login_email;?></h5>
+            
+            <h3>Phone Number</h3> <br>
+            
+            <h5 id="response"><?php 
                   echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
-              </div>
-              
-              
-            </div>      
+          </div>    
+
+        </div>      
         
          <!-- Footer -->
         <div class="footer">
@@ -137,6 +144,5 @@
         
     
     </body>
-
     
 </html>
