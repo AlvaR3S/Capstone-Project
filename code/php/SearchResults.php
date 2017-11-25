@@ -163,8 +163,7 @@ include("nav_check.php");
                 <a href="AccessDenied.php">Skype for Business</a><br>
                 <a href="AccessDenied.php">Assest Management</a>
             </div>
-        </div>
-        
+        </div>   
     </body>
 
 </html>
