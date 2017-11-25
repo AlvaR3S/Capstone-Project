@@ -50,7 +50,7 @@ $hired = strtotime($hiredate);
 $joined = date("Y-m-d", $hired);
 
 //profile picture
-$pic= mysqli_real_escape_string($link,($_FILES['photo']['name']));
+$pic = mysqli_real_escape_string($link,($_FILES['photo']['name']));
 
 //password hash
 $password = mysqli_real_escape_string($link, $_POST['password']);
