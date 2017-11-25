@@ -23,7 +23,17 @@
    $sqlTitle = "select posname from title where tid = '" . $login_pos . "'";
    $title = mysqli_query($db, $sqlTitle);
    $rowTitle = mysqli_fetch_assoc($title);
-   $login_title = $rowTitle['posname'];   
+   $login_title = $rowTitle['posname'];  
+
+   $sqlLocation = "select oid from employee where username = '" . $user . "'";
+   $location = mysqli_query($db, $sqlLocation);
+   $rowLocation = mysqli_fetch_assoc($location);
+   $login_location = $rowLocation['oid'];
+
+   $sqlOrg = "select location from organization where oid = '" . $login_location . "'";
+   $org = mysqli_query($db, $sqlOrg);
+   $rowOrg = mysqli_fetch_assoc($org);
+   $login_org = $rowOrg['location'];
    
    $sqlEmail = "select email from employee where username = '" . $user . "'";
    $email = mysqli_query($db,$sqlEmail);
@@ -90,7 +100,28 @@
   
         <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
 
-        <h6 class="locationInfo">Washington, DC</h6>
+        <h6 class="locationInfo"><?php echo '' . $login_org . ', ';
+                                   if ($login_location == 1) {
+                                    echo "NY, ";
+                                   }
+                                   else if ($login_location == 2) {
+                                    echo "IL, ";
+                                   }
+                                   else if ($login_location == 3) {
+                                    echo "CA, ";
+                                   } 
+                                   else if ($login_location == 4) {
+                                    echo "Japan";
+                                   }    
+                                   else if ($login_location == 5) {
+                                    echo "France";
+                                   }              
+                                   else if ($login_location == 3) {
+                                    echo "England";
+                                   }                   
+                                   if ($login_location < 4) {
+                                    echo "USA";
+                                   }?></h6>
 
         <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
 

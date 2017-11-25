@@ -28,6 +28,16 @@
    $rowTitle = mysqli_fetch_assoc($title);
    $login_title = $rowTitle['posname'];
 
+   $sqlLocation = "select oid from employee where username = '" . $login_session . "'";
+   $location = mysqli_query($db, $sqlLocation);
+   $rowLocation = mysqli_fetch_assoc($location);
+   $login_location = $rowLocation['oid'];
+
+   $sqlOrg = "select location from organization where oid = '" . $login_location . "'";
+   $org = mysqli_query($db, $sqlOrg);
+   $rowOrg = mysqli_fetch_assoc($org);
+   $login_org = $rowOrg['location'];
+
    $sqlEmail = "select email from employee where username = '" . $login_session . "'";
    $email = mysqli_query($db,$sqlEmail);
    $rowEmail = mysqli_fetch_assoc($email);
@@ -90,7 +100,28 @@
 
           <h6 class="locationInfo">Washington, DC</h6>
 
-          <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
+        <h6 class="locationInfo"><?php echo '' . $login_org . ', ';
+                                   if ($login_location == 1) {
+                                    echo "NY, ";
+                                   }
+                                   else if ($login_location == 2) {
+                                    echo "IL, ";
+                                   }
+                                   else if ($login_location == 3) {
+                                    echo "CA, ";
+                                   } 
+                                   else if ($login_location == 4) {
+                                    echo "Japan";
+                                   }    
+                                   else if ($login_location == 5) {
+                                    echo "France";
+                                   }              
+                                   else if ($login_location == 3) {
+                                    echo "England";
+                                   }                   
+                                   if ($login_location < 4) {
+                                    echo "USA";
+                                   }?></h6>
 
           <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
 			
