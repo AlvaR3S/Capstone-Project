@@ -22,27 +22,27 @@ include('nav_check.php');
         
         <div class="appcontainer" align=center style="margin-top:150px;">
 
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=1'">
                 <img padding=10px src="../../assets/skype-icon.png"><br><br>Skype</img>
             </button>
 
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=2'">
                 <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Salesforce</img>
             </button>
             
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=3'">
                 <img padding="10px" src="../../assets/assetmanage-icon.png"><br><br>Assets</img>
             </button>
         
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=4'">
                 <img padding=10px src="../../assets/outlook-icon.png"><br><br>Outlook</img>
             </button>
             
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=5'">
                 <img padding=10px src="../../assets/teamcity-icon.png"><br><br>Teamcity</img>
             </button>
 
-            <button class="app" onclick="window.location.href='AccessDenied.php'">
+            <button class="app" onclick="window.location.href='app_check.php?id=6'">
                 <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
             </button>
 
