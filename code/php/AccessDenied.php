@@ -34,7 +34,7 @@ include("nav_check.php");
                 
                 <div class="styled-select blue semi-square">
                 <!-- THESE SHOULD BE TAKEN OFF THE DATABASE-->
-                    <select name="desiredApp" id="desiredApp">
+                    <select name="desiredApp" id="desiredApp" required="">
                         <option value="" color="white;" disabled selected>Pick an application</option>
                         <option value='Skype'>Skype</option>
                         <option value='Salesforce'>Salesforce</option>
@@ -54,7 +54,7 @@ include("nav_check.php");
                 </div>
                 
                 <div class="inputAndButton">
-                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="inputAcc"> 
+                    <input class="inputAccess" type="text" placeholder="Enter email or username..." name="inputAcc" required> 
                     <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
                     <textarea class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="descAcc"></textarea>
                 </div>
