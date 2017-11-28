@@ -163,8 +163,7 @@ include("nav_check.php");
                 <a href="AccessDenied.php">Skype for Business</a><br>
                 <a href="AccessDenied.php">Assest Management</a>
             </div>
-        </div>
-        
+        </div>   
     </body>
 
 </html>
@@ -183,12 +182,13 @@ include("nav_check.php");
     
     #searchby {
         width: 12%;
-        padding: 7px;
+        /*padding: 7px;*/
         border-radius: 7px;
         font-size: 18px;
         border-width: 2px;
         border-color: #555555;
         cursor:pointer;
+        height: 37px;
     }
 
     .profileLink {

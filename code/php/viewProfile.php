@@ -23,7 +23,17 @@
    $sqlTitle = "select posname from title where tid = '" . $login_pos . "'";
    $title = mysqli_query($db, $sqlTitle);
    $rowTitle = mysqli_fetch_assoc($title);
-   $login_title = $rowTitle['posname'];   
+   $login_title = $rowTitle['posname'];  
+
+   $sqlLocation = "select oid from employee where username = '" . $user . "'";
+   $location = mysqli_query($db, $sqlLocation);
+   $rowLocation = mysqli_fetch_assoc($location);
+   $login_location = $rowLocation['oid'];
+
+   $sqlOrg = "select location from organization where oid = '" . $login_location . "'";
+   $org = mysqli_query($db, $sqlOrg);
+   $rowOrg = mysqli_fetch_assoc($org);
+   $login_org = $rowOrg['location'];
    
    $sqlEmail = "select email from employee where username = '" . $user . "'";
    $email = mysqli_query($db,$sqlEmail);
@@ -57,6 +67,12 @@
    $country = mysqli_query($db,$sqlCountry);
    $rowCountry = mysqli_fetch_assoc($country);
    $login_country = $rowCountry['country'];
+
+   $sqlHired = "select hireDate from employee where username = '" . $user . "'";
+   $hired = mysqli_query($db, $sqlHired);
+   $rowHired = mysqli_fetch_assoc($hired);
+   $login_hired = $rowHired['hireDate'];
+   $cleanHired = strtotime($login_hired);
    
 ?>
 <html>
@@ -76,31 +92,77 @@
     
     <body>
    
-                <button class="return" onclick="window.location.href='Search.php'">
-                    <span class="fa fa-chevron-left"></span> &nbsp Return to Search
-                </button>       
-        <div class="container-profile">
+      <button class="return" onclick="window.location.href='Search.php'">
+          <span class="fa fa-chevron-left"></span> &nbsp Return to Search
+      </button>       
+      
+      <div class="container-profile-style">
+  
+        <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
+
+        <h6 class="locationInfo"><?php echo '' . $login_org . ', ';
+                                   if ($login_location == 1) {
+                                    echo "NY, ";
+                                   }
+                                   else if ($login_location == 2) {
+                                    echo "IL, ";
+                                   }
+                                   else if ($login_location == 3) {
+                                    echo "CA, ";
+                                   } 
+                                   else if ($login_location == 4) {
+                                    echo "Japan";
+                                   }    
+                                   else if ($login_location == 5) {
+                                    echo "France";
+                                   }              
+                                   else if ($login_location == 3) {
+                                    echo "England";
+                                   }                   
+                                   if ($login_location < 4) {
+                                    echo "USA";
+                                   }?></h6>
+
+        <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
+
+        <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
+      
+        <button id="edit">Edit</button>
+          
+        <hr id="underEdit">
              
-            <div class="TopInfo">
+        <div class="underWork">
 
-                <img class="picInfo" src="../../assets/snoopy.jpg" alt="Snoopy">    
-                <h1 id="name"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1>
-                <span class="status">Traveller</span>             
-            </div>      
-        </div>
-
-        <div class="bottom-container-profile">
-            <div class="BottomInfo">
-              <h3>Email Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_email;?></h5>
-              <h3>Phone Number</h3> <br>
-              <h5 id="response"><?php 
+          <hr id="workHr">            
+            
+          <h4 style="color: gray;">Work Infromation</h4>
+            
+          <h3>Address:</h3> <br>
+            
+          <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
+            
+          <h3>An employee since:</h3>
+            
+          <h5><?php echo date ("F j, Y", $cleanHired);?></h5>
+          
+        </div> 
+             
+        <div class="contact-content">
+            
+          <h4 style="color: gray;">Contact Information</h4>
+            
+          <h3>Email Address:</h3> <br>
+                
+          <h5 id="response"><?php echo '' . $login_email;?></h5>
+            
+          <h3>Phone Number</h3> <br>
+            
+          <h5 id="response"><?php 
                   echo '('.substr($login_phone, 0, 3).') '.substr($login_phone, 3, 3). '-' . substr($login_phone,6);//echo '' . $login_phone;?></h5>
-              <h3>Address:</h3> <br>
-              <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
-            </div>      
-        </div>      
-        
+        </div>    
+      
+      </div>          
+       
          <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
@@ -124,10 +186,6 @@
 <style>
 
 
-  .container-profile {
-    margin-top: 15%;
-    padding-bottom: 5%;
-  }
 
   .return {
     width: 20%;
@@ -140,4 +198,5 @@
   .return:hover {
     cursor: pointer;
   }
+</style>
 </html>

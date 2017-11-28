@@ -28,7 +28,7 @@ include('admin_check.php');
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
                 <button class="leftButton" onclick="window.location.href='Manager.php'">
-                    Application Request Form
+                    Handle Access Requests
                 </button>
 
                 <button class="rightButton" onclick="window.location.href='HR.php'">

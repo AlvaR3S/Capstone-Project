@@ -1,13 +1,13 @@
 .leftButton {
-	padding-bottom: 200px;
-    padding-top: 200px;
+	padding-bottom: 100px;
+    padding-top: 100px;
     width: 33%;
 }
 
 .rightButton {
-	margin-left: 4%;
-    padding-bottom: 200px;
-    padding-top: 200px;
+	margin-left: 10%;
+    padding-bottom: 100px;
+    padding-top: 100px;
     width: 34%;
     margin-top: -225px;
 }

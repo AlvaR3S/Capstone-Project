@@ -19,42 +19,39 @@ include('nav_check.php');
     
     
     <body>
-
-    
-    
-        <div class="appcontainer" align=center style="margin-top:10%;">
-            <!--<div class="topApps">-->
-
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding=10px src="../../assets/skype-icon.png"><br><br>Skype</img>
-                </button>
-
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Salesforce</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding="10px" src="../../assets/assetmanage-icon.png"><br><br>Assets</img>
-                </button>
-            <!--</div>-->
         
-            <!--<div class="bottomApps">-->
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding=10px src="../../assets/outlook-icon.png"><br><br>Outlook</img>
-                </button>
-                
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding=10px src="../../assets/teamcity-icon.png"><br><br>Teamcity</img>
-                </button>
+        <div class="appcontainer" align=center style="margin-top:150px;">
 
-                <button class="app" onclick="window.location.href='AccessDenied.php'">
-                    <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
-                </button>
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding=10px src="../../assets/skype-icon.png"><br><br>Skype</img>
+            </button>
 
-            <!--</div>-->
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Salesforce</img>
+            </button>
+            
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding="10px" src="../../assets/assetmanage-icon.png"><br><br>Assets</img>
+            </button>
+        
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding=10px src="../../assets/outlook-icon.png"><br><br>Outlook</img>
+            </button>
+            
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding=10px src="../../assets/teamcity-icon.png"><br><br>Teamcity</img>
+            </button>
+
+            <button class="app" onclick="window.location.href='AccessDenied.php'">
+                <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
+            </button>
+
         </div>
+        
         <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
+            
             <a href="https://icons8.com"><font color=grey size="1">All Applications Icons credited to icons8.com.</font></a>
+        
         </div>
         
         <!-- Footer -->
