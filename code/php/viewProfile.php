@@ -15,6 +15,11 @@
    $rowLast = mysqli_fetch_assoc($last_name);
    $login_last = $rowLast['lastname'];
 
+   $sqlPicture = "select picture from employee where username = '" . $user . "'";   
+   $picture = mysqli_query($db,$sqlPicture);   
+   $rowPicture = mysqli_fetch_assoc($picture);
+   $login_picture = $rowPicture['picture'];
+
    $sqlPosition = "select tid from employee where username = '" . $user . "'";
    $position = mysqli_query($db, $sqlPosition);
    $rowPos = mysqli_fetch_assoc($position);
@@ -141,7 +146,7 @@
             
           <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
             
-          <h3>An employee since:</h3>
+          <h3>Employee since:</h3>
             
           <h5><?php echo date ("F j, Y", $cleanHired);?></h5>
           

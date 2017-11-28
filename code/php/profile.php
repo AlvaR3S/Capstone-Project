@@ -98,7 +98,6 @@
 	
           <h1 id="userName"><?php echo '' . ucwords($login_first) . ' ' . ucwords($login_last);?></h1> 
 
-          <h6 class="locationInfo">Washington, DC</h6>
 
         <h6 class="locationInfo"><?php echo '' . $login_org . ', ';
                                    if ($login_location == 1) {
@@ -139,7 +138,7 @@
             
             <h5 id="response"><?php echo '' . $login_address . "<br>" . $login_city . ', ' .$login_state . '&nbsp' . $login_country;?></h5>
             
-            <h3>An employee since:</h3>
+            <h3>Employee since:</h3>
             
             <h5><?php echo date ("F j, Y", $cleanHired);?></h5>
           
