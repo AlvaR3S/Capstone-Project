@@ -88,11 +88,64 @@ include('HR_check.php');
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address" required>
                         <input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z ]{1,15}" name="country" placeholder="Enter Country" required>
-						<input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z ]{1,15}" name="state" placeholder="Enter State (if applicable)">
+                        <select style="height: 40px; width: 25%; margin-top: 10px;" name="state">
+                            <option value = "" selected></option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option> 
+                        </select>
                         <input style="margin-top: 10px; width: 20%;" type="text" pattern="[A-Za-z ]{1,15}" name="city" placeholder="Enter City" required>
                         <input style="margin-top: 10px; width: 19.3%;"" type="text" pattern="\d*" name="zip" placeholder="Enter Zip Code" required>
                         <h6 style="margin:0;">Country</h6> 
-						<h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6> 
+                        <h6 style="margin-left: 25.5%;margin-top: -24px;">State</h6>
 						<h6 style="margin-left: 51%;margin-top: -34px;">City</h6> 
 						<h6 style="margin-left: 72%;margin-top: -34px;">Zip</h6>
 						
@@ -101,7 +154,7 @@ include('HR_check.php');
                         <input type="password" name="password" pattern=".{6,}" placeholder="Enter New Password" required>
                         <input type="password" name="verifypw" pattern=".{6,}" style="margin-left: 0px; margin-top: 5px" placeholder="Re-enter Password" required>
                         <!-- profile pic code -->
-						<input type="file" name="photo" style="margin-left: 50px; margin-top: 5px" placeholder="Select image to upload:"> 
+						<input type="file" class="button" name="photo" style="margin-left: 50px; margin-top: 5px" placeholder="Select image to upload:"> 
 						<input style="width: 70%; margin-top: 10px;" type="text" name="email" placeholder="Enter Email Address" required>
                         <input style="width: 20%;" type="date" name="hiredate" required>
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
