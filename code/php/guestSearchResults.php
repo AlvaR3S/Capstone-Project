@@ -82,7 +82,7 @@
                 $term = "Displaying employees from locations containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
             ?>
-            <h1 style="float:left; margin-left:10%;"><?php echo $term;?></h1><br>
+            <h1 style="float:left;color:white; margin-left:10%;"><?php echo $term;?></h1><br>
            
            
         </div>
@@ -177,20 +177,11 @@
                             </table>
         </div>
 
-        <!-- Footer -->
+    <!-- Footer -->
         <div class="footer">
-            <div class="footer-contact">
+            <div class="footer-contact" style="text-decoration: none;">
                 <h4>Contact</h4>
                 <a href="">contact@acme.com</a>
-            </div>
-            <div class="footer-apps">
-                <h4>Applications</h4>
-                <a href="AccessDenied.php">Salesforce.com</a><br>
-                <a href="AccessDenied.php">Artifactory</a><br>
-                <a href="AccessDenied.php">Teamcity</a><br>
-                <a href="AccessDenied.php">Outlook</a><br>
-                <a href="AccessDenied.php">Skype for Business</a><br>
-                <a href="AccessDenied.php">Assest Management</a>
             </div>
         </div>
         

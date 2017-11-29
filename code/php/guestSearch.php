@@ -63,8 +63,8 @@
     <!-- Search form -->
     <div id="main" class="main" align="center" style="margin-top:10%;">
         
-        <strong><h1 style="margin-top: 5%; color: black;">Welcome to the ACME employee database!</h1></strong><br>
-        <h3 style="margin-top: -1%; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
+        <strong><h1 style="margin-top: 5%; color: white;">Welcome to the ACME employee database!</h1></strong><br>
+        <h3 style="margin-top: -1%;color: white; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
         <form method="post" action="guestSearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name or location">
                 <select name="searchby" id="searchby">
@@ -93,6 +93,11 @@
 </html>
 
 <style>
+
+    h1 {
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:0.5px;
+    }
     .search {
         padding: 20px;
         width: 40%;
