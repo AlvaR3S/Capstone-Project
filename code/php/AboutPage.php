@@ -42,10 +42,6 @@ session_start();
                     <a href="SSO.php">Login
                         <span class="fa fa-unlock-alt"></span>
                     </a>
-                    <!--<form class="topnav-list-search">
-                        <input type="text" id="search" name="search" placeholder="Search...">
-                    </form>-->
-                
                 </div>
                 <hr id="topHR" noshade>
                 <hr id="topHR" noshade>

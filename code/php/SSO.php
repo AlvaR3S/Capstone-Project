@@ -73,7 +73,7 @@
                 <input type="checkbox" checked="checked"><font size=2>Remember me</font>
                 <br>
                 <br>
-                <a href=""><font size=2>Forgot your password?</font></a> <br> <br>
+                <a href="forgotPassword.php"><font size=2>Forgot your password?</font></a> <br> <br>
                 <button type="submit">Sign In</button>
                 <br>
                 <br>
