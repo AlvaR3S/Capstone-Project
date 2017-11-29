@@ -20,6 +20,8 @@ include('nav_check.php');
     
     <body>
         
+        <div class="appHead" align=center style="font-size: 45px; margin-top:150px; color:white;">Applications</div> 
+               
         <div class="appcontainer" align=center style="margin-top:150px;">
 
             <button class="app" onclick="window.location.href='app_check.php?id=1'">
@@ -75,6 +77,13 @@ include('nav_check.php');
 </html>
 
 <style>
+
+    .appHead {
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 1px;
+        margin-bottom: -5%
+    }
+
     .app {
         width: 185px;
         height: 185px;
@@ -86,6 +95,7 @@ include('nav_check.php');
         transition-duration: 0.4s;
         margin: 5px;
         cursor: pointer;
+        box-shadow: 5px 5px 3px black;
     }
     
     .appcontainer {
