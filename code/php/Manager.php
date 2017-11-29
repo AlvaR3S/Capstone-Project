@@ -5,7 +5,7 @@ include('manager_check.php');
 ?>
 <html>
 
-    <title>Manager Duties</title>
+    <title>ACME Manager Duties</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
@@ -17,9 +17,11 @@ include('manager_check.php');
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
-        <script type="text/javascript">
-
-        </script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">        
     </head>
     
     
