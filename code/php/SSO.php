@@ -118,5 +118,6 @@
     .copyright {
       margin-top: 15px;
       font-size: 12px;
+      color: white;
     }
 </style>

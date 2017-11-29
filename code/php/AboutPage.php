@@ -55,7 +55,7 @@ session_start();
     
         </header>
             <div class="aboutInfo">
-                <div class="body1">
+                <div class="body1" style="border: 1px solid #f44336">
                     <h2>About ACME</h2><br>
                     ACME is a company for the purpose of our capping project.
                     <br><br>
