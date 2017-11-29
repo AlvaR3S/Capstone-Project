@@ -58,7 +58,7 @@ include("nav_check.php");
                 $term = "Displaying employees from locations containing '" . htmlspecialchars($_POST['name']) . "'.";
             }
             ?>
-            <h1 style="float:left;color:white; margin-left:10%;"><?php echo $term;?></h1><br>
+            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; float:left;color:white; margin-left:10%;"><?php echo $term;?></h1><br>
            
            
         </div>

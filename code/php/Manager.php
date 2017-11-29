@@ -30,8 +30,8 @@ include('manager_check.php');
         
         <div id="mainContent" align="center" style="margin-top:150px;">
             
-            <h1>Application Access Requests</h1>
-            <h3>You have the following requests awaiting approval:</h3>
+            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white; font-size: 40px;">Application Access Requests</h1>
+            <h3 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color:white; font-size: 20px;">You have the following requests awaiting approval:</h3>
             
         </div>
         <div class="table">
@@ -92,7 +92,7 @@ include('manager_check.php');
                     $i++;            
                 }    
             }else {
-                echo "<br>" . "<p style='text-align:center'>You have no outstanding requests to process.</p>";
+                echo "<br>" . "<p style='text-align:center; font-size:22px; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color: #f44336;'><br><br>You have no outstanding requests to process.</p>";
             }
             ?>
             </table>

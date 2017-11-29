@@ -40,8 +40,8 @@ include("nav_check.php");
 	
     <div id="main" class="main" align="center" style="margin-top:130px;">
         
-        <strong><h1 style="margin-top: 5%; color: white;">Welcome to the ACME employee database!</h1></strong><br>
-        <h3 style="margin-top: -1%; color:white; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
+        <strong><h1 style="margin-top: 5%; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;">Welcome to the ACME employee database!</h1></strong><br>
+        <h3 style="margin-top: -1%; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color:white; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
         <form method="post" action="SearchResults.php?go" id="searchform" style="margin-top: 2%;">
                 <input name="name" class="search" type="text" placeholder="&#128269; Search employees by name, position, or location">
                 <select name="searchby" id="searchby">

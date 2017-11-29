@@ -25,7 +25,7 @@ include('nav_check.php');
     
     <body>
         
-        <div class="appHead" align=center style="font-size: 45px; margin-top:150px; color:white;">Applications</div> 
+        <div class="appHead" align=center style="font-size: 45px; margin-top:150px; color:white; text-shadow: 2px 2px black">Applications</div> 
                
         <div class="appcontainer" align=center style="margin-top:150px;">
 
@@ -86,7 +86,7 @@ include('nav_check.php');
     .appHead {
         -webkit-text-stroke-color: black;
         -webkit-text-stroke-width: 1px;
-        margin-bottom: -5%
+        margin-bottom: -7.5%
     }
 
     .app {
