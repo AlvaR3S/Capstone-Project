@@ -63,8 +63,8 @@ $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
 
 if ($password == $verifypw) {
-    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, picture, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$pic', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
+    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
     if (!mysqli_query($link, $sql)) {
         die('Error: ' . mysqli_error($link)); 
@@ -76,6 +76,14 @@ if ($password == $verifypw) {
 
     if (!mysqli_query($link, $query)) {
         die('Error: ' . mysqli_error($link));
+    }
+
+    if ($pic) {
+        $picInsert = "UPDATE employee SET picture = '$pic' WHERE username = '$username'";
+
+        if (!mysqli_query($link, $picInsert)) {
+            die('Error: ' . mysqli_error($link));
+        }
     }
 
 	if(isset($_POST["submit"])) {

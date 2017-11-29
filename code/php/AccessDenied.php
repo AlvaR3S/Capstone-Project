@@ -26,7 +26,7 @@ include("nav_check.php");
     <body>
 
         <div id="main" class="main" align="center" style="margin-top:7%;">
-            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;"">ACCESS DENIED</h1>
+            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;">ACCESS DENIED</h1>
             <h2 style="color:white;-webkit-text-stroke-color: black; -webkit-text-stroke-width: .5px;">It appears you do not have access to this application...</h2>
         </div>
 
