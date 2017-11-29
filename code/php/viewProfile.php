@@ -140,7 +140,7 @@
 
           <hr id="workHr">            
             
-          <h4 style="color: gray;">Work Infromation</h4>
+          <h4 style="color: gray;">Work Information</h4>
             
           <h3>Address:</h3> <br>
             

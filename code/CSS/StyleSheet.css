@@ -103,7 +103,7 @@
 
 /* Main Body Stuff */
 body {
-    background-image: url("../../assets/Background/build.jpg");
+    background-image: url("../../assets/Background/skyline.jpg");
     background-color: lightblue;
     font-family: 'Montserrat', sans-serif;
     transition: background-color .5s;
