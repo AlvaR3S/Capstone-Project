@@ -95,9 +95,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1 style="text-align: center;">Enter your new password:</h1>
                     <div class="field-group">
                         <div style="margin-left: 23%">Password</div>
-                        <div style="margin-left: 23%"><input type="password" name="newPW" id="newPW" class="input-field" required></div>
+                        <div style="margin-left: 23%"><input type="password" name="newPW" id="newPW" pattern=".{6,}" class="input-field" required></div>
                         <div style="margin-left: 23%">Re-type Password</div>
-                        <div style="margin-left: 23%"><input type="password" name="verifyPW" id="verifyPW" class="input-field" required></div>
+                        <div style="margin-left: 23%"><input type="password" name="verifyPW" id="verifyPW" pattern=".{6,}" class="input-field" required></div>
                     </div>                                                
                     
                     <div class="field-group">
