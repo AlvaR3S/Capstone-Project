@@ -123,6 +123,7 @@ body {
     border-radius: 8px;
     margin: 0 auto;
     width: 450px;
+    border: 1px solid #f44336;
 }
 
 @media screen and (max-height: 450px) {
@@ -203,7 +204,7 @@ button:hover {
     font-size: 14px;
     height: 29px;
     padding: 5px;
-    width: 268px;
+    width: 225px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;

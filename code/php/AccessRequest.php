@@ -64,8 +64,8 @@ if(isset($_POST['inputAcc'])) {
         
         <div id="mainContent" align="center" style="margin-top:150px;">
             
-            <h1>Request sent!</h1>
-            <h3>We will notify you when access has been granted.</h3>
+            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;">Request sent!</h1>
+            <h3 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .5px; text-shadow: 1px 1px black; color: white;">We will notify you when access has been processed.</h3>
             
         </div>
  
