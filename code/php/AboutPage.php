@@ -62,7 +62,7 @@ session_start();
                     <h4>Contact Us:</h4>
                     contact@acme.com
                     <br><br>
-                    <button class="media" id="mail"><span class="fa fa-envelope-o" style="font-size: 20px;"></span></button>
+                    <button class="media" id="mail" onclick="location.href='mailto:webmaster@example.com';"><span class="fa fa-envelope-o" style="font-size: 20px;"></span></button>
                     <button class="media" id="fb"><span class="fa fa-facebook-square" style="font-size: 20px;"></span></button>
                     <button class="media" id="tweet"><span class="fa fa-twitter" style="font-size: 20px;"></span></button>
                 </div>
@@ -83,3 +83,10 @@ session_start();
     
         
 </html>
+<style>
+
+    .media {
+        cursor: pointer;
+    }
+
+</style>

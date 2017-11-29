@@ -134,12 +134,12 @@ include('HR_check.php');
             </div>
             <div class="footer-apps">
                 <h4>Applications</h4>
-                <a href="/Code/php/AccessDenied.php">Salesforce.com</a><br>
-                <a href="/Code/php/AccessDenied.php">Artifactory</a><br>
-                <a href="/Code/php/AccessDenied.php">Teamcity</a><br>
-                <a href="/Code/php/AccessDenied.php">Outlook</a><br>
-                <a href="/Code/php/AccessDenied.php">Skype for Business</a><br>
-                <a href="/Code/php/AccessDenied.php">Assest Management</a>
+                <a href="app_check.php?id=1">Skype for Business</a><br>
+                <a href="app_check.php?id=2">Salesforce.com</a><br>
+                <a href="app_check.php?id=3">Assets Management</a><br>
+                <a href="app_check.php?id=4">Outlook</a><br>
+                <a href="app_check.php?id=5">Teamcity</a><br>
+                <a href="app_check.php?id=6">Artifactory</a>
             </div>
         </div>
         
