@@ -194,19 +194,19 @@ button:hover {
    height: 29px;
    overflow: hidden;
    width: 240px;
-   background-color: lightgrey; /* background color of entire box */
    margin: 31px;
 }
 
 .styled-select select {
-    background: transparent;
-    border: none;
+    background: white;
+    color: #f44336;
     font-size: 14px;
     height: 29px;
     padding: 5px;
     width: 225px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    border: 1px solid;
     border-radius: 5px;
     cursor: pointer;
 }

@@ -61,7 +61,7 @@ include("nav_check.php");
                 <div class="inputAndButton">
                     <input class="inputAccess" type="text" placeholder="Enter email or username..." name="inputAcc" required> 
                     <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
-                    <textarea class="inputDescription" type="text" placeholder="Enter what you would like to access..." name="descAcc"></textarea>
+                    <textarea class="inputDescription" type="text" placeholder="Enter why you would like access to this application..." name="descAcc"></textarea>
                 </div>
             </form>
         </div>
