@@ -4,7 +4,12 @@
     width: 33%;
 }
 
+.leftButton:hover {
+    cursor: pointer;
+}
+
 .rightButton {
+    background-image: url("../../assets/Background/handshake.jpg");    
 	margin-left: 10%;
     padding-bottom: 100px;
     padding-top: 100px;
@@ -12,11 +17,21 @@
     margin-top: -225px;
 }
 
+.rightButton:hover {
+    cursor: pointer;
+}
+
 .containerApps {
 	background-color: white;
     padding: 30px;
     border-radius: 8px;
     margin:60px  auto;
-    width: 80%;
+    width: 60%;
     border: solid darkred;
+ }
+
+ .adminHead {
+    -webkit-text-stroke-color:black;
+    -webkit-text-stroke-width:1px;
+    text-shadow: 2px 2px black;
  }
