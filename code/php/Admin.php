@@ -32,28 +32,15 @@ include('admin_check.php');
         <div class="containerApps" align=center>
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
-                <!--button class="leftButton" onclick="window.location.href='Manager.php'">
-                    Handle Access Requests
-                </button>
-
-                <button class="rightButton" onclick="window.location.href='HR.php'">
-                    Add/Remove Employee
-                </button-->
                 <div class="leftBtn">
-                    <img class="leftBG" src="../../assets/Background/accesspic.jpg" style="border-radius: 20px">
-                    <div class="overlayLeft">
-                        <div class="contentLeft">
-                            <br>Handle Access Requests<br><br><a onclick="window.location.href='Manager.php'"">Go</a>
-                        </div>
+                    <img class="leftBG" src="../../assets/Background/accesspic.jpg" style="width: 100%; height:100%; border-radius: 20px">
+                    <div class="overlayLeft"><a onclick="window.location.href='Manager.php'">Manage Access Requests</a>
                     </div>
                 </div>
 
                 <div class="rightBtn">
-                    <img class="rightBG" src="../../assets/Background/handshake.jpg" style="border-radius: 20px">
-                    <div class="overlay">
-                        <div class="content">
-                            <br>Add/Remove Employee<br><br><a onclick="window.location.href='HR.php'"">Go</a>
-                        </div>
+                    <img class="rightBG" src="../../assets/Background/handshake.jpg" style="width: 100%; height: 100%; border-radius: 20px">
+                    <div class="overlay"><a onclick="window.location.href='HR.php'">Add/Remove Employees</a>
                     </div>
                 </div>
 
@@ -92,18 +79,19 @@ include('admin_check.php');
     }
 
     .rightBtn {
-        width:300px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        margin-right: 75px;
+        width: 30%;
+        height: 50%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 5%;
         position: relative;
         border-radius: 12px;
-        float: right;
+        float: left;
     }
 
     .rightBG {
-        width: 285px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         opacity: 1;
         transition: .5s ease;
         border: 1.5px solid #f44336;
@@ -111,29 +99,48 @@ include('admin_check.php');
 
     .content {
         position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
+        top: 20%;
+        left: 8%;
+        right: 8%;
+        bottom: 20%;
+        height: auto;
+        width: auto;
+        font-size: 20px;
         color: black;
         overflow: hidden;
     }
 
     .content a {
-        font-size: 18px;
+        font-size: 14px;
         color: white;
-        width: 75px;
+        width: 30%;
         display: block;
         background-color: #f44336;
         text-align: center;
-        padding: 10px;
+        padding: 2%;
         cursor: pointer;
         border-radius: 12px;
 
     }
 
+    .rightBtn a {
+        background: transparent;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
     .overlay {
         opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-weight: bold;
     }
 
     .rightBtn:hover .rightBG{
@@ -145,48 +152,49 @@ include('admin_check.php');
     }
 
     .leftBtn {
-        width:300px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        margin-left: 75px;
+        width: 30%;
+        height: 50%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 17%;
         position: relative;
         border-radius: 12px;
         float: left;
     }
 
     .leftBG {
-        width: 285px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         opacity: 1;
         transition: .5s ease;
         border: 1.5px solid #f44336;
     }
 
     .contentLeft {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
+        position: relative;
+        font-size: 22px;
         color: black;
         overflow: hidden;
     }
 
-    .contentLeft a {
-        font-size: 18px;
-        color: white;
-        width: 75px;
-        display: block;
-        background-color: #f44336;
-        text-align: center;
-        padding: 10px;
+    .leftBtn a {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
         cursor: pointer;
-        border-radius: 12px;
-
     }
 
     .overlayLeft {
         opacity: 0;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-weight: bold;
     }
 
     .leftBtn:hover .leftBG{
@@ -226,7 +234,7 @@ include('admin_check.php');
     
     .appcontainer {
         max-width: 50%;
-        margin-left: 25%;
+        margin-left: 20%;
         margin-bottom: 5%;
     }
 

@@ -53,7 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes Page Responsive -->
     <!-- Navbar -->
     <div class="loginnav">
-      <a href="SSO.php">
+      <a href="AboutPage.php">
            <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:167;height:138">
       </a>
     </div>
