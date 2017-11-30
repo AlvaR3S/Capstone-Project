@@ -227,3 +227,16 @@ div {
   margin-left: 45%;
   margin-top: -11px;
 }
+
+.personalInfo {
+  margin-left: 45%;
+  margin-top: 10px;
+}
+
+.update {
+	width: 119px;
+	margin-bottom: 30px;
+    position: relative;
+    top: 50%;
+    left: 40%;
+}

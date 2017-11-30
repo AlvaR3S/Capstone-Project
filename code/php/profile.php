@@ -129,7 +129,7 @@
 
           <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
 			
-          <button id="edit">Edit</button>
+          <button id="edit" onclick="location.href='profile_edit.php'">Edit</button>
           
           <hr id="underEdit">
              
