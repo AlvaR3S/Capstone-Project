@@ -1,6 +1,11 @@
 <?php
    include('session.php');
    include('nav_check.php');
+   
+   $sqlPicture = "select picture from employee where username = '" . $login_session . "'";   
+   $picture = mysqli_query($db,$sqlPicture);   
+   $rowPicture = mysqli_fetch_assoc($picture);
+   $login_picture = $rowPicture['picture'];
 ?>
 <html>
 
@@ -29,7 +34,7 @@
 			<h3 class="personalInfo">Location:</h3>
 			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z]{1,15}" name="location" placeholder="Enter Location"></h5>
 
-			<img class="picInfo" src="uploads/<?php echo $login_picture;?>">
+			<img class="picInfo" style="margin-top: -160px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
 			  
 			<h3 class="personalInfo">Profile Picture:</h3>
 			<input class="personalInfo" type="file" name="photo" placeholder="Select image to upload:">
