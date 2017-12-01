@@ -48,9 +48,9 @@ include('manager_check.php');
                     <th onclick="sortTable(0)">Req.</th>                    
                     <th onclick="sortTable(1)">Name</th>
                     <th onclick="sortTable(2)">Application Requested</th>
-                    <th onclick="sortTable(3)" style="width: 30%">Reason for Request</th>
+                    <th onclick="sortTable(3)" style="width: 30%;">Reason for Request</th>
                     <th onclick="sortTable(4)">Requested</th>
-                    <th style="width:18%; text-align: center;">Actions</th>
+                    <th style="text-align: center; width: 20%;">Actions</th>
                 </tr>
             <?php
                 $i=1;
@@ -98,7 +98,7 @@ include('manager_check.php');
             </table>
         </div> 
         <!-- Footer -->
-        <div class="footer">
+        <div class="footer"">
             <div class="footer-contact">
                 <h4>Contact</h4>
                 <a href="">contact@acme.com</a>
@@ -118,6 +118,14 @@ include('manager_check.php');
 </html>
 
 <style>
+    .table {
+        margin-left: 5%;
+        margin-right: 5%: 
+        margin-bottom: 10%;
+        overflow-x: scroll;
+        width: 90%;
+    }
+
     #pendingRequests {
         margin-top: 3%;
         text-align: center;
@@ -129,14 +137,8 @@ include('manager_check.php');
         width:45%;
     }
 
-    .request th {
+    .requests th {
         text-align: center;
-    }
-
-    .divider {
-        width: 5px;
-        height: auto;
-        display:inline-block;
     }
 
     #accDec {

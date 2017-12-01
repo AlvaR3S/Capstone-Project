@@ -33,13 +33,13 @@ include('admin_check.php');
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
                 <div class="leftBtn">
-                    <img class="leftBG" src="../../assets/Background/accesspic.jpg" style="width: 100%; height:100%; border-radius: 20px">
+                    <img class="leftBG" src="../../assets/Background/accesspic.jpg" style="width: 100%; height: 50%; border-radius: 20px">
                     <div class="overlayLeft"><a onclick="window.location.href='Manager.php'">Manage Access Requests</a>
                     </div>
                 </div>
 
                 <div class="rightBtn">
-                    <img class="rightBG" src="../../assets/Background/handshake.jpg" style="width: 100%; height: 100%; border-radius: 20px">
+                    <img class="rightBG" src="../../assets/Background/handshake.jpg" style="width: 100%; height: 50%%; border-radius: 20px">
                     <div class="overlay"><a onclick="window.location.href='HR.php'">Add/Remove Employees</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ include('admin_check.php');
 
     .rightBG {
         width: 100%;
-        height: 100%;
+        height: 50%;
         opacity: 1;
         transition: .5s ease;
         border: 1.5px solid #f44336;
@@ -164,7 +164,7 @@ include('admin_check.php');
 
     .leftBG {
         width: 100%;
-        height: 100%;
+        height: 50%;
         opacity: 1;
         transition: .5s ease;
         border: 1.5px solid #f44336;
