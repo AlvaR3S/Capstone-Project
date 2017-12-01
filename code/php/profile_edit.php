@@ -6,11 +6,6 @@
    $picture = mysqli_query($db,$sqlPicture);   
    $rowPicture = mysqli_fetch_assoc($picture);
    $login_picture = $rowPicture['picture'];
-   
-   $sqlEID = "select eid from employee where username = '" . $login_session . "'";
-	$eid = mysqli_query($db,$sqlEID);
-	$rowEID = mysqli_fetch_assoc($eid);
-	$eid = $rowEID['eid'];
 ?>
 <html>
 
@@ -36,10 +31,7 @@
 			<h3 class="personalInfo">Username:</h3>
 			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z]{1,15}" name="username" placeholder="Enter Username"></h5> 
 			  
-			<h3 class="personalInfo">Location:</h3>
-			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z]{1,15}" name="location" placeholder="Enter Location"></h5>
-
-			<img class="picInfo" style="margin-top: -160px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
+			<img class="picInfo" style="margin-top: -100px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
 			  
 			<h3 class="personalInfo">Profile Picture:</h3>
 			<input class="personalInfo" type="file" name="photo" placeholder="Select image to upload:">

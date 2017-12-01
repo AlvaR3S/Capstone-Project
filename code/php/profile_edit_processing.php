@@ -1,4 +1,5 @@
 <?php
+session_start();   
  define('DB_SERVER', 'localhost');
  define('DB_USERNAME', 'root');
  define('DB_PASSWORD', '');
@@ -14,7 +15,12 @@ $db_selected = mysqli_select_db($link, "corporate_directory");
 
 if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
-}
+}   
+
+$user_check = $_SESSION['login_user'];   
+$ses_sql = mysqli_query($link,"select username from login where username = '$user_check' ");   
+$row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);   
+$login_session = $row['username'];
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['photo']['name']);
@@ -22,7 +28,6 @@ $uploadOk = 1;
 
 $email = mysqli_real_escape_string($link, $_POST['email']);
 $phone = mysqli_real_escape_string($link, $_POST['phone']);
-$location = mysqli_real_escape_string($link, $_POST['location']);
 $address = mysqli_real_escape_string($link, $_POST['address']);
 $state = mysqli_real_escape_string($link, $_POST['state']);
 $city = mysqli_real_escape_string($link, $_POST['city']);
@@ -32,9 +37,36 @@ $username = mysqli_real_escape_string($link, $_POST['username']);
 //profile picture
 $pic = mysqli_real_escape_string($link,($_FILES['photo']['name']));
 
-$sql = "UPDATE employee 
-	SET oid = '$location', username = '$username', homePhone = '$phone', email = '$email', streetAddress = '$address', city_town = '$city', state = '$state', zip = '$zip'
-	WHERE username = '$username'";
+$sqlEID = "select eid from employee where username = '" . $login_session . "'";   
+$eid = mysqli_query($link,$sqlEID);   
+$rowEID = mysqli_fetch_assoc($eid);
+$eid = $rowEID['eid'];
+
+$sql = "UPDATE employee SET ";
+if($username != ""){
+	$sql .= "username = '$username', ";
+}
+if($phone != ""){
+	$sql .= "homePhone = '$phone', ";
+}
+if($email != ""){
+	$sql .= "email = '$email', ";
+}
+if($address != ""){
+	$sql .= "streetAddress = '$address', ";
+}
+if($city != ""){
+	$sql .= "city_town = '$city', ";
+}
+if($state != ""){
+	$sql .= "state = '$state', ";
+}
+if($zip != ""){
+	$sql .= "zip = '$zip'";
+}
+
+$sql .= " WHERE eid = '" . $eid . "'";
+
 
 if (!mysqli_query($link, $sql)) {
 	die('Error: ' . mysqli_error($link)); 
