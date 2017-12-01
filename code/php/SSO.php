@@ -31,21 +31,15 @@
 	
 				$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
 				while ($pwdrow = mysqli_fetch_array($pwdset)){   
-					echo $pwdrow[0];
+					$NinetyDayCheck = $pwdrow[0];
+					echo $NinetyDayCheck;
+					if ($NinetyDayCheck > 90){
+						echo "Change Password";
+					}else{
+						echo "You're good";
 				}
-				/**
-				$pwdsettotime = strtotime($pwdset);
-				echo $pwdsettotime . "<br>";				
-				$pwdsettodate = date('y-m-d', $pwdsettotime);
-				echo $pwdsettodate . "<br>";
-				//current date
-				$currentdate = date("Y-m-d");
-				echo $currentdate;
-				$NinetyDayCheck = "SELECT DATEDIFF(day, '$currentdate', '$pwdsettodate'";
-				//if($NinetyDayCheck < 90){
-				**/
-					
-		
+				}
+			
 					
 		 $row = mysqli_fetch_array($result);
 		 $password_hash = $row['pwd'];
@@ -53,7 +47,7 @@
 				$_SESSION['login_user'] = $myusername;
 				header("location: profile.php?login_user=$myusername");
 			}
-      }else {
+      }else{
       ?>
       <div class="login_err">
         <span class="fa fa-warning">
