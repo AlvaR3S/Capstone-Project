@@ -6,6 +6,11 @@
    $picture = mysqli_query($db,$sqlPicture);   
    $rowPicture = mysqli_fetch_assoc($picture);
    $login_picture = $rowPicture['picture'];
+   
+   $sqlEID = "select eid from employee where username = '" . $login_session . "'";
+	$eid = mysqli_query($db,$sqlEID);
+	$rowEID = mysqli_fetch_assoc($eid);
+	$eid = $rowEID['eid'];
 ?>
 <html>
 
@@ -23,7 +28,7 @@
     
     
     <body>
-	      
+	<form method="post" action="profile_edit_processing.php" id="update" enctype="multipart/form-data">
         <div class="container-profile-style">
 			<br>
 			<h4 class="personalInfo" style="color: gray;">Personal Information</h4>
@@ -69,9 +74,10 @@
 				<h5 id="response"><input style="width: 70%; margin-top: 10px;" type="text" pattern="\d*" maxlength="12" name="phone" placeholder="e.g. 7173457575" >
 			  </div>    
 		
-			<button class="update" onclick="location.href='profile_edit.php'">Update</button>
+			<button class="update" onclick="location.href='profile_edit_processing.php'">Update</button>
 			
         </div>      
+		</form>
         
          <!-- Footer -->
         <div class="footer">
