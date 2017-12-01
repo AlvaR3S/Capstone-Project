@@ -23,7 +23,7 @@
     
     
     <body>
-	      
+	<form method="post" action="profile_edit_processing.php" id="update" enctype="multipart/form-data">
         <div class="container-profile-style">
 			<br>
 			<h4 class="personalInfo" style="color: gray;">Personal Information</h4>
@@ -31,10 +31,7 @@
 			<h3 class="personalInfo">Username:</h3>
 			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z]{1,15}" name="username" placeholder="Enter Username"></h5> 
 			  
-			<h3 class="personalInfo">Location:</h3>
-			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z]{1,15}" name="location" placeholder="Enter Location"></h5>
-
-			<img class="picInfo" style="margin-top: -160px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
+			<img class="picInfo" style="margin-top: -100px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
 			  
 			<h3 class="personalInfo">Profile Picture:</h3>
 			<input class="personalInfo" type="file" name="photo" placeholder="Select image to upload:">
@@ -69,9 +66,10 @@
 				<h5 id="response"><input style="width: 70%; margin-top: 10px;" type="text" pattern="\d*" maxlength="12" name="phone" placeholder="e.g. 7173457575" >
 			  </div>    
 		
-			<button class="update" onclick="location.href='profile_edit.php'">Update</button>
+			<button class="update" onclick="location.href='profile_edit_processing.php'">Update</button>
 			
         </div>      
+		</form>
         
          <!-- Footer -->
         <div class="footer">
