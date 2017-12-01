@@ -79,7 +79,7 @@ include('admin_check.php');
     }
 
     .rightBtn {
-        width: 30%;
+        width: 37%;
         height: 50%;
         margin-top: 5%;
         margin-bottom: 5%;
@@ -152,11 +152,11 @@ include('admin_check.php');
     }
 
     .leftBtn {
-        width: 30%;
+        width: 37%;
         height: 50%;
         margin-top: 5%;
         margin-bottom: 5%;
-        margin-left: 17%;
+        margin-left: 10%;
         position: relative;
         border-radius: 12px;
         float: left;

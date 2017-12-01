@@ -50,7 +50,7 @@ include('manager_check.php');
                     <th onclick="sortTable(2)">Application Requested</th>
                     <th onclick="sortTable(3)" style="width: 30%;">Reason for Request</th>
                     <th onclick="sortTable(4)">Requested</th>
-                    <th style="text-align: center; width: 20%;">Actions</th>
+                    <th style="text-align: center; width: 20%; min-width: 200px">Actions</th>
                 </tr>
             <?php
                 $i=1;
@@ -80,7 +80,7 @@ include('manager_check.php');
                             echo date("M j Y  g:m:s",$time);
                         ?>
                     </td> 
-                    <td><?php 
+                    <td style="padding: 1%"><?php 
                             print '<a href="requestAccepted.php?id='.$row['reqid'].'" class="accDecBtn">Accept</a>' . '&nbsp' .
                                   '<a href="requestDeclined.php?id='.$row['reqid'].'" class="accDecBtn">Decline</a>';?> 
                             <!--input type="submit" class="accDecBtn" name="Accept" value="Accept"-->      
@@ -120,7 +120,7 @@ include('manager_check.php');
 <style>
     .table {
         margin-left: 5%;
-        margin-right: 5%: 
+        margin-right: 5%;
         margin-bottom: 10%;
         overflow-x: scroll;
         width: 90%;
