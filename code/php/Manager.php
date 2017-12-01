@@ -45,11 +45,11 @@ include('manager_check.php');
             ?>
             <table class="requests" id="myTable">
                 <tr>
-                    <th onclick="sortTable(0)">Req.</th>                    
-                    <th onclick="sortTable(1)">Name</th>
-                    <th onclick="sortTable(2)">Application Requested</th>
-                    <th onclick="sortTable(3)" style="width: 30%;">Reason for Request</th>
-                    <th onclick="sortTable(4)">Requested</th>
+                    <th onclick="sortTable(0)" style="width: 5%;">Req.</th>                    
+                    <th onclick="sortTable(1)" style="width: 15%;">Name</th>
+                    <th onclick="sortTable(2)" style="width: 15%;">Application Requested</th>
+                    <th onclick="sortTable(3)" style="width: 30%; min-width:200px;">Reason for Request</th>
+                    <th onclick="sortTable(4)" style="width: 15%;">Requested</th>
                     <th style="text-align: center; width: 20%; min-width: 200px">Actions</th>
                 </tr>
             <?php
@@ -80,7 +80,7 @@ include('manager_check.php');
                             echo date("M j Y  g:m:s",$time);
                         ?>
                     </td> 
-                    <td style="padding: 1%"><?php 
+                    <td><?php 
                             print '<a href="requestAccepted.php?id='.$row['reqid'].'" class="accDecBtn">Accept</a>' . '&nbsp' .
                                   '<a href="requestDeclined.php?id='.$row['reqid'].'" class="accDecBtn">Decline</a>';?> 
                             <!--input type="submit" class="accDecBtn" name="Accept" value="Accept"-->      
