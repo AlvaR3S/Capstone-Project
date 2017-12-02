@@ -20,38 +20,34 @@
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
+			
 				
-				/**
-				//password set date 
-				$pwdset = "SELECT pwdset FROM login WHERE username = '$myusername'";
-				$pwdsettotime = strtotime($pwdset);
-				$pwdsettodate = date("Y/m/d", $pwdsettotime);
-				//current date
-				$currentdate = date("Y/m/d");
-				$NinetyDayCheck = "SELECT DATEDIFF(day, '$currentdate', '$pwdsettodate'";
-				if($NinetyDayCheck < 90){
-				**/
+				
+				
     
      if($count > 0) {
+		 
 				//password set date 
-				$pwdset = "SELECT pwdset FROM login WHERE username = '$myusername'";
-				
-				$pwdsettotime = strtotime($pwdset);
-				echo $pwdsettotime . "<br>";
-				$pwdsettodate = date("Y/m/d", $pwdsettotime);
-				echo $pwdsettodate . "<br>";
-				//current date
-				$currentdate = date("Y/m/d");
-				echo $currentdate . "<br>";
-				$NinetyDayCheck = "SELECT DATEDIFF(day, '$currentdate', '$pwdsettodate')";
-				echo $NinetyDayCheck;
+	
+				$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
+				while ($pwdrow = mysqli_fetch_array($pwdset)){   
+					$NinetyDayCheck = $pwdrow[0];
+					echo $NinetyDayCheck;
+					if ($NinetyDayCheck > 90){
+						echo "Change Password";
+					}else{
+						echo "You're good";
+				}
+				}
+			
+					
 		 $row = mysqli_fetch_array($result);
 		 $password_hash = $row['pwd'];
 			if(password_verify($mypassword, $password_hash)){
 				$_SESSION['login_user'] = $myusername;
 				header("location: profile.php?login_user=$myusername");
 			}
-      }else {
+      }else{
       ?>
       <div class="login_err">
         <span class="fa fa-warning">
