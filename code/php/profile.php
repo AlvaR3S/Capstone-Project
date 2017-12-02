@@ -6,12 +6,12 @@
    $sqlFirst = "select firstname from employee where username = '" . $login_session . "'";
    $first_name = mysqli_query($db,$sqlFirst);
    $rowFirst = mysqli_fetch_assoc($first_name);
-   $login_first = $rowFirst['firstname'];
+   $login_first = ucwords($rowFirst['firstname']);
    
    $sqlLast = "select lastname from employee where username = '" . $login_session . "'";   
    $last_name = mysqli_query($db,$sqlLast);   
    $rowLast = mysqli_fetch_assoc($last_name);
-   $login_last = $rowLast['lastname'];
+   $login_last = ucwords($rowLast['lastname']);
    
    $sqlPicture = "select picture from employee where username = '" . $login_session . "'";   
    $picture = mysqli_query($db,$sqlPicture);   
@@ -51,17 +51,17 @@
    $sqlAddress = "select streetAddress from employee where username = '" . $login_session . "'";
    $address = mysqli_query($db,$sqlAddress);
    $rowAddress = mysqli_fetch_assoc($address);
-   $login_address = $rowAddress['streetAddress'];
+   $login_address = ucwords($rowAddress['streetAddress']);
    
    $sqlCity = "select city_town from employee where username = '" . $login_session . "'";
    $city = mysqli_query($db,$sqlCity);
    $rowCity = mysqli_fetch_assoc($city);
-   $login_city = $rowCity['city_town']; 
+   $login_city = ucwords($rowCity['city_town']); 
 
    $sqlState = "select state from employee where username = '" . $login_session . "'";
    $state = mysqli_query($db,$sqlState);
    $rowState = mysqli_fetch_assoc($state);
-   $login_state = $rowState['state'];
+   $login_state = strtoupper($rowState['state']);
    if ($login_state == NULL) {
       $login_state == "";
    }
@@ -69,7 +69,7 @@
    $sqlCountry = "select country from employee where username = '" . $login_session . "'";
    $country = mysqli_query($db,$sqlCountry);
    $rowCountry = mysqli_fetch_assoc($country);
-   $login_country = $rowCountry['country']; 
+   $login_country = ucwords($rowCountry['country']); 
 
    $sqlHired = "select hireDate from employee where username = '" . $login_session . "'";
    $hired = mysqli_query($db, $sqlHired);

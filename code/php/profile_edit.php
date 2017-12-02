@@ -47,7 +47,7 @@
 				<h3>Address:</h3> <br>
 				
 				<h5 id="response"><input style=" margin-top: 10px; width: 35%;" type="text" name="address" placeholder="Enter Home Address" >
-							<br><input style="margin-top: 10px; width: 35%;" type="text" pattern="[A-Za-z ]{1,15}" name="state" placeholder="Enter State (if applicable)">
+							<br><input style="margin-top: 10px; width: 35%;" type="text" pattern="[A-Za-z ]{1,2}" maxlength="2" name="state" placeholder="Enter State (if applicable)">
 							<br><input style="margin-top: 10px; width: 35%;" type="text" pattern="[A-Za-z ]{1,15}" name="city" placeholder="Enter City" >
 							<br><input style="margin-top: 10px; width: 35%;"" type="text" pattern="\d*" name="zip" placeholder="Enter Zip Code" ></h5>
 						 
