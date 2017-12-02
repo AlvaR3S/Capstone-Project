@@ -42,38 +42,43 @@ $eid = mysqli_query($link,$sqlEID);
 $rowEID = mysqli_fetch_assoc($eid);
 $eid = $rowEID['eid'];
 
-$sql = "UPDATE employee SET ";
-if($username != ""){
-	$sql .= "username = '$username', ";
-}
-if($phone != ""){
-	$sql .= "homePhone = '$phone', ";
-}
-if($email != ""){
-	$sql .= "email = '$email', ";
-}
-if($address != ""){
-	$sql .= "streetAddress = '$address', ";
-}
-if($city != ""){
-	$sql .= "city_town = '$city', ";
-}
-if($state != ""){
-	$sql .= "state = '$state', ";
-}
-if($zip != ""){
-	$sql .= "zip = '$zip'";
-}
+if($username || $phone || $email || $address || $city || $state || $zip){
+	$sql = "UPDATE employee SET ";
+	if($username != ""){
+		$sql .= "username = '$username', ";
+	}
+	if($phone != ""){
+		$sql .= "homePhone = '$phone', ";
+	}
+	if($email != ""){
+		$sql .= "email = '$email', ";
+	}
+	if($address != ""){
+		$sql .= "streetAddress = '$address', ";
+	}
+	if($city != ""){
+		$sql .= "city_town = '$city', ";
+	}
+	if($state != ""){
+		$sql .= "state = '$state', ";
+	}
+	if($zip != ""){
+		$sql .= "zip = '$zip', ";
+	}
 
-$sql .= " WHERE eid = '" . $eid . "'";
+	$sql = substr($sql, 0, -2);
+
+	$sql .= " WHERE eid = '" . $eid . "'";
 
 
-if (!mysqli_query($link, $sql)) {
-	die('Error: ' . mysqli_error($link)); 
-} 
+	if (!mysqli_query($link, $sql)) {
+		die('Error: ' . mysqli_error($link)); 
+	} 
+
+}
 
 if ($pic) {
-	$picInsert = "UPDATE employee SET picture = '$pic' WHERE username = '$username'";
+	$picInsert = "UPDATE employee SET picture = '$pic' WHERE eid = '" . $eid . "'";
 
 	if (!mysqli_query($link, $picInsert)) {
 		die('Error: ' . mysqli_error($link));
