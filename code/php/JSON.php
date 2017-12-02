@@ -5,12 +5,12 @@ abstract class API
      * Property: method
      * The HTTP method this request was made in, either GET, POST, PUT or DELETE
      */
-    protected $method = '';
+    protected $method = 'Get';
     /**
      * Property: endpoint
      * The Model requested in the URI. eg: /files
      */
-    protected $endpoint = '';
+    protected $endpoint = '/CappingFools/code/php/profile.php';
     /**
      * Property: verb
      * An optional additional descriptor about the endpoint, used for things that can
