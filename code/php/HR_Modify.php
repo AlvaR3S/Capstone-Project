@@ -88,16 +88,18 @@ include('HR_check.php');
                         <option value = "6">Human Resources</option>
                     </select> <br> <br>                            
                     <select style="height:40px; width: 50%"" name="reportsTo">
-                        <option value = "" disabled selected>Reports To</option>   <?php 
-                            $result = mysqli_query($db, "SELECT reportsTo FROM employee");
+                        <option value = "" disabled selected>Reports To</option>                        
+                        <?php 
+                            $result = mysqli_query($db, "SELECT eid, firstname, lastname FROM employee");
                             while ($row = $result->fetch_assoc()) {
 
-                                unset($eid, $username);
+                                unset($eid, $firstname, $lastname);
                                 $eid = $row['eid'];
-                                $reportsTo = $row['reportsTo']; 
-                                echo '<option value="'.$eid.'">'.$reportsTo.'</option>';
+                                $firstname = $row['firstname']; 
+                                $lastname = $row['lastname'];
+                                echo '<option value="'.$eid.'">'.$firstname." ".$lastname.'</option>';
                             }
-                        ?>                   
+                        ?>
                     </select>
                 </center>
                
