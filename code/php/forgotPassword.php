@@ -3,6 +3,7 @@
  define('DB_USERNAME', 'root');
  define('DB_PASSWORD', '');
  define('DB_DATABASE', 'corporate_directory');
+ session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
      $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
@@ -20,14 +21,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($link, $_POST['forgot-username']);
     $email = mysqli_real_escape_string($link, $_POST['forgot-email']);
     $eid = mysqli_real_escape_string($link, $_POST['forgot-eid']);
+    $_SESSION['userPWchange'] = $username;
+    
 
     $sql = "SELECT * FROM employee WHERE username = '$username' AND email = '$email' AND eid = '$eid'";
 
     $result=mysqli_query($link,$sql);
+    $row=mysqli_fetch_array($result);
 
     if(mysqli_num_rows($result) > 0) {
         $row=mysqli_fetch_array($result);
-        header("location:resetPassword.php");
+        header("location: resetPassword.php");
+        //echo $_SESSION['userPWchange'];
     }
     else {
         ?>
@@ -124,11 +129,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     .sendReset {
         margin-top: 15%;
+        margin-left: 33%;
         background-color: white;
-        padding: 30px;
+        padding: 3%;
         border-radius: 8px;
-        margin: 0 auto;
-        width: 450px;
+        width: 33%;
         position: relative;
         top: 30%;
         border: 1px solid #f44336;
@@ -149,8 +154,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         background-color: #f44336;
         width: 315px;
         text-align: center;
-        margin-top: 80px;
-        margin-bottom: -200px;
+        margin-top: 8%;
+        margin-bottom: -15%;
         font-size: 20px;
         border: 2px solid white;
         border-radius: 8px;

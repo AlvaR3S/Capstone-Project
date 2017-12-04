@@ -152,7 +152,7 @@
                                         $sql="SELECT description FROM department WHERE department.did = ". $row['did'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
-                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
+                                        echo $r['description'];
                                     ?>
                                 </td>                                 
                                 <td>

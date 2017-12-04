@@ -32,9 +32,9 @@
 				$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
 				while ($pwdrow = mysqli_fetch_array($pwdset)){   
 					$NinetyDayCheck = $pwdrow[0];
-					echo $NinetyDayCheck;
+					//echo $NinetyDayCheck;
 					if ($NinetyDayCheck > 90){
-						echo "Change Password";
+						header("location: expiredPassword.php");
 					}else{
 
              $row = mysqli_fetch_array($result);
@@ -43,7 +43,7 @@
 
                 $_SESSION['login_user'] = $myusername;
                 header("location: profile.php?login_user=$myusername");
-                echo $mypassword . "<br>" . $myusername;
+                //echo $mypassword . "<br>" . $myusername;
               }
              else{
               ?>

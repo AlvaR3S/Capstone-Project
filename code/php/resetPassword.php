@@ -3,7 +3,8 @@
  define('DB_USERNAME', 'root');
  define('DB_PASSWORD', '');
  define('DB_DATABASE', 'corporate_directory');
-
+ session_start();
+ //echo $_SESSION['userPWchange'];
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
      $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
@@ -16,13 +17,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$link) {
         dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
     }
+   
+   
+   
 
     $password = mysqli_real_escape_string($link, $_POST['newPW']);
+    $options = [
+        'cost' => 11,
+        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+    ];
+
+    $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
     $verify = mysqli_real_escape_string($link, $_POST['verifyPW']);  
 
     if ($password == $verify)  {
-        $sql = "UPDATE login SET pwd = '$password'";
-        header("location:passwordChanged.php");
+        $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWchange'] . "'";
+        //echo $sql;
+        $res = mysqli_query($link, $sql);
+        if ($res) {
+            header("location:passwordChanged.php");
+        }
+        else {
+            echo "u dun goofed";
+        }
+
     }
     else {
         ?>
@@ -93,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="resetPW" style=center>
             <form name="frmReset" id="frmReset" method="post" action="resetPassword.php">
                 <h1 style="text-align: center;">Enter your new password:</h1>
-                    <div class="field-group">
+                    <div class="field-group">                        
                         <div style="margin-left: 24%">Password</div>
                         <div style="margin-left: 24%; width: 80%"><input type="password" name="newPW" id="newPW" pattern=".{6,}" class="input-field" required></div>
                         <div style="margin-left: 24%">Re-type Password</div>
