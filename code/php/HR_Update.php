@@ -28,7 +28,7 @@ include("sessions.php");
 
         
         <div id="mainContent" align="center" style="margin-top:10%;">
-            
+            <?php echo $_POST['reportsTo']; ?>
             <h1>Employee successfully modified.</h1>
             <h3>You will be redirected back to the Modify Employee page.</h3>
             <p><span id="counter">5</span></p>

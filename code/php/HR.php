@@ -108,7 +108,7 @@ if (!$link) {
 								$eid = $row['eid'];
 								$firstname = $row['firstname']; 
 								$lastname = $row['lastname'];
-								echo '<option style ="text-transform:capitalize; value"="'.$eid.'">'.$firstname." ".$lastname.'</option>';
+								echo '<option style ="text-transform:capitalize;" value="'.$eid.'">'.$firstname." ".$lastname.'</option>';
 							}
 						?>
 						</select>
