@@ -97,6 +97,7 @@ if (!$link) {
                             <option value = "5">Product Development</option>
                             <option value = "6">Human Resources</option>
                         </select>
+						
 						<select style="height:40px; width: 22%"" name="reportsTo">
 						<option value = "" disabled selected>Reports To</option>						
 						<?php 

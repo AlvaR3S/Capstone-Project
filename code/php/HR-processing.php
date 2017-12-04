@@ -31,7 +31,7 @@ $birthdate =  date("Y-m-d",$date);
 $phone = mysqli_real_escape_string($link, $_POST['phone']);
 $ext = mysqli_real_escape_string($link, $_POST['ext']);
 // gender? 
-//reportsTo
+$reportsTo = mysqli_real_escape_string($link, $_POST['reportsTo']);
 $location = mysqli_real_escape_string($link, $_POST['location']);
 $title = mysqli_real_escape_string($link, $_POST['title']);
 $dept = mysqli_real_escape_string($link, $_POST['department']);
@@ -63,8 +63,8 @@ $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
 
 if ($password == $verifypw) {
-    $sql = "INSERT INTO employee (oid, tid, did, username, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
-    VALUES ('$location', '$title', '$dept', '$username', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
+    $sql = "INSERT INTO employee (oid, tid, did, username, reportsTo, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
+    VALUES ('$location', '$title', '$dept', '$username', '$reportsTo', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
     if (!mysqli_query($link, $sql)) {
         die('Error: ' . mysqli_error($link)); 
