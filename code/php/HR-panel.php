@@ -1,15 +1,17 @@
 <?php
 include('session.php');
 include('nav_check.php');
+include('HR_check.php');
 ?>
 
 <html>
 
-    <title>ACME Applications</title>
+    <title>ACME HR Duties</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/Admin.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
         <script type="text/javascript" src="../js/Script.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,43 +26,35 @@ include('nav_check.php');
     
     
     <body>
-        
-        <div class="appHead" align=center style="font-size: 45px; margin-top:150px; color:white; text-shadow: 2px 2px black">Applications</div> 
+
+    
+        <div class="adminHead" align=center style="font-size: 45px; margin-top:150px; color:white;">HR Control Panel</div>
+        <div class="containerApps" align=center>
+            <h1> Choose an Action to Perform </h1>
+            <hr style="border-top:1px solid darkred;">
                
-        <div class="appcontainer" align=center style="margin-top:150px;">
+               <button class="app" onclick="window.location.href='HR.php'">
+					<img padding="10px" src="../../assets/add-icon.png"><br><br>Add Employees</img>
+				</button>
 
-            <button class="app" onclick="window.location.href='app_check.php?id=1'">
-                <img padding="10px" src="../../assets/skype-icon.png"><br><br>Skype</img>
-            </button>
-
-            <button class="app" onclick="window.location.href='app_check.php?id=2'">
-                <img padding="10px" src="../../assets/salesforce-icon.png"><br><br>Salesforce</img>
-            </button>
+				<button class="app" onclick="">
+					<img padding="10px" src="../../assets/edit-icon.png"><br><br>Modify Employees</img>
+				</button>
             
-            <button class="app" onclick="window.location.href='app_check.php?id=3'">
-                <img padding="10px" src="../../assets/assetmanage-icon.png"><br><br>Assets</img>
-            </button>
-        
-            <button class="app" onclick="window.location.href='app_check.php?id=4'">
-                <img padding="10px" src="../../assets/outlook-icon.png"><br><br>Outlook</img>
-            </button>
-            
-            <button class="app" onclick="window.location.href='app_check.php?id=5'">
-                <img padding="10px" src="../../assets/teamcity-icon.png"><br><br>Teamcity</img>
-            </button>
+				<button class="app" onclick="">
+					<img padding="10px" src="../../assets/minus-icon.png"><br><br>Remove Employees</img>
+				</button>
 
-            <button class="app" onclick="window.location.href='app_check.php?id=6'">
-                <img padding="10px" src="../../assets/artifactory-icon.png"><br><br>Artifactory</img>
-            </button>
+                <div class="clear"></div>
 
         </div>
-        
-        <div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
+		
+		<div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
             
             <a href="https://icons8.com"><font color=grey size="1">All Icons credited to icons8.com.</font></a>
         
         </div>
-        
+
         <!-- Footer -->
         <div class="footer">
             <div class="footer-contact">
@@ -69,12 +63,12 @@ include('nav_check.php');
             </div>
             <div class="footer-apps">
                 <h4>Applications</h4>
-                <a href="app_check.php?id=1">Skype for Business</a><br>
-                <a href="app_check.php?id=2">Salesforce.com</a><br>
-                <a href="app_check.php?id=3">Assets Management</a><br>
-                <a href="app_check.php?id=4">Outlook</a><br>
-                <a href="app_check.php?id=5">Teamcity</a><br>
-                <a href="app_check.php?id=6">Artifactory</a>
+                <a href="AccessDenied.php">Salesforce.com</a><br>
+                <a href="AccessDenied.php">Artifactory</a><br>
+                <a href="AccessDenied.php">Teamcity</a><br>
+                <a href="AccessDenied.php">Outlook</a><br>
+                <a href="AccessDenied.php">Skype for Business</a><br>
+                <a href="AccessDenied.php">Assest Management</a>
             </div>
         </div>
     </body>
@@ -108,5 +102,4 @@ include('nav_check.php');
         margin-left: 25%;
         margin-bottom: 5%;
     }
-
 </style>

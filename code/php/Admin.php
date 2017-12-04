@@ -32,20 +32,23 @@ include('admin_check.php');
         <div class="containerApps" align=center>
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
-                <div class="leftBtn">
-                    <img class="leftBG" src="../../assets/Background/accesspic.jpg" style="width: 100%; height: 50%; border-radius: 20px">
-                    <div class="overlayLeft"><a onclick="window.location.href='Manager.php'">Manage Access Requests</a>
-                    </div>
-                </div>
+                 
+               <button class="app" onclick="window.location.href='Manager.php'">
+					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Access Requests</img>
+				</button>
 
-                <div class="rightBtn">
-                    <img class="rightBG" src="../../assets/Background/handshake.jpg" style="width: 100%; height: 50%%; border-radius: 20px">
-                    <div class="overlay"><a onclick="window.location.href='HR.php'">Add/Remove Employees</a>
-                    </div>
-                </div>
+				<button class="app" onclick="window.location.href='HR-panel.php'">
+					<img padding="10px" src="../../assets/edit-icon.png"><br><br>Add/Remove/Modify Employees</img>
+				</button>
 
                 <div class="clear"></div>
 
+        </div>
+		
+		<div style="position:fixed; bottom:0; right: 0; width: 100px; float:right;">
+            
+            <a href="https://icons8.com"><font color=grey size="1">All Icons credited to icons8.com.</font></a>
+        
         </div>
 
         <!-- Footer -->
@@ -69,158 +72,14 @@ include('admin_check.php');
 </html>
 
 <style>
-
-    h1 {
-        font-size: 30px;
+    .appHead {
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 1px;
+        margin-bottom: -7.5%
     }
-
-    .clear {
-        clear: both;
-    }
-
-    .rightBtn {
-        width: 37%;
-        height: 50%;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 5%;
-        position: relative;
-        border-radius: 12px;
-        float: left;
-    }
-
-    .rightBG {
-        width: 100%;
-        height: 50%;
-        opacity: 1;
-        transition: .5s ease;
-        border: 1.5px solid #f44336;
-    }
-
-    .content {
-        position: absolute;
-        top: 20%;
-        left: 8%;
-        right: 8%;
-        bottom: 20%;
-        height: auto;
-        width: auto;
-        font-size: 20px;
-        color: black;
-        overflow: hidden;
-    }
-
-    .content a {
-        font-size: 14px;
-        color: white;
-        width: 30%;
-        display: block;
-        background-color: #f44336;
-        text-align: center;
-        padding: 2%;
-        cursor: pointer;
-        border-radius: 12px;
-
-    }
-
-    .rightBtn a {
-        background: transparent;
-        position: absolute;
-        top: 40%;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    .overlay {
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        font-weight: bold;
-    }
-
-    .rightBtn:hover .rightBG{
-        opacity: .2;
-    }
-
-    .rightBtn:hover .overlay {
-        opacity: 1;
-    }
-
-    .leftBtn {
-        width: 37%;
-        height: 50%;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 10%;
-        position: relative;
-        border-radius: 12px;
-        float: left;
-    }
-
-    .leftBG {
-        width: 100%;
-        height: 50%;
-        opacity: 1;
-        transition: .5s ease;
-        border: 1.5px solid #f44336;
-    }
-
-    .contentLeft {
-        position: relative;
-        font-size: 22px;
-        color: black;
-        overflow: hidden;
-    }
-
-    .leftBtn a {
-        background: transparent;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    .overlayLeft {
-        opacity: 0;
-        position: absolute;
-        top: 40%;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        font-weight: bold;
-    }
-
-    .leftBtn:hover .leftBG{
-        opacity: .2;
-    }
-
-    .leftBtn:hover .overlayLeft {
-        opacity: 1;
-    }
-
-    button.rightButton {
-        background-image: url("../../assets/Background/handshake.jpg");
-        background-size: 600px 400px;
-        background-position: 70% 50%;
-    }
-
-    .leftButton:hover {
-        cursor: pointer;
-    }  
-    
-    .rightButton:hover {
-        cursor: pointer;
-    }  
 
     .app {
-        width: 185px;
+        width: 300px;
         height: 185px;
         background-color: #f44336;
         color: white;
@@ -230,12 +89,12 @@ include('admin_check.php');
         transition-duration: 0.4s;
         margin: 5px;
         cursor: pointer;
+        box-shadow: 5px 5px 3px black;
     }
     
     .appcontainer {
         max-width: 50%;
-        margin-left: 20%;
+        margin-left: 25%;
         margin-bottom: 5%;
     }
-
 </style>
