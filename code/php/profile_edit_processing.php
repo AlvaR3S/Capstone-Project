@@ -83,7 +83,7 @@ if ($pic) {
 	if (!mysqli_query($link, $picInsert)) {
 		die('Error: ' . mysqli_error($link));
 	}
-
+}
 
 if(isset($_POST["update"])) {
 	$check = getimagesize($_FILES["photo"]["tmp_name"]);
@@ -103,7 +103,6 @@ if(isset($_POST["update"])) {
 			echo "The file ". basename( $_FILES["photo"]["name"]). " has been uploaded.";
 		} else {
 			echo "Sorry, there was an error uploading your file.";
-}
 }
 }
 }
