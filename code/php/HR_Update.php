@@ -54,6 +54,6 @@ include("sessions.php");
 
 	h1 {
 		font-weight: bold;
-		color: #c00000;
+		color: #00c000;
 	}
 </style>
