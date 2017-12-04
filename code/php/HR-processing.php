@@ -70,8 +70,8 @@ if ($password == $verifypw) {
         die('Error: ' . mysqli_error($link)); 
     } 
 
-    $query = "INSERT INTO login (username, pwd)
-              VALUES ('$username', '$hashedpassword')";
+    $query = "INSERT INTO login (username, pwd, pwdset)
+              VALUES ('$username', '$hashedpassword', CURRENT_TIMESTAMP)";
 
 
     if (!mysqli_query($link, $query)) {
@@ -89,10 +89,10 @@ if ($password == $verifypw) {
 	if(isset($_POST["submit"])) {
 		$check = getimagesize($_FILES["photo"]["tmp_name"]);
 		if($check !== false) {
-			echo "File is an image - " . $check["mime"] . ".";
+			//echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
 		} else {
-			echo "File is not an image.";
+			//echo "File is not an image.";
 			$uploadOk = 0;
 		}
 		
