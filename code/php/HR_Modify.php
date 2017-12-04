@@ -47,12 +47,16 @@ include('HR_check.php');
                     
                      <select style="height:40px; width: 50%" name="username">
                         <option value = "" disabled selected>Username</option>
-                        <!-- <option value = "1">New York</option>
-                        <option value = "2">Chicago</option>
-                        <option value = "3">Los Angeles</option>
-                        <option value = "4">Tokyo</option>
-                        <option value = "5">Paris</option>
-                        <option value = "6">London</option> -->
+                         <?php 
+                            $result = mysqli_query($db, "SELECT username FROM employee");
+                            while ($row = $result->fetch_assoc()) {
+
+                                unset($eid, $username);
+                                $eid = $row['eid'];
+                                $username = $row['username']; 
+                                echo '<option value="'.$eid.'">'.$username.'</option>';
+                            }
+                        ?>
                     </select>
                     <br><br>
                     <select style="height:40px; width: 50%" name="location">
@@ -82,9 +86,21 @@ include('HR_check.php');
                         <option value = "4">Information Technology</option>
                         <option value = "5">Product Development</option>
                         <option value = "6">Human Resources</option>
+                    </select> <br> <br>                            
+                    <select style="height:40px; width: 50%"" name="reportsTo">
+                        <option value = "" disabled selected>Reports To</option>   <?php 
+                            $result = mysqli_query($db, "SELECT reportsTo FROM employee");
+                            while ($row = $result->fetch_assoc()) {
+
+                                unset($eid, $username);
+                                $eid = $row['eid'];
+                                $reportsTo = $row['reportsTo']; 
+                                echo '<option value="'.$eid.'">'.$reportsTo.'</option>';
+                            }
+                        ?>                   
                     </select>
                 </center>
-               <br>
+               
                 <br> <br> <button class="employeeModify" type="submit" name="modify">Modify</button>
             </form>
         </div>
