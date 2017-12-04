@@ -33,7 +33,7 @@ include('admin_check.php');
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">
                  
-               <button class="app" onclick="window.location.href='Manager.php'">
+               <button class="app" onclick="window.location.href='Manager_Panel.php'">
 					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Access Requests</img>
 				</button>
 

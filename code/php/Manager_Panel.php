@@ -28,7 +28,7 @@ include('manager_check.php');
     <body>
 
     
-        <div class="adminHead" align=center style="font-size: 45px; margin-top:150px; color:white;">Admin Control Panel</div>
+        <div class="adminHead" align=center style="font-size: 45px; margin-top:150px; color:white;">Manager Control Panel</div>
         <div class="containerApps" align=center>
             <h1> Choose an Action to Perform </h1>
             <hr style="border-top:1px solid darkred;">

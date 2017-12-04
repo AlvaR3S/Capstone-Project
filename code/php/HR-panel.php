@@ -37,11 +37,11 @@ include('HR_check.php');
 					<img padding="10px" src="../../assets/add-icon.png"><br><br>Add Employees</img>
 				</button>
 
-				<button class="app" onclick="window.location.href='HR_modify.php">
+				<button class="app" onclick="window.location.href='HR_Modify.php'">
 					<img padding="10px" src="../../assets/edit-icon.png"><br><br>Modify Employees</img>
 				</button>
             
-				<button class="app" onclick="window.location.href='HR_Fire.php">
+				<button class="app" onclick="window.location.href='HR_Fire.php'">
 					<img padding="10px" src="../../assets/minus-icon.png"><br><br>Remove Employees</img>
 				</button>
 
