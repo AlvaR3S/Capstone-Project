@@ -75,21 +75,21 @@ if($username || $phone || $email || $address || $city || $state || $zip){
 		die('Error: ' . mysqli_error($link)); 
 	} 
 
+}
 
-
-	if ($pic) {
-		$picInsert = "UPDATE employee SET picture = '$pic' WHERE eid = '" . $eid . "'";
+if ($pic) {
+	$picInsert = "UPDATE employee SET picture = '$pic' WHERE eid = '" . $eid . "'";
 
 	if (!mysqli_query($link, $picInsert)) {
 		die('Error: ' . mysqli_error($link));
 	}
 
 
-	if(isset($_POST["update"])) {
-		$check = getimagesize($_FILES["photo"]["tmp_name"]);
+if(isset($_POST["update"])) {
+	$check = getimagesize($_FILES["photo"]["tmp_name"]);
 	if($check !== false) {
 		echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
+	$uploadOk = 1;
 	} else {
 		echo "File is not an image.";
 		$uploadOk = 0;
