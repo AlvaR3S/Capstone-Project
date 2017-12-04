@@ -22,7 +22,7 @@
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>
-					<a href="Manager.php">Manager
+					<a href="Manager_Panel.php">Manager
                         <span class="fa fa-briefcase"></span>
                     </a>
                     <a href="logout.php">Log Out
