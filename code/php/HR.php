@@ -2,6 +2,18 @@
 include('session.php');
 include('nav_check.php');
 include('HR_check.php');
+ 
+ $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+
+if (!$link) {
+    dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
+}
+
+$db_selected = mysqli_select_db($link, "corporate_directory");
+
+if (!$link) {
+    dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
+}
 ?>
 
 <html>
@@ -59,7 +71,7 @@ include('HR_check.php');
 						<h6 style="margin-left: 21%;margin-top: -24px;">Phone Number</h6> 
 						<h6 style="margin-left: 57%;margin-top: -34px;">Ext</h6>
 						
-                        <select style="height:40px; width: 30%" name="location">
+                        <select style="height:40px; width: 22%" name="location">
                             <option value = "" disabled selected>Location</option>
                             <option value = "1">New York</option>
                             <option value = "2">Chicago</option>
@@ -68,7 +80,7 @@ include('HR_check.php');
                             <option value = "5">Paris</option>
                             <option value = "6">London</option>
                         </select>
-                        <select style="height:40px; width: 30%" name="title">
+                        <select style="height:40px; width: 22%" name="title">
                             <option value = "" disabled selected>Position</option>
                             <option value = "1">CEO/Board</option>
                             <option value = "2">Administrator</option>
@@ -76,7 +88,7 @@ include('HR_check.php');
                             <option value = "4">Manager</option>
                             <option value = "5">Employee</option>
                         </select>
-                        <select style="height:40px; width: 30%"" name="department">
+                        <select style="height:40px; width: 22%"" name="department">
                             <option value = "" disabled selected>Department</option>
                             <option value = "1">Marketing</option>
                             <option value = "2">Sales</option>
@@ -85,6 +97,21 @@ include('HR_check.php');
                             <option value = "5">Product Development</option>
                             <option value = "6">Human Resources</option>
                         </select>
+						
+						<select style="height:40px; width: 22%"" name="reportsTo">
+						<option value = "" disabled selected>Reports To</option>						
+						<?php 
+							$result = mysqli_query($link, "SELECT eid, firstname, lastname FROM employee");
+							while ($row = $result->fetch_assoc()) {
+
+								unset($eid, $firstname, $lastname);
+								$eid = $row['eid'];
+								$firstname = $row['firstname']; 
+								$lastname = $row['lastname'];
+								echo '<option value="'.$eid.'">'.$firstname.$lastname.'</option>';
+							}
+						?>
+						</select>
                         <h4 style="margin-top: 22px;">Home Address*</h4>
                         <input style="width: 90.9%;" type="text" name="address" placeholder="Enter Home Address" required>
                         <input style="margin-top: 10px; width: 25%;" type="text" pattern="[A-Za-z ]{1,15}" name="country" placeholder="Enter Country" required>
