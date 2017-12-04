@@ -98,22 +98,6 @@ if (!$link) {
                             <option value = "6">Human Resources</option>
                         </select>
 						
-						<!--
-						<select style="height:40px; width: 22%"" name="reportsTo">
-						<option value = "" disabled selected>Username</option>						
-						<?php 
-							$result = mysqli_query($link, "SELECT username FROM employee");
-							while ($row = $result->fetch_assoc()) {
-
-								unset($eid, $username);
-								$eid = $row['eid'];
-								$username = $row['username']; 
-								echo '<option value="'.$eid.'">'.$username.'</option>';
-							}
-						?>
-						</select>
-						-->
-						
 						<select style="height:40px; width: 22%"" name="reportsTo">
 						<option value = "" disabled selected>Reports To</option>						
 						<?php 
