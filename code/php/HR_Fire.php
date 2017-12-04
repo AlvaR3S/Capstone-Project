@@ -60,7 +60,7 @@ if (!$link) {
                     <input style="width: 120px;" type="text" name="todaysdate" placeholder="(MM/DD/YY)">
                     <h6 style="margin:0;">Username</h6> <h6 style="margin-top: -24px;margin-left: 46%;">Today's Date</h6>
                     </center>    
-                    <br> <br> <button class="employeeRemove" type="submit" name="remove">Remove</button>
+                    <br> <br> <button class="employeeRemove" type="submit" name="remove" style="cursor: pointer;">Remove</button>
                 </form>
             </div>
               

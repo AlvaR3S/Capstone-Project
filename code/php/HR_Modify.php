@@ -103,7 +103,7 @@ include('HR_check.php');
                     </select>
                 </center>
                
-                <br> <br> <button class="employeeModify" type="submit" name="modify">Modify</button>
+                <br> <br> <button class="employeeModify" type="submit" name="modify" style="cursor:pointer;">Modify</button>
             </form>
         </div>
               

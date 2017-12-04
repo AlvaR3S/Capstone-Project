@@ -186,7 +186,7 @@ if (!$link) {
                         <input style="width: 20%;" type="date" name="hiredate" required>
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
                         
-                        <br><br> <button class="employeeAdd" type="submit" name="submit">Create</button>
+                        <br><br> <button class="employeeAdd" type="submit" name="submit" style="cursor: pointer;">Create</button>
                     </div>
                 </form>
             </div>  

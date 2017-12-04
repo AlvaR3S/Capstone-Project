@@ -67,7 +67,7 @@
 			  </div>    
 		
 			<!-- Submit the new updates -->
-			<button class="update" onclick="location.href='profile_edit_processing.php'">Update</button>
+			<button class="update" onclick="location.href='profile_edit_processing.php'" style="cursor: pointer;">Update</button>
 			
         </div>      
 		</form>
