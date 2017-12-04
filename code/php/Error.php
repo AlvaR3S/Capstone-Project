@@ -37,11 +37,11 @@ include("nav_check.php");
 	
     <!-- Search form -->
 	
-    <div id="main" class="main" align="center" style="margin-top:10%;">
+    <div id="main" class="main" align="center" style="margin-top:10%; -webkit-text-stroke-color:black; -webkit-text-stroke-width:1px;">
         
-        <h1>Error!</h1>
+        <h1 style="color:#f44336;">Error!</h1>
 		<br>
-		<h2>You do not have access to this page. Try something else.</h2>
+		<h2 style="color:white;">You do not have access to this page. Try something else.</h2>
 
     </div>
 	

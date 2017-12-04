@@ -136,9 +136,7 @@
         <h6 class="departmentInfo"><?php echo '' . $login_title;?></h6>
 
         <img class="picInfo" src="uploads/<?php echo $login_picture;?>">
-      
-        <button id="edit">Edit</button>
-          
+                
         <hr id="underEdit">
              
         <div class="underWork">

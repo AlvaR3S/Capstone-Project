@@ -36,18 +36,38 @@
 					if ($NinetyDayCheck > 90){
 						echo "Change Password";
 					}else{
-						echo "You're good";
-				}
+
+             $row = mysqli_fetch_array($result);
+             $password_hash = $row['pwd'];
+              if(password_verify($mypassword, $password_hash)){
+
+                $_SESSION['login_user'] = $myusername;
+                header("location: profile.php?login_user=$myusername");
+                echo $mypassword . "<br>" . $myusername;
+              }
+             else{
+              ?>
+              <div class="login_err">
+                <span class="fa fa-warning">
+                  <?php  
+                 //$error = "Your Login Name or Password is invalid";
+
+                 echo 'Your username or password is invalid. Try again.
+                </span>
+                <span class="fa fa-warning"></span>';
+
+              }
+				  }
 				}
 			
 					
-		 $row = mysqli_fetch_array($result);
+		 /*$row = mysqli_fetch_array($result);
 		 $password_hash = $row['pwd'];
 			if(password_verify($mypassword, $password_hash)){
 				$_SESSION['login_user'] = $myusername;
 				header("location: profile.php?login_user=$myusername");
 			}
-      }else{
+     }else{
       ?>
       <div class="login_err">
         <span class="fa fa-warning">
@@ -56,7 +76,7 @@
 
          echo 'Your username or password is invalid. Try again.
         </span>
-        <span class="fa fa-warning"></span>';
+        <span class="fa fa-warning"></span>';*/
 
       }
     
