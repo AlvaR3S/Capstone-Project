@@ -42,43 +42,49 @@ include('HR_check.php');
             <h1 style="text-align: center; font-size: 25px;">Change Employee Information</h1> 
             <hr style="border-top:1px solid darkred;">        
             <form style="margin-left: 130px;" method="post" action="HR_Modify.php" id="removeEmployee">
-                <h4 style="margin-top: 30px;">Employee Information*</h3>
-                 <select style="height:40px; width: 30%" name="username">
-                    <option value = "" disabled selected>Username</option>
-                    <!-- <option value = "1">New York</option>
-                    <option value = "2">Chicago</option>
-                    <option value = "3">Los Angeles</option>
-                    <option value = "4">Tokyo</option>
-                    <option value = "5">Paris</option>
-                    <option value = "6">London</option> -->
-                </select>
-                <select style="height:40px; width: 30%" name="location">
-                    <option value = "" disabled selected>Location</option>
-                    <option value = "1">New York</option>
-                    <option value = "2">Chicago</option>
-                    <option value = "3">Los Angeles</option>
-                    <option value = "4">Tokyo</option>
-                    <option value = "5">Paris</option>
-                    <option value = "6">London</option>
-                </select>
-                <select style="height:40px; width: 30%" name="title">
-                    <option value = "" disabled selected>Position</option>
-                    <option value = "1">CEO/Board</option>
-                    <option value = "2">Administrator</option>
-                    <option value = "3">HR</option>
-                    <option value = "4">Manager</option>
-                    <option value = "5">Employee</option>
-                </select>
-                 <select style="height:40px; width: 30%"" name="department">
-                    <option value = "" disabled selected>Department</option>
-                    <option value = "1">Marketing</option>
-                    <option value = "2">Sales</option>
-                    <option value = "3">Plant and Infrastructure</option>
-                    <option value = "4">Information Technology</option>
-                    <option value = "5">Product Development</option>
-                    <option value = "6">Human Resources</option>
-                </select>
-               
+                <center style="margin-left:-140px;">    
+                    <h4 style="margin-top: 30px;">Employee Information*</h3>
+                    
+                     <select style="height:40px; width: 50%" name="username">
+                        <option value = "" disabled selected>Username</option>
+                        <!-- <option value = "1">New York</option>
+                        <option value = "2">Chicago</option>
+                        <option value = "3">Los Angeles</option>
+                        <option value = "4">Tokyo</option>
+                        <option value = "5">Paris</option>
+                        <option value = "6">London</option> -->
+                    </select>
+                    <br><br>
+                    <select style="height:40px; width: 50%" name="location">
+                        <option value = "" disabled selected>Location</option>
+                        <option value = "1">New York</option>
+                        <option value = "2">Chicago</option>
+                        <option value = "3">Los Angeles</option>
+                        <option value = "4">Tokyo</option>
+                        <option value = "5">Paris</option>
+                        <option value = "6">London</option>
+                    </select>
+                    <br><br>
+                    <select style="height:40px; width: 50%" name="title">
+                        <option value = "" disabled selected>Position</option>
+                        <option value = "1">CEO/Board</option>
+                        <option value = "2">Administrator</option>
+                        <option value = "3">HR</option>
+                        <option value = "4">Manager</option>
+                        <option value = "5">Employee</option>
+                    </select>
+                    <br><br>
+                     <select style="height:40px; width: 50%"" name="department">
+                        <option value = "" disabled selected>Department</option>
+                        <option value = "1">Marketing</option>
+                        <option value = "2">Sales</option>
+                        <option value = "3">Plant and Infrastructure</option>
+                        <option value = "4">Information Technology</option>
+                        <option value = "5">Product Development</option>
+                        <option value = "6">Human Resources</option>
+                    </select>
+                </center>
+               <br>
                 <br> <br> <button class="employeeModify" type="submit" name="modify">Modify</button>
             </form>
         </div>
