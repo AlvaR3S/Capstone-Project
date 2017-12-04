@@ -1,6 +1,11 @@
 <?php
-include("sessions.php");
+include("session.php");
 
+$username = $_POST['username'];
+$newLoc = $_POST['location'];
+$newTitle = $_POST['title'];
+$newDept = $_POST['department'];
+$report = $_POST['reportsTo'];
 
 
 
@@ -31,7 +36,7 @@ include("sessions.php");
             <?php echo $_POST['reportsTo']; ?>
             <h1>Employee successfully modified.</h1>
             <h3>You will be redirected back to the Modify Employee page.</h3>
-            <p><span id="counter">5</span></p>
+            <p><span id="counter">3</span></p>
             <script type="text/javascript">
             	function countdown () {
             		var i = document.getElementById("counter");

@@ -45,7 +45,7 @@ include('HR_check.php');
                 <center style="margin-left:-140px;">    
                     <h4 style="margin-top: 30px;">Employee Information*</h3>
                     
-                     <select style="height:40px; width: 50%" name="username">
+                     <select style="height:40px; width: 50%; text-transform: capitalize;" name="username">
                         <option value = "" disabled selected>Username</option>
                          <?php 
                             $result = mysqli_query($db, "SELECT username FROM employee");
