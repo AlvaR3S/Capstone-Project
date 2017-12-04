@@ -94,10 +94,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <form name="frmReset" id="frmReset" method="post" action="resetPassword.php">
                 <h1 style="text-align: center;">Enter your new password:</h1>
                     <div class="field-group">
-                        <div style="margin-left: 23%">Password</div>
-                        <div style="margin-left: 23%"><input type="password" name="newPW" id="newPW" pattern=".{6,}" class="input-field" required></div>
-                        <div style="margin-left: 23%">Re-type Password</div>
-                        <div style="margin-left: 23%"><input type="password" name="verifyPW" id="verifyPW" pattern=".{6,}" class="input-field" required></div>
+                        <div style="margin-left: 24%">Password</div>
+                        <div style="margin-left: 24%; width: 80%"><input type="password" name="newPW" id="newPW" pattern=".{6,}" class="input-field" required></div>
+                        <div style="margin-left: 24%">Re-type Password</div>
+                        <div style="margin-left: 24%; width: 80%"><input type="password" name="verifyPW" id="verifyPW" pattern=".{6,}" class="input-field" required></div>
                     </div>                                                
                     
                     <div class="field-group">
@@ -112,10 +112,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     .resetPW {
         margin-top: 15%;
         background-color: white;
-        padding: 30px;
+        padding: 2%;
         border-radius: 8px;
-        margin: 0 auto;
-        width: 450px;
+        margin-left: 33%;
+        width: 33%;
         position: relative;
         top: 30%;
         border: 1px solid #f44336;
@@ -123,18 +123,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     #change-password {
-        width: 25%;
-        margin-top: 15px;
-        margin-bottom: -15px;
-        padding: 5px;
-        margin-left: 36%;
+        width: fit-content;
+        margin-top: 5%;
+        margin-bottom: -5%;
+        padding: 3px;
+        margin-left: 41%;
     }
 
     .pwd_match_err {
         position: relative;
         color: white;
         background-color: #f44336;
-        width: 315px;
+        width: 33%;
         text-align: center;
         margin-top: 80px;
         margin-bottom: -200px;
