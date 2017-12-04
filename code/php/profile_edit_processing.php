@@ -42,6 +42,7 @@ $eid = mysqli_query($link,$sqlEID);
 $rowEID = mysqli_fetch_assoc($eid);
 $eid = $rowEID['eid'];
 
+// Check all input boxes to change those parts of the profile
 if($username || $phone || $email || $address || $city || $state || $zip){
 	$sql = "UPDATE employee SET ";
 	if($username != ""){

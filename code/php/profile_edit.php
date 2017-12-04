@@ -66,6 +66,7 @@
 				<h5 id="response"><input style="width: 70%; margin-top: 10px;" type="text" pattern="\d*" maxlength="12" name="phone" placeholder="e.g. 7173457575" >
 			  </div>    
 		
+			<!-- Submit the new updates -->
 			<button class="update" onclick="location.href='profile_edit_processing.php'">Update</button>
 			
         </div>      
