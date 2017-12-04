@@ -41,7 +41,7 @@ include('HR_check.php');
         <div id="employeeModify">   
             <h1 style="text-align: center; font-size: 25px;">Change Employee Information</h1> 
             <hr style="border-top:1px solid darkred;">        
-            <form style="margin-left: 130px;" method="post" action="HR_Modify.php" id="removeEmployee">
+            <form style="margin-left: 130px;" method="post" action="HR_Update.php" id="modifyEmployee">
                 <center style="margin-left:-140px;">    
                     <h4 style="margin-top: 30px;">Employee Information*</h3>
                     
