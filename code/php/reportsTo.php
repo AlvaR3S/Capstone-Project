@@ -66,29 +66,23 @@ include('manager_check.php');
             $managerID = $rows['eid'];
             //echo $managerID;
             //-select  the database to use
-            $sql = "SELECT firstname, lastname, workExt, reportsTo FROM employee"; //WHERE reportsTo = '" . $managerID . "'";
+            $sql = "SELECT firstname, lastname, workExt FROM employee WHERE reportsTo = '" . $managerID . "'";
             $result = mysqli_query($db,$sql);
             if (mysqli_num_rows($result) > 0) {
             ?>
             <table class="employee" id="myTable">
                 <tr>
-                    <th onclick="sortTable(0)" style="width: 10%;">Name</th>
-                    <th onclick="sortTable(1)" style="width: 3%;">Ext.</th>                    
-                    <th onclick="sortTable(2)" style="width: 5%">Reports To</th>
+                    <th onclick="sortTable(0)" style="width: 10%;">Name</th>                    
+                    <th onclick="sortTable(1)" style="width: 5%">Ext.</th>
                 </tr>
             <?php
                 $i=1;
                 while ($row=mysqli_fetch_array($result)) {
             ?>
                 <tr>
-                    <td style="text-align: center; text-transform:capitalize;"><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>  
-                    <td style="text-align: center;"><?php echo $row['workExt'];?></td>                                        
-                    <td style = "text-align: center;">                                    
-                        <?php 
-                            $quest = "SELECT firstname, lastname FROM employee WHERE eid = '" . $row['reportsTo'] . "'";
-                            $res = mysqli_query($db, $quest);
-                            $r = mysqli_fetch_array($res);
-                            echo $r['firstname'] . '&nbsp' . $r['lastname'];?>
+                    <td style="text-align: center; text-transform:capitalize;"><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>                    
+                    <td style = "text-align: right;">                                    
+                        <?php echo $row['workExt'];?>
                     </td>
 
                 </tr>
@@ -96,7 +90,7 @@ include('manager_check.php');
                     $i++;            
                 }    
             }else {
-                echo "<br>" . "<p style='text-align:center; font-size:22px; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color: #f44336;'><br><br>You have no employees reporting to you.</p>";
+                echo "<br>" . "<p style='text-align:center; font-size:16px; -webkit-text-stroke-color: white; -webkit-text-stroke-width: .2px; color: black; font-weight: bold;'><br><br>You have no employees who report to you.</p>";
             }
             ?>
             </table>

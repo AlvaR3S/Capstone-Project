@@ -34,7 +34,7 @@ include('admin_check.php');
             <hr style="border-top:1px solid darkred;">
                  
                <button class="app" onclick="window.location.href='Manager_Panel.php'">
-					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Access Requests</img>
+					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Privileges and Teams</img>
 				</button>
 
 				<button class="app" onclick="window.location.href='HR-panel.php'">
