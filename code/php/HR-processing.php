@@ -70,8 +70,8 @@ if ($password == $verifypw) {
         die('Error: ' . mysqli_error($link)); 
     } 
 
-    $query = "INSERT INTO login (username, pwd)
-              VALUES ('$username', '$hashedpassword')";
+    $query = "INSERT INTO login (username, pwd, pwdset)
+              VALUES ('$username', '$hashedpassword', 'null')";
 
 
     if (!mysqli_query($link, $query)) {
