@@ -141,11 +141,11 @@ include("nav_check.php");
                                             $i++;
                                             }
                             }else {
-                                echo "<p>No entries matched your search.</p>";
+                                echo '<p style="color:white;">No entries matched your search.</p>';
                             }
 
                         } else{
-                            echo  "<p>Please enter a search query</p>";
+                            echo  '<p style="color:white;">Please enter a search query.</p>';
                         }
                     }
                 }
