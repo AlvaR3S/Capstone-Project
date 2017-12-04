@@ -107,6 +107,7 @@ if($username || $phone || $email || $address || $city || $state || $zip){
 }
 }
 }
+}
 
 
 
