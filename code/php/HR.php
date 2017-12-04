@@ -98,7 +98,7 @@ if (!$link) {
                             <option value = "6">Human Resources</option>
                         </select>
 						
-						<select style="height:40px; width: 22%"" name="reportsTo">
+						<select style="height:40px; width: 22%; text-transform: capitalize;" name="reportsTo">
 						<option value = "" disabled selected>Reports To</option>						
 						<?php 
 							$result = mysqli_query($link, "SELECT eid, firstname, lastname FROM employee");
@@ -108,7 +108,7 @@ if (!$link) {
 								$eid = $row['eid'];
 								$firstname = $row['firstname']; 
 								$lastname = $row['lastname'];
-								echo '<option value="'.$eid.'">'.$firstname.$lastname.'</option>';
+								echo '<option style ="text-transform:capitalize; value"="'.$eid.'">'.$firstname." ".$lastname.'</option>';
 							}
 						?>
 						</select>
