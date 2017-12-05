@@ -23,21 +23,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    
    
 
-    $password = mysqli_real_escape_string($link, $_POST['newPW']);
+    $password = mysqli_real_escape_string($db, $_POST['newPW']);
     $options = [
         'cost' => 11,
         'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
     ];
 
     $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
-    $verify = mysqli_real_escape_string($link, $_POST['verifyPW']);  
+    $verify = mysqli_real_escape_string($db, $_POST['verifyPW']);  
 
     if ($password == $verify)  {
-        $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWchange'] . "'";
-        //echo $sql;
-        $res = mysqli_query($link, $sql);
+        $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWChange'] . "'";
+        echo $sql;
+        $res = mysqli_query($db, $sql);
         if ($res) {
-            header("location:passwordChanged.php");
+           // header("location:passwordChanged.php");
         }
         else {
             echo "u dun goofed";
@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="resetPW" style=center>
-            <form name="frmReset" id="frmReset" method="post" action="resetPassword.php">
+            <form name="frmReset" id="frmReset" method="post" action="expiredPassword.php">
                 <h1 style="text-align: center;">Enter your new password:</h1>
                     <div class="field-group">                        
                         <div style="margin-left: 24%">Password</div>
