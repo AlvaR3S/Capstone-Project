@@ -1,12 +1,61 @@
 <?php
 include("session.php");
 
-$username = $_POST['username'];
-$newLoc = $_POST['location'];
-$newTitle = $_POST['title'];
-$newDept = $_POST['department'];
-$report = $_POST['reportsTo'];
+if (isset($_POST['username'])) {
+    $eid = $_POST['username'];
+}
+else {
+    $eid = "";
+}
+if (isset($_POST['location'])) {
+    $newLoc = $_POST['location'];
+}
+else {
+    $newLoc = "";
+}
+if (isset($_POST['title'])) {
+    $newTitle = $_POST['title'];
+}
+else {
+    $newTitle = "";
+}
+if (isset($_POST['department'])) {
+    $newDept = $_POST['department'];
+}
+else {
+    $newDept = "";
+}
+if (isset($_POST['reportsTo'])) {
+    $report = $_POST['reportsTo'];
+}
+else {
+    $report = "";
+}
 
+
+$sql = "UPDATE employee SET ";
+if($eid || $newLoc || $newTitle || $newDept || $report) {
+    if ($newLoc != "") {
+        $sql .= "oid = '$newLoc', ";
+    }
+    if ($newTitle != "") {
+        $sql .= "tid = '$newTitle', ";
+    }
+    if ($newDept != "") {
+        $sql .= "did = '$newDept', ";
+    }
+    if ($report != "") {
+        $sql .= "reportsTo = '$report', ";
+    }
+
+    $sql = substr($sql, 0, -2);
+
+    $sql .= " WHERE eid = '" . $eid . "'";
+
+        if (!mysqli_query($db, $sql)) {
+            die('Error: ' . mysqli_error($db)); 
+        } 
+}
 
 
 ?>
@@ -33,10 +82,9 @@ $report = $_POST['reportsTo'];
 
         
         <div id="mainContent" align="center" style="margin-top:10%;">
-            <?php echo $_POST['reportsTo']; ?>
             <h1>Employee successfully modified.</h1>
             <h3>You will be redirected back to the Modify Employee page.</h3>
-            <p><span id="counter">3</span></p>
+            <p><span id="counter" style="color:white; -webkit-text-stroke-color:black; -webkit-text-stroke-width:1px; text-shadow: 2px 2px black;">3</span></p>
             <script type="text/javascript">
             	function countdown () {
             		var i = document.getElementById("counter");
@@ -60,5 +108,13 @@ $report = $_POST['reportsTo'];
 	h1 {
 		font-weight: bold;
 		color: #00c000;
+        -webkit-text-stroke-color:black; 
+        -webkit-text-stroke-width:.5px;
 	}
+
+    h3 {
+        color: white;
+        -webkit-text-stroke-color:black; 
+        -webkit-text-stroke-width:.25px;        
+    }
 </style>
