@@ -22,7 +22,7 @@
                     <a href="Apps.php">Apps
                         <span class="fa fa-tasks"></span>
                     </a>
-                    <a href="HR.php" id="HR">Human Resources
+                    <a href="HR-panel.php" id="HR">Human Resources
                         <span id="HR" class="fa fa-handshake-o"></span>
                     </a>
                     <a href="logout.php">Log Out
