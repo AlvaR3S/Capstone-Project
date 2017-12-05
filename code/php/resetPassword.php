@@ -4,7 +4,7 @@
  define('DB_PASSWORD', '');
  define('DB_DATABASE', 'corporate_directory');
  session_start();
- //echo $_SESSION['userPWchange'];
+
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
      $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 

@@ -34,6 +34,7 @@
 					$NinetyDayCheck = $pwdrow[0];
 					//echo $NinetyDayCheck;
 					if ($NinetyDayCheck > 90){
+            $_SESSION['userPWChange'] = $myusername;
 						header("location: expiredPassword.php");
 					}else{
 
