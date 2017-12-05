@@ -45,10 +45,10 @@ include('HR_check.php');
                 <center style="margin-left:-140px;">    
                     <h4 style="margin-top: 30px;">Employee Information*</h3>
                     
-                     <select style="height:40px; width: 50%; text-transform: capitalize;" name="username">
+                     <select style="height:40px; width: 50%;" name="username">
                         <option value = "" disabled selected>Username</option>
                          <?php 
-                            $result = mysqli_query($db, "SELECT username FROM employee");
+                            $result = mysqli_query($db, "SELECT eid, username FROM employee");
                             while ($row = $result->fetch_assoc()) {
 
                                 unset($eid, $username);
@@ -87,7 +87,7 @@ include('HR_check.php');
                         <option value = "5">Product Development</option>
                         <option value = "6">Human Resources</option>
                     </select> <br> <br>                            
-                    <select style="height:40px; width: 50%"" name="reportsTo">
+                    <select style="height:40px; width: 50%; text-transform: capitalize;" name="reportsTo">
                         <option value = "" disabled selected>Reports To</option>                        
                         <?php 
                             $result = mysqli_query($db, "SELECT eid, firstname, lastname FROM employee");
