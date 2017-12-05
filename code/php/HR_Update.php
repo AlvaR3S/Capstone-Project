@@ -84,7 +84,7 @@ if($eid || $newLoc || $newTitle || $newDept || $report) {
         <div id="mainContent" align="center" style="margin-top:10%;">
             <h1>Employee successfully modified.</h1>
             <h3>You will be redirected back to the Modify Employee page.</h3>
-            <p><span id="counter">3</span></p>
+            <p><span id="counter" style="color:white; -webkit-text-stroke-color:black; -webkit-text-stroke-width:1px; text-shadow: 2px 2px black;">3</span></p>
             <script type="text/javascript">
             	function countdown () {
             		var i = document.getElementById("counter");
@@ -108,5 +108,13 @@ if($eid || $newLoc || $newTitle || $newDept || $report) {
 	h1 {
 		font-weight: bold;
 		color: #00c000;
+        -webkit-text-stroke-color:black; 
+        -webkit-text-stroke-width:.5px;
 	}
+
+    h3 {
+        color: white;
+        -webkit-text-stroke-color:black; 
+        -webkit-text-stroke-width:.25px;        
+    }
 </style>
