@@ -141,7 +141,7 @@ mysqli_close($link);
             
             <h1>Successful update!</h1>
             <h3>You will be redirected back to your profile in...</h3>
-            <p><span id="counter">5</span></p>
+            <p><span id="counter">3</span></p>
             <script type="text/javascript">
             	function countdown () {
             		var i = document.getElementById("counter");
