@@ -33,11 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $verify = mysqli_real_escape_string($db, $_POST['verifyPW']);  
 
     if ($password == $verify)  {
-        $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWChange'] . "'";
-        echo $sql;
+        $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWchange'] . "'";
+        //echo $sql;
         $res = mysqli_query($db, $sql);
         if ($res) {
-           // header("location:passwordChanged.php");
+           header("location:passwordChanged.php");
         }
         else {
             echo "u dun goofed";

@@ -29,21 +29,33 @@
 		 
 				//password set date 
 	
-				$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
+				/*$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
 				while ($pwdrow = mysqli_fetch_array($pwdset)){   
 					$NinetyDayCheck = $pwdrow[0];
 					//echo $NinetyDayCheck;
 					if ($NinetyDayCheck > 90){
             $_SESSION['userPWChange'] = $myusername;
 						header("location: expiredPassword.php");
-					}else{
+					}else{*/
 
              $row = mysqli_fetch_array($result);
              $password_hash = $row['pwd'];
               if(password_verify($mypassword, $password_hash)){
-
-                $_SESSION['login_user'] = $myusername;
-                header("location: profile.php?login_user=$myusername");
+                $pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
+                        while ($pwdrow = mysqli_fetch_array($pwdset)){   
+                          $NinetyDayCheck = $pwdrow[0];
+                          //echo $NinetyDayCheck;
+                          if ($NinetyDayCheck > 90){
+                            $_SESSION['userPWchange'] = $myusername;
+                            header("location: expiredPassword.php");
+                          }
+                          else {
+                            $_SESSION['login_user'] = $myusername;
+                            header("location: profile.php?login_user=$myusername");
+                          }
+                        }
+                /*$_SESSION['login_user'] = $myusername;
+                header("location: profile.php?login_user=$myusername");*/
                 //echo $mypassword . "<br>" . $myusername;
               }
              else{
@@ -58,8 +70,8 @@
                 <span class="fa fa-warning"></span>';
 
               }
-				  }
-				}
+				  //}
+				//}
 			
 					
 		 /*$row = mysqli_fetch_array($result);
