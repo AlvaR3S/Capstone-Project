@@ -88,8 +88,8 @@ if ($pic) {
 
 $check = getimagesize($_FILES["photo"]["tmp_name"]);
 if($check !== false) {
-	echo "File is an image - " . $check["mime"] . ".";
-$uploadOk = 1;
+	//echo "File is an image - " . $check["mime"] . ".";
+	$uploadOk = 1;
 } else {
 	echo "File is not an image.";
 	$uploadOk = 0;
