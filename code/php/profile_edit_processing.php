@@ -88,16 +88,19 @@ if ($pic) {
 	}
 }
 
+
 $check = getimagesize($_FILES['photo']['tmp_name']);
 if($check !== false) {
 	echo "File is an image - " . $check["mime"] . ".";
 	$uploadOk = 1;
 } else {
 	echo "File is not an image.";
-	//$uploadOk = 0;
+	$uploadOk = 0;
 }
 
-if ($uploadOk !== 1) {
+echo $uploadOk;
+
+if ($uploadOk == 0) {
 	echo "Sorry, your file was not uploaded.";
 	// if everything is ok, try to upload file
 } else {
@@ -107,6 +110,7 @@ if ($uploadOk !== 1) {
 		echo "Sorry, there was an error uploading your file.";
 	}
 }
+
 
 mysqli_close($link);
 
@@ -147,7 +151,7 @@ mysqli_close($link);
 					}
 					i.innerHTML = parseInt(i.innerHTML)-1;
             	}
-            	setInterval(function() {countdown(); }, 1000);
+            	//setInterval(function() {countdown(); }, 1000);
             </script>          
         </div>
     </body>
