@@ -2,15 +2,12 @@
 //Ensure database connection and make sure the navbar only displays what the user should see given their TID
 include("session.php");
 include("nav_check.php");
+//Grab the username of the user logged in
+$user = $_SESSION['login_user'];
 
-//Make sure user entered their username
-if(isset($_POST['inputAcc'])) {
+
     //Make sure user selected an app
     if(isset($_POST['desiredApp'])) {
-        //
-        if(preg_match("/^[  a-zA-Z]+/", $_POST['inputAcc'])) {
-            //Create a variable for the account inserted
-            $user = mysqli_real_escape_string($db, $_POST['inputAcc']);
             //Create a variable for the app desired
             $app = mysqli_real_escape_string($db, $_POST['desiredApp']);
             //Create a variable for the description inserted
@@ -18,7 +15,7 @@ if(isset($_POST['inputAcc'])) {
 
             //Run a query to grab the eid of the username inserted
             $queryUser = "SELECT eid from employee WHERE username = '" . $user . "'";
-                
+            echo $queryUser;
             $result = mysqli_query($db,$queryUser);
             if (!mysqli_query($db,$queryUser)) {
                 echo "User query error: " . mysqli_error($db) . "<br>";
@@ -44,9 +41,8 @@ if(isset($_POST['inputAcc'])) {
                 echo "something is wrong..." . mysqli_error($db);
 
             }
-        }
     }
-}
+//}
 ?>
 <html>
 

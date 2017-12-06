@@ -49,9 +49,8 @@ include("nav_check.php");
                 
                 <div class="inputAndButton">
                     <!-- USE $_SESSION['login_user'] INSTEAD OF HAVING THE USER INPUT MANUALLY -->
-                    <input class="inputAccess" type="text" placeholder="Enter username..." name="inputAcc" required> 
-                    <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
                     <textarea class="inputDescription" type="text" placeholder="Enter why you would like access to this application..." name="descAcc"></textarea>
+                    <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
                 </div>
             </form>
         </div>
@@ -87,8 +86,13 @@ include("nav_check.php");
     }
     
     .buttonAccess {
+        margin-top: 2%;
         padding: 2%;
         width: 17%;
         cursor: pointer;
+    }
+
+    .inputAndButton {
+        margin-bottom: -8%;
     }
 </style>
