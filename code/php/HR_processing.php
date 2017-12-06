@@ -39,8 +39,8 @@ $pic = mysqli_real_escape_string($db,($_FILES['photo']['name']));
 //password hash
 $password = mysqli_real_escape_string($db, $_POST['password']);
 $options = [
-    'cost' => 11,
-    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+    'cost' => 11
+    //'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
 ];
 
 $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
@@ -134,7 +134,7 @@ mysqli_close($db);
             	function countdown () {
             		var i = document.getElementById("counter");
             		if (parseInt(i.innerHTML)<=1) {
-            			location.href = 'HR.php';
+            			location.href = 'HR-panel.php';
 					}
 					i.innerHTML = parseInt(i.innerHTML)-1;
             	}
