@@ -1,7 +1,7 @@
 <?php
 include("config.php");
 session_start();   
-print_r($_POST);
+//print_r($_POST);
 
 $user_check = $_SESSION['login_user'];   
 $ses_sql = mysqli_query($db,"select username from login where username = '$user_check' ");   
@@ -82,9 +82,9 @@ if($check !== false) {
 	$uploadOk = 0;
 }
 
-echo $uploadOk;
-echo "<br>" . $target_file . "<br>";
-echo "<br>" . $_FILES['photo']['tmp_name'];
+//echo $uploadOk;
+//echo "<br>" . $target_file . "<br>";
+//echo "<br>" . $_FILES['photo']['tmp_name'];
 
 if ($uploadOk == 0) {
 	echo "Sorry, your file was not uploaded.";
