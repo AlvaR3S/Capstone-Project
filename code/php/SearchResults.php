@@ -44,6 +44,7 @@ include("nav_check.php");
         </form>
             <br>
             <?php
+            // Set the search message to adapt to the criteria/term searched.
             $term = "";
             if ($_POST['searchby'] == "by_name") {
                 $term = "Displaying employees with names containing '" . htmlspecialchars($_POST['name']) . "'.";
@@ -65,16 +66,20 @@ include("nav_check.php");
         <div class="table">
             
             <?php
+                //If the search term is not empty
                 if(isset($_POST['name'])){
                     if(isset($_GET['go'])){
+                        //Just make sure that the characters in the search are letters only.
                         if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
+                            //Set a variable equal to the term submitted
                             $name=$_POST['name'];
+                            //Set a variable equal to the criteria submitted
                             $opt=$_POST['searchby'];
                             //connect  to the database
                             $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
                             //-select  the database to use
                             $mydb=mysqli_select_db($db,"corporate_directory");
-                            //-query  the database table
+                            //Query the database with the appropriate statement depending on the criteria.
                             if ($opt == "by_name"){
                                 $sql="(SELECT * FROM employee WHERE firstname LIKE '%" . $name ."%' OR lastname LIKE '%" . $name . "%')";
                             }
@@ -94,6 +99,7 @@ include("nav_check.php");
                             //-create  while loop and loop through result set
                             if(mysqli_num_rows($result) > 0) {
                             ?>
+                            <!-- Create the headers for our result table -->
                             <table class="employee" id="myTable">
                               <tr>
                                 <th onclick="sortTable(0)">Name</th>
@@ -104,47 +110,58 @@ include("nav_check.php");
                                 <th onclick="sortTable(5)">Email</th>
                               </tr>
                             <?php
-                                            $i=1;
-                                            while($row=mysqli_fetch_array($result)) {
+                            //Set a counter for how many rows are in the result set
+                                    $i=1;
+                                    //Enter a while loop to begin printing out result rows
+                                    while($row=mysqli_fetch_array($result)) {
 
                             ?>
-                              <tr>
+                              <tr><!--Print out a clickable result for names that meet the criteria. The profile leads to the approapriate user profile. -->
                                 <td><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['firstname'] . '&nbsp' . $row['lastname'] . '</a>'?></td>
                                 <td>
                                     <?php 
+                                        //Peform a query to display the title as a word and not its ID
                                         $sql="SELECT posname FROM title WHERE title.tid = ". $row['tid'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
+                                        //Print out a clickable result for positions that meet the criteria. The profile leads to the approapriate user profile.
                                         print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['posname'] . '</a>'
                                     ?>
                                 </td>
                                 <td>
                                     <?php 
+                                        //Perform a query to display the department as a word and not its ID
                                         $sql="SELECT description FROM department WHERE department.did = ". $row['did'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
+                                        //Print out a clickable result for departments that meet the criteria. The profile leads to the approapriate user profile.
                                         print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
                                     ?>
                                 </td>                                
                                 <td>
                                     <?php 
+                                        //Perform a query to display the locaiton as a word and not its ID
                                         $sql="SELECT location FROM organization WHERE organization.oid = ". $row['oid'];
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
+                                        //Print out a clickable result for organizations that meet the criteria. The profile leads to the approapriate user profile.
                                         print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $r['location'] . '</a>'
                                     ?>
                                 </td>
-                                <td><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
+                                <td><!--Print out a clickable result for work extension that meet the criteria. The profile leads to the approapriate user profile.-->
+                                    <?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
                                 <td style="text-transform: lowercase;"><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
                               </tr>
-                            <?php
+                            <?php           //Move onto the next row of results
                                             $i++;
                                             }
                             }else {
+                                //If the result set has no matches
                                 echo '<p style="color:white;">No entries matched your search.</p>';
                             }
 
                         } else{
+                            // If the searched term is empty
                             echo  '<p style="color:white;">Please enter a search query.</p>';
                         }
                     }
