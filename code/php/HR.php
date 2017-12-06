@@ -52,7 +52,9 @@ if (!$link) {
             <div id="employeeFormAdd">
                 <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to add to ACME</h1>
                 <hr style="border-top:1px solid darkred;">
-                <form method="post" action="HR-processing.php" id="addEmployee" enctype="multipart/form-data">
+
+                <form method="post" action="HR_processing.php" id="addEmployee" enctype="multipart/form-data">
+
                     <div class="inputAlign">
                         <h4 style="margin-top: 30px;">Employee Information*</h4>
                         <input type="text" pattern="[A-Za-z]{1,15}" name="firstname" placeholder="Enter First Name" required>
