@@ -106,6 +106,7 @@ body {
     background-image: url("../../assets/Background/skyline.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
+	background-position-y: -100px;
     position: absolute;
     min-height: 100%;
     min-width: 100%;
