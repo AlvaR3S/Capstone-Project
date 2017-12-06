@@ -65,20 +65,29 @@ while ($row = mysqli_fetch_array($result)) {
 	#mainContent {
 		color: white;
 	}
-	#counter-container {
-		font-size:50px;
-		color: #000000;
-	}
-	#counter {
-		font-size: 50px;
-		color: #000000;
-	}
+    #counter-container {
+        font-size:50px;
+        color: #ffffff;
+    }
+    #counter {
+        font-size: 50px;
+        color: #ffffff;
+        text-shadow: 2px 2px black;
+    }
 
-	h1 {
-		font-weight: bold;
-		color: #c00000;
-	}
-	h3 {
-		color: #000000;
-	}
+    h1 {
+        font-weight: bold;
+        color: #c00000;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;
+    }
+    h3 {
+        color: #ffffff;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;
+    }
+    p {
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:1px;
+    }
 </style>
