@@ -14,8 +14,6 @@ include('HR_check.php');
         <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
         <link rel="stylesheet" type="text/css" href="../CSS/HR.css">
         <script type="text/javascript" src="../js/ProfilePage.js"></script> 
-        <script type="text/javascript" src="../js/Script.js"></script>
-        <script type="text/javascript" src="../js/HR.js"></script>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -92,7 +90,7 @@ include('HR_check.php');
 						<select style="height:40px; width: 22%; text-transform: capitalize;" name="reportsTo">
 						<option value = "" disabled selected>Reports To</option>						
 						<?php 
-							$result = mysqli_query($link, "SELECT eid, firstname, lastname FROM employee");
+							$result = mysqli_query($db, "SELECT eid, firstname, lastname FROM employee");
 							while ($row = $result->fetch_assoc()) {
 
 								unset($eid, $firstname, $lastname);
