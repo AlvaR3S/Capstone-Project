@@ -1,26 +1,10 @@
 <?php
+include("config.php");
 session_start();   
- define('DB_SERVER', 'localhost');
- define('DB_USERNAME', 'root');
- define('DB_PASSWORD', '');
- define('DB_DATABASE', 'corporate_directory');
-  
- $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
-}
-
-$db_selected = mysqli_select_db($link, "corporate_directory");
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
-}   
-
 print_r($_POST);
 
 $user_check = $_SESSION['login_user'];   
-$ses_sql = mysqli_query($link,"select username from login where username = '$user_check' ");   
+$ses_sql = mysqli_query($db,"select username from login where username = '$user_check' ");   
 $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);   
 $login_session = $row['username'];
 
@@ -28,19 +12,19 @@ $login_session = $row['username'];
 $target_file = "uploads/" . basename($_FILES['photo']['name']);
 $uploadOk = 1;
 
-$email = mysqli_real_escape_string($link, $_POST['email']);
-$phone = mysqli_real_escape_string($link, $_POST['phone']);
-$address = mysqli_real_escape_string($link, $_POST['address']);
-$state = mysqli_real_escape_string($link, $_POST['state']);
-$city = mysqli_real_escape_string($link, $_POST['city']);
-$zip = mysqli_real_escape_string($link, $_POST['zip']);
-$username = mysqli_real_escape_string($link, $_POST['username']);
+$email = mysqli_real_escape_string($db, $_POST['email']);
+$phone = mysqli_real_escape_string($db, $_POST['phone']);
+$address = mysqli_real_escape_string($db, $_POST['address']);
+$state = mysqli_real_escape_string($db, $_POST['state']);
+$city = mysqli_real_escape_string($db, $_POST['city']);
+$zip = mysqli_real_escape_string($db, $_POST['zip']);
+$username = mysqli_real_escape_string($db, $_POST['username']);
 
 //profile picture
-$pic = mysqli_real_escape_string($link,($_FILES['photo']['name']));
+$pic = mysqli_real_escape_string($db,($_FILES['photo']['name']));
 
 $sqlEID = "select eid from employee where username = '" . $login_session . "'";   
-$eid = mysqli_query($link,$sqlEID);   
+$eid = mysqli_query($db,$sqlEID);   
 $rowEID = mysqli_fetch_assoc($eid);
 $eid = $rowEID['eid'];
 
@@ -74,8 +58,8 @@ if($username || $phone || $email || $address || $city || $state || $zip){
 	$sql .= " WHERE eid = '" . $eid . "'";
 
 
-	if (!mysqli_query($link, $sql)) {
-		die('Error: ' . mysqli_error($link)); 
+	if (!mysqli_query($db, $sql)) {
+		die('Error: ' . mysqli_error($db)); 
 	} 
 
 }
@@ -83,10 +67,11 @@ if($username || $phone || $email || $address || $city || $state || $zip){
 if ($pic) {
 	$picInsert = "UPDATE employee SET picture = '$pic' WHERE eid = '" . $eid . "'";
 
-	if (!mysqli_query($link, $picInsert)) {
-		die('Error: ' . mysqli_error($link));
+	if (!mysqli_query($db, $picInsert)) {
+		die('Error: ' . mysqli_error($db));
 	}
 }
+
 
 $check = getimagesize($_FILES['photo']['tmp_name']);
 if($check !== false) {
@@ -94,13 +79,17 @@ if($check !== false) {
 	$uploadOk = 1;
 } else {
 	echo "File is not an image.";
-	//$uploadOk = 0;
+	$uploadOk = 0;
 }
 
-if ($uploadOk !== 1) {
+echo $uploadOk;
+echo "<br>" . $target_file . "<br>";
+echo "<br>" . $_FILES['photo']['tmp_name'];
+
+if ($uploadOk == 0) {
 	echo "Sorry, your file was not uploaded.";
 	// if everything is ok, try to upload file
-} else {
+} else if ($uploadOk == 1){
 	if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
 		echo "The file ". basename( $_FILES['photo']['name']). " has been uploaded.";
 	} else {
@@ -108,7 +97,8 @@ if ($uploadOk !== 1) {
 	}
 }
 
-mysqli_close($link);
+
+mysqli_close($db);
 
 
 ?>
@@ -147,7 +137,7 @@ mysqli_close($link);
 					}
 					i.innerHTML = parseInt(i.innerHTML)-1;
             	}
-            	setInterval(function() {countdown(); }, 1000);
+            	//setInterval(function() {countdown(); }, 1000);
             </script>          
         </div>
     </body>
