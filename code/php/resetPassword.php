@@ -1,6 +1,6 @@
 <?php
  //Ensure db connection and begin session
- include("config.php");
+ include("session.php");
  session_start();
 
 // 

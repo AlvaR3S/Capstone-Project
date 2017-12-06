@@ -1,6 +1,5 @@
 <?php
- include("HR.php");
- include("config.php");
+ include("session.php");
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['photo']['name']);
