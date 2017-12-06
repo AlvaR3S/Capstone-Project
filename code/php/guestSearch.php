@@ -66,7 +66,7 @@
     </header>
     
     <!-- Search form -->
-    <div id="main" class="main" align="center" style="margin-top:10%;">
+    <div id="main" class="main" align="center" style="margin-top:150px;">
         
         <strong><h1 style="margin-top: 5%; color: white;">Welcome to the ACME employee database!</h1></strong><br>
         <h3 style="margin-top: -1%;color: white; font-size: 15px;">Search the directory to find ACME Employees!</h3><br>
