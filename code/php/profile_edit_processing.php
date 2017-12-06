@@ -17,6 +17,8 @@ if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
 }   
 
+print_r($_POST);
+
 $user_check = $_SESSION['login_user'];   
 $ses_sql = mysqli_query($link,"select username from login where username = '$user_check' ");   
 $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);   
@@ -88,7 +90,7 @@ if ($pic) {
 
 $check = getimagesize($_FILES["photo"]["tmp_name"]);
 if($check !== false) {
-	//echo "File is an image - " . $check["mime"] . ".";
+	echo "File is an image - " . $check["mime"] . ".";
 	$uploadOk = 1;
 } else {
 	echo "File is not an image.";
