@@ -108,16 +108,17 @@ include("nav_check.php");
                                 <th onclick="sortTable(3)">Location</th>
                                 <th onclick="sortTable(4)">Ext.</th>
                                 <th onclick="sortTable(5)">Email</th>
+                                <th style="text-align:center;">Profile</th>
                               </tr>
                             <?php
                             //Set a counter for how many rows are in the result set
-                                    $i=1;
-                                    //Enter a while loop to begin printing out result rows
-                                    while($row=mysqli_fetch_array($result)) {
+                            $i=1;
+                            //Enter a while loop to begin printing out result rows
+                            while($row=mysqli_fetch_array($result)) {
 
                             ?>
                               <tr><!--Print out a clickable result for names that meet the criteria. The profile leads to the approapriate user profile. -->
-                                <td><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['firstname'] . '&nbsp' . $row['lastname'] . '</a>'?></td>
+                                <td><?php echo $row['firstname'] . '&nbsp' . $row['lastname']?></td>
                                 <td>
                                     <?php 
                                         //Peform a query to display the title as a word and not its ID
@@ -125,7 +126,8 @@ include("nav_check.php");
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
                                         //Print out a clickable result for positions that meet the criteria. The profile leads to the approapriate user profile.
-                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['posname'] . '</a>'
+                                        //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['posname'] . '</a>'
+                                        echo $r['posname'];
                                     ?>
                                 </td>
                                 <td>
@@ -135,7 +137,8 @@ include("nav_check.php");
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
                                         //Print out a clickable result for departments that meet the criteria. The profile leads to the approapriate user profile.
-                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
+                                        //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' .  $r['description'] . '</a>'
+                                        echo $r['description'];
                                     ?>
                                 </td>                                
                                 <td>
@@ -145,12 +148,15 @@ include("nav_check.php");
                                         $res=mysqli_query($db,$sql);
                                         $r=mysqli_fetch_array($res);
                                         //Print out a clickable result for organizations that meet the criteria. The profile leads to the approapriate user profile.
-                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $r['location'] . '</a>'
+                                        //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $r['location'] . '</a>'
+                                        echo $r['location'];
                                     ?>
                                 </td>
                                 <td><!--Print out a clickable result for work extension that meet the criteria. The profile leads to the approapriate user profile.-->
-                                    <?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
-                                <td style="text-transform: lowercase;"><?php print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
+                                    <?php echo $row['workExt'];
+                                    //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
+                                <td style="text-transform: lowercase;"><?php echo $row['email'];
+                                //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
                               </tr>
                             <?php           //Move onto the next row of results
                                             $i++;

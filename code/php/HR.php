@@ -32,7 +32,7 @@ include('HR_check.php');
         
         <div class="title">
             
-            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white; font-size: 40px;">Add or Remove an Employee</h1>
+            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white; font-size: 40px;">Add an Employee</h1>
             
             
         </div>

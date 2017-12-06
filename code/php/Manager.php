@@ -50,7 +50,7 @@ include('manager_check.php');
                     <th onclick="sortTable(2)" style="width: 15%;">Application Requested</th>
                     <th onclick="sortTable(3)" style="width: 30%; min-width:200px;">Reason for Request</th>
                     <th onclick="sortTable(4)" style="width: 15%;">Requested</th>
-                    <th style="text-align: center; width: 20%; min-width: 200px">Actions</th>
+                    <th style="text-align: center; width: 20%; min-width: 200px;">Actions</th>
                 </tr>
             <?php
                 $i=1;

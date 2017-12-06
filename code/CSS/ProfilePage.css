@@ -139,6 +139,7 @@ input#search {
   background-color: white;
   border-radius: 15px;
   border: 1px solid #f44336;
+  padding-bottom: 30px;
 }
 
  #userName {

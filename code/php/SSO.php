@@ -141,7 +141,7 @@
       <?php
         echo date("Y");
         ?>
-         Acme Corporation
+         ACME Corporation
     </div>
 </html>
 
