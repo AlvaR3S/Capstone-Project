@@ -25,36 +25,36 @@ include("nav_check.php");
     
     
     <body>
+        <div id="allContent" style="margin-top: 130px;">
+            <div id="main" class="main" align="center" style="margin-top:7%;">
+                <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;">ACCESS DENIED</h1>
+                <h2 style="color:white;-webkit-text-stroke-color: black; -webkit-text-stroke-width: .5px;">It appears you do not have access to this application...</h2>
+            </div>
 
-        <div id="main" class="main" align="center" style="margin-top:7%;">
-            <h1 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .75px; text-shadow: 2px 2px black; color: white;">ACCESS DENIED</h1>
-            <h2 style="color:white;-webkit-text-stroke-color: black; -webkit-text-stroke-width: .5px;">It appears you do not have access to this application...</h2>
+            <div id="message" align="center">
+                <h2 id="applyAccess">Apply for access down below.</h2>
+                <form method="post" action="AccessRequest.php?go" id="accessForm">
+                    
+                    <div class="styled-select blue semi-square">
+                        <select name="desiredApp" id="desiredApp" required="">
+                            <option value="" color="white;" disabled selected>Pick an application</option>
+                            <option value='Skype'>Skype</option>
+                            <option value='Salesforce'>Salesforce</option>
+                            <option value='Assets'>Assets Management</option>
+                            <option value='Outlook'>Outlook</option>
+                            <option value='Teamcity'>Teamcity</option>
+                            <option value='Artifactory'>Artifactory</option>
+                        </select>
+                    </div>
+                    
+                    <div class="inputAndButton">
+                        <!-- USE $_SESSION['login_user'] INSTEAD OF HAVING THE USER INPUT MANUALLY -->
+                        <textarea class="inputDescription" type="text" placeholder="Enter why you would like access to this application..." name="descAcc"></textarea>
+                        <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div id="message" align="center">
-            <h2 id="applyAccess">Apply for access down below.</h2>
-            <form method="post" action="AccessRequest.php?go" id="accessForm">
-                
-                <div class="styled-select blue semi-square">
-                    <select name="desiredApp" id="desiredApp" required="">
-                        <option value="" color="white;" disabled selected>Pick an application</option>
-                        <option value='Skype'>Skype</option>
-                        <option value='Salesforce'>Salesforce</option>
-                        <option value='Assets'>Assets Management</option>
-                        <option value='Outlook'>Outlook</option>
-                        <option value='Teamcity'>Teamcity</option>
-                        <option value='Artifactory'>Artifactory</option>
-                    </select>
-                </div>
-                
-                <div class="inputAndButton">
-                    <!-- USE $_SESSION['login_user'] INSTEAD OF HAVING THE USER INPUT MANUALLY -->
-                    <textarea class="inputDescription" type="text" placeholder="Enter why you would like access to this application..." name="descAcc"></textarea>
-                    <button class="buttonAccess" type="submit" name="submitAcc">Submit</button> <br> <br>
-                </div>
-            </form>
-        </div>
-    
     
         <!-- Footer -->
         <div class="footer">
