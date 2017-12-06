@@ -99,6 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="resetPW" style=center>
             <form name="frmReset" id="frmReset" method="post" action="resetPassword.php">
                 <h1 style="text-align: center;">Enter your new password:</h1>
+                <h2 style="text-align: center; font-size: 10px; color: #f44336;">Password must be at least 6 characters in length.</h2>
                     <div class="field-group">                        
                         <div style="margin-left: 24%">Password</div>
                         <div style="margin-left: 24%; width: 80%"><input type="password" name="newPW" id="newPW" pattern=".{6,}" class="input-field" required></div>
