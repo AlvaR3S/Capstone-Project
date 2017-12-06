@@ -12,6 +12,6 @@
    
    if(!isset($login_session)){
 	  mysqli_close($db);
-      header("location:sso.php");
+      header("location:SSO.php");
    }
 ?>
