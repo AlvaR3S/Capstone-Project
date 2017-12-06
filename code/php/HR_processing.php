@@ -39,8 +39,8 @@ $pic = mysqli_real_escape_string($db,($_FILES['photo']['name']));
 //password hash
 $password = mysqli_real_escape_string($db, $_POST['password']);
 $options = [
-    'cost' => 11,
-    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+    'cost' => 11
+    //'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
 ];
 
 $hashedpassword = password_hash($password, PASSWORD_BCRYPT);

@@ -1,7 +1,8 @@
 <?php
  //Ensure db connection and begin session
- include("config.php");
  session_start();
+ include("config.php");
+ 
 
 // 
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
