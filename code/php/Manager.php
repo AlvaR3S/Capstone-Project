@@ -84,8 +84,7 @@ include('manager_check.php');
                             print '<a href="requestAccepted.php?id='.$row['reqid'].'" class="accDecBtn">Accept</a>' . '&nbsp' .
                                   '<a href="requestDeclined.php?id='.$row['reqid'].'" class="accDecBtn">Decline</a>';?> 
                             <!--input type="submit" class="accDecBtn" name="Accept" value="Accept"-->      
-                            <!--input type="submit" class="accDecBtn" name="Decline" value="Decline"-->  
-                        </form>                          
+                            <!--input type="submit" class="accDecBtn" name="Decline" value="Decline"-->                          
                     </td> 
                 </tr>
             <?php

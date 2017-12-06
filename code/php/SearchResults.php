@@ -157,6 +157,10 @@ include("nav_check.php");
                                     //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
                                 <td style="text-transform: lowercase;"><?php echo $row['email'];
                                 //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
+                                <td>
+                                    <?php 
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="viewProfileBtn"><span class="fa fa-user"></span> View</a>';?> 
+                                </td>
                               </tr>
                             <?php           //Move onto the next row of results
                                             $i++;
@@ -224,5 +228,21 @@ include("nav_check.php");
     }
     .main {
         margin-bottom: 13%;
+    }
+
+    .viewProfileBtn {
+        background-color: #f44336;
+        color: white;
+        border: 2px solid #f44336;
+        border-radius: 8px;
+        padding: 3px;
+        width: 100%;
+        transition-duration: 0.4s;  
+        text-decoration: none;
+        margin: 9%;      
+    }
+
+    .viewProfileBtn:hover {
+        cursor:pointer;
     }
 </style>
