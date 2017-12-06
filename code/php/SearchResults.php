@@ -157,9 +157,9 @@ include("nav_check.php");
                                     //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">' . $row['workExt'] . '</a>'?></td>
                                 <td style="text-transform: lowercase;"><?php echo $row['email'];
                                 //print '<a href="viewProfile.php?user='.$row['username'].'" class="profileLink">'. $row['email'] . '</a>'?></td>
-                                <td>
+                                <td style="align-content: center; width:100px;">
                                     <?php 
-                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="viewProfileBtn"><span class="fa fa-user"></span> View</a>';?> 
+                                        print '<a href="viewProfile.php?user='.$row['username'].'" class="viewProfileBtn" style="white-space: nowrap"><span class="fa fa-user"></span> View</a>';?> 
                                 </td>
                               </tr>
                             <?php           //Move onto the next row of results
@@ -235,8 +235,10 @@ include("nav_check.php");
         color: white;
         border: 2px solid #f44336;
         border-radius: 8px;
-        padding: 3px;
-        width: 100%;
+        padding: 4px;
+        padding-left: : 9px;
+        padding-right: 9px;
+        width: 50%;
         transition-duration: 0.4s;  
         text-decoration: none;
         margin: 9%;      
@@ -244,5 +246,32 @@ include("nav_check.php");
 
     .viewProfileBtn:hover {
         cursor:pointer;
+    }
+
+    .table {
+        margin-left: 10%;
+        margin-right: 10%;
+        overflow-x: scroll;
+        width: 80%;
+    }
+
+    .table::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .table::-webkit-scrollbar
+    {
+        width: 12px;
+        background-color: transparent;
+    }
+
+    .table::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #f44336;
     }
 </style>
