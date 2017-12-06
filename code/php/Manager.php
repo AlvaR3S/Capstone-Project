@@ -5,7 +5,7 @@ include('manager_check.php');
 ?>
 <html>
 
-    <title>ACME Manager Duties</title>
+    <title>ACME Application Requests</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
