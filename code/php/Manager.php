@@ -160,4 +160,8 @@ include('manager_check.php');
     .accDecBtn:hover {
         cursor:pointer;
     }
+	
+	.footer {
+		position: inherit;
+	}
 </style>
