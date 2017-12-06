@@ -2,18 +2,7 @@
 include('session.php');
 include('nav_check.php');
 include('HR_check.php');
- 
- $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
-if (!$link) {
-    dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
-}
-
-$db_selected = mysqli_select_db($link, "corporate_directory");
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
-}
 ?>
 
 <html>
