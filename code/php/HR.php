@@ -52,7 +52,9 @@ if (!$link) {
             <div id="employeeFormAdd">
                 <h1 style="text-align: center; font-size: 25px; margin-top: 15px">Enter information to add a new Employee to add to ACME</h1>
                 <hr style="border-top:1px solid darkred;">
-                <form method="post" action="HR-Processing.php" id="addEmployee" enctype="multipart/form-data">
+
+                <form method="post" action="HR_processing.php" id="addEmployee" enctype="multipart/form-data">
+
                     <div class="inputAlign">
                         <h4 style="margin-top: 30px;">Employee Information*</h4>
                         <input type="text" pattern="[A-Za-z]{1,15}" name="firstname" placeholder="Enter First Name" required>
@@ -108,7 +110,7 @@ if (!$link) {
 								$eid = $row['eid'];
 								$firstname = $row['firstname']; 
 								$lastname = $row['lastname'];
-								echo '<option style ="text-transform:capitalize; value"="'.$eid.'">'.$firstname." ".$lastname.'</option>';
+								echo '<option style ="text-transform:capitalize;" value="'.$eid.'">'.$firstname." ".$lastname.'</option>';
 							}
 						?>
 						</select>
@@ -186,7 +188,7 @@ if (!$link) {
                         <input style="width: 20%;" type="date" name="hiredate" required>
                         <h6 style="margin:0;">Email Address</h6> <h6 style="margin-top: -24px;margin-left: 71%;">Hire Date</h6> 
                         
-                        <br><br> <button class="employeeAdd" type="submit" name="submit">Create</button>
+                        <br><br> <button class="employeeAdd" type="submit" name="submit" style="cursor: pointer;">Create</button>
                     </div>
                 </form>
             </div>  

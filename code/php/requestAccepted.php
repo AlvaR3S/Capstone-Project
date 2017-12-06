@@ -1,30 +1,27 @@
-
 <?php
+include("config.php");
+//Get the reqID of the request processed
 $id = $_GET['id'];
 
-$db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
-//-select  the database to use
-$mydb=mysqli_select_db($db,"corporate_directory");
-
+//Grab the data from the request able
 $sql = "SELECT * FROM application_request WHERE reqid = '" . $id . "'";
 
 $result = mysqli_query($db,$sql);
 
 while ($row = mysqli_fetch_array($result)) {
+    //Create a variable for the eid of the user given access
 	$eid = $row['e_id'];
+    //Create a variable for the appid of the app the user now has access to
 	$appid = $row['app_id'];
+    //Add these to the access log
 	$query = "INSERT INTO application_access_log (appid, eid) VALUES ('" . $appid . "', '" . $eid . "')";
 	if(!mysqli_query($db,$query)) {
 		echo "Oh no!: " . mysqli_error($db);
-	} else {
-		//echo "Access granted. <br>";
 	}
-
+    //Remove the entry from the request table
 	$clean = "DELETE FROM application_request WHERE reqid = '" . $id . "'";
 	if(!mysqli_query($db, $clean)) {
 		echo "Oh no!: " . mysqli_error($db);
-	} else {
-		//echo "Request processed.";
 	}
 }
 ?>
@@ -58,6 +55,7 @@ while ($row = mysqli_fetch_array($result)) {
             <h3>You have accepted the employee's access request.</h3>
             <p id="counter-container">Redirecting in: <span id="counter">3</span></p>
             <script type="text/javascript">
+                //Create a function that redirects the manager back to managing app requests when the counter reaches 0
             	function countdown () {
             		var i = document.getElementById("counter");
             		if (parseInt(i.innerHTML)<=1) {
@@ -65,6 +63,7 @@ while ($row = mysqli_fetch_array($result)) {
 					}
 					i.innerHTML = parseInt(i.innerHTML)-1;
             	}
+                //Count down the counter every second
             	setInterval(function() {countdown(); }, 1000);
             </script>          
         </div>
@@ -77,18 +76,27 @@ while ($row = mysqli_fetch_array($result)) {
 	}
 	#counter-container {
 		font-size:50px;
-		color: #000000;
+		color: #ffffff;
 	}
 	#counter {
 		font-size: 50px;
-		color: #000000;
+		color: #ffffff;
+        text-shadow: 2px 2px black;
 	}
 
 	h1 {
 		font-weight: bold;
 		color: #00c000;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;        
 	}
 	h3 {
-		color: #000000;
+		color: #ffffff;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;
 	}
+    p {
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:1px;
+    }
 </style>

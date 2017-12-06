@@ -1,4 +1,3 @@
-
 <html>
     <title>ACME Password Change Successful</title>
     <head>
@@ -24,7 +23,8 @@
             <h1>Password change complete.</h1>
             <br>
             <h2>You will be redirected to the sign-in page.</h2>
-                <i  style="text-shadow:none; color:#f44336; -webkit-text-stroke-width: 0px;" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>       
+                <i  style="text-shadow:none; color:#f44336; -webkit-text-stroke-width: 0px;" class="fa fa-spinner fa-spin fa-3x fa-fw"></i> 
+                <!-- Bring the user back to the sign-in page to log in with their new password -->   
                 <?php header("Refresh: 3; url=SSO.php")?>
 
         </div>

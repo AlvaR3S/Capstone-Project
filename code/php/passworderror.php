@@ -7,14 +7,6 @@ include("nav_check.php");
     
 <title>Error Redirect</title>
 
-<?php
-//    $db_connection = pg_connect("host=10.10.7.168 dbname='Corporate_Directory' user=postgres password=password");
-//    
-//if (!$db_connection) {
-//    die("Connection failed: ");
-//
-?>
-
 <head>
      <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../CSS/ProfilePage.css">
@@ -44,6 +36,7 @@ include("nav_check.php");
 		<h2>Passwords did not match. We will direct you back to the form.<br> Please re-enter your  matching passwords.</h2>
             <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>       
             <script type="text/javascript">
+                //Go back to re-enter passwords after 3 seconds
                 setTimeout(function(){history.back();}, 3000);
             </script>
 

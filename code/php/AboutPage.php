@@ -59,8 +59,8 @@ session_start();
                     contact@acme.com
                     <br><br>
                     <button class="media" id="mail" onclick="location.href='mailto:webmaster@example.com';"><span class="fa fa-envelope-o" style="font-size: 20px;"></span></button>
-                    <button class="media" id="fb"><span class="fa fa-facebook-square" style="font-size: 20px;"></span></button>
-                    <button class="media" id="tweet"><span class="fa fa-twitter" style="font-size: 20px;"></span></button>
+                    <button class="media" id="fb" onclick="location.href='https://www.facebook.com/ACMECapping/';"><span class="fa fa-facebook-square" style="font-size: 20px;"></span></button>
+                    <button class="media" id="tweet" onclick="location.href='https://twitter.com/ACMECapping/';"><span class="fa fa-twitter" style="font-size: 20px;"></span></button>
                 </div>
                 <div class ="body2">
                     <img src="../../assets/ACMElogo.png"></img>

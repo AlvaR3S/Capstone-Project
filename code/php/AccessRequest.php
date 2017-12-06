@@ -1,43 +1,48 @@
 <?php
+//Ensure database connection and make sure the navbar only displays what the user should see given their TID
 include("session.php");
 include("nav_check.php");
+//Grab the username of the user logged in
+$user = $_SESSION['login_user'];
 
-            $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysqli_error());
-            //-select  the database to use
-            $mydb=mysqli_select_db($db,"corporate_directory");
 
-if(isset($_POST['inputAcc'])) {
+    //Make sure user selected an app
     if(isset($_POST['desiredApp'])) {
-        if(preg_match("/^[  a-zA-Z]+/", $_POST['inputAcc'])) {
-            $user = mysqli_real_escape_string($db, $_POST['inputAcc']);
+            //Create a variable for the app desired
             $app = mysqli_real_escape_string($db, $_POST['desiredApp']);
+            //Create a variable for the description inserted
             $desc = mysqli_real_escape_string($db, $_POST['descAcc']);
 
+            //Run a query to grab the eid of the username inserted
             $queryUser = "SELECT eid from employee WHERE username = '" . $user . "'";
-                
+            echo $queryUser;
             $result = mysqli_query($db,$queryUser);
             if (!mysqli_query($db,$queryUser)) {
                 echo "User query error: " . mysqli_error($db) . "<br>";
             }
+            //Create a variable for the result of the query
             $row = mysqli_fetch_row($result);
- 
+
+            //Run a query to grab the appid of the app desired
             $queryApp = "SELECT appid from application WHERE description = '" . $app . "'";
 
             $res = mysqli_query($db,$queryApp);
             if (!mysqli_query($db,$queryApp)) {
                 echo "App query error: " . mysqli_error($db) . "<br>";
-            }            
+            }        
+            //Create a variable for the result of the query    
             $r = mysqli_fetch_row($res);
 
+            //Update the table to include the new request, utilizing the result variables we got from the previous queries
             $sql = "INSERT INTO application_request (reqid, app_id, e_id, rd, description) VALUES (NULL, '" . $r[0] . "', '" . $row[0] . "', NULL, '" . $desc . "')";
 
+            //Make sure the query can run
             if (!mysqli_query($db, $sql)) {
                 echo "something is wrong..." . mysqli_error($db);
 
             }
-        }
     }
-}
+//}
 ?>
 <html>
 

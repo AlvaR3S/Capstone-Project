@@ -17,13 +17,15 @@ if (!$link) {
     dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
 }   
 
+print_r($_POST);
+
 $user_check = $_SESSION['login_user'];   
 $ses_sql = mysqli_query($link,"select username from login where username = '$user_check' ");   
 $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);   
 $login_session = $row['username'];
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES['photo']['name']);
+
+$target_file = "uploads/" . basename($_FILES['photo']['name']);
 $uploadOk = 1;
 
 $email = mysqli_real_escape_string($link, $_POST['email']);
@@ -86,29 +88,29 @@ if ($pic) {
 	}
 }
 
-if(isset($_POST["update"])) {
-	$check = getimagesize($_FILES["photo"]["tmp_name"]);
-	if($check !== false) {
-		echo "File is an image - " . $check["mime"] . ".";
+
+$check = getimagesize($_FILES['photo']['tmp_name']);
+if($check !== false) {
+	echo "File is an image - " . $check["mime"] . ".";
 	$uploadOk = 1;
+} else {
+	echo "File is not an image.";
+	$uploadOk = 0;
+}
+
+echo $uploadOk;
+echo "<br>" . $target_file . "<br>";
+
+if ($uploadOk == 0) {
+	echo "Sorry, your file was not uploaded.";
+	// if everything is ok, try to upload file
+} else if ($uploadOk == 1){
+	if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
+		echo "The file ". basename( $_FILES['photo']['name']). " has been uploaded.";
 	} else {
-		echo "File is not an image.";
-		$uploadOk = 0;
+		echo "Sorry, there was an error uploading your file.";
 	}
-	
-	if ($uploadOk == 0) {
-		echo "Sorry, your file was not uploaded.";
-		// if everything is ok, try to upload file
-	} else {
-		if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-			echo "The file ". basename( $_FILES["photo"]["name"]). " has been uploaded.";
-		} else {
-			echo "Sorry, there was an error uploading your file.";
 }
-}
-}
-
-
 
 
 mysqli_close($link);
@@ -141,7 +143,7 @@ mysqli_close($link);
             
             <h1>Successful update!</h1>
             <h3>You will be redirected back to your profile in...</h3>
-            <p><span id="counter">5</span></p>
+            <p><span id="counter">3</span></p>
             <script type="text/javascript">
             	function countdown () {
             		var i = document.getElementById("counter");
@@ -150,7 +152,7 @@ mysqli_close($link);
 					}
 					i.innerHTML = parseInt(i.innerHTML)-1;
             	}
-            	setInterval(function() {countdown(); }, 1000);
+            	//setInterval(function() {countdown(); }, 1000);
             </script>          
         </div>
     </body>

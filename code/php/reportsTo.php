@@ -1,11 +1,12 @@
 <?php
+//Ensure db connection and begin session. Make sure the user has rights to see this page
 include('session.php');
 include('nav_check.php');
 include('manager_check.php');
 ?>
 <html>
 
-    <title>ACME Manager Duties</title>
+    <title>Your ACME Team</title>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
@@ -35,68 +36,45 @@ include('manager_check.php');
             <h3 style="-webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color:white; font-size: 20px;">Below is a list of employees who report to you.</h3>
             
         </div>
-        <!--div>
-            <form method="post" action="reportsTo.php?go" id="managerForm" style="margin-top: 2%;">
-                <select name="managerSelect" id="managerSelect" style="text-transform: capitalize;">
-                    <option value = "" disabled selected>Manager</option>
-                        <?php 
-                            $result = mysqli_query($db, "SELECT eid, firstname, lastname FROM employee");
-                            while ($row = $result->fetch_assoc()) {
-
-                                unset($eid, $firstname, $lastname);
-                                $eid = $row['eid'];
-                                $firstname = $row['firstname']; 
-                                $lastname = $row['lastname'];
-                                echo '<option style ="text-transform:capitalize; value"="'.$eid.'">'.$firstname." ".$lastname.'</option>';
-                            }
-                        ?>
-                </select>
-                <button class="short" type="submit" name="submit">
-                    <span class="fa fa-search"></span> Search
-                </button>
-            </form>
-        </div-->
         <div class="table">
             <?php
-            $db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
-            $mydb=mysqli_select_db($db,"corporate_directory");                        
+            //Run a query to get the eid of the current user                        
             $query = "SELECT eid FROM employee WHERE username = '" . $login_session . "'";
             $res = mysqli_query($db, $query);
             $rows = mysqli_fetch_array($res);
+            //Store our result as a variable for later use
             $managerID = $rows['eid'];
-            //echo $managerID;
-            //-select  the database to use
-            $sql = "SELECT firstname, lastname, workExt, reportsTo FROM employee"; //WHERE reportsTo = '" . $managerID . "'";
+            //Run a query to find info of employees who reportTo the logged-in user
+            $sql = "SELECT firstname, lastname, workExt FROM employee WHERE reportsTo = '" . $managerID . "'";
             $result = mysqli_query($db,$sql);
             if (mysqli_num_rows($result) > 0) {
             ?>
+            <!-- Start displaying our result table-->
             <table class="employee" id="myTable">
                 <tr>
-                    <th onclick="sortTable(0)" style="width: 10%;">Name</th>
-                    <th onclick="sortTable(1)" style="width: 3%;">Ext.</th>                    
-                    <th onclick="sortTable(2)" style="width: 5%">Reports To</th>
+                    <th onclick="sortTable(0)" style="width: 10%;">Name</th>                    
+                    <th onclick="sortTable(1)" style="width: 5%">Ext.</th>
                 </tr>
             <?php
+                //Set a counter for number of rows
                 $i=1;
                 while ($row=mysqli_fetch_array($result)) {
             ?>
-                <tr>
-                    <td style="text-align: center; text-transform:capitalize;"><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>  
-                    <td style="text-align: center;"><?php echo $row['workExt'];?></td>                                        
-                    <td style = "text-align: center;">                                    
-                        <?php 
-                            $quest = "SELECT firstname, lastname FROM employee WHERE eid = '" . $row['reportsTo'] . "'";
-                            $res = mysqli_query($db, $quest);
-                            $r = mysqli_fetch_array($res);
-                            echo $r['firstname'] . '&nbsp' . $r['lastname'];?>
+                <tr><!-- 'Name' column should display the first and last name of the employee -->
+                    <td style="text-align: center; text-transform:capitalize;"><?php echo $row['firstname'] . '&nbsp' . $row['lastname'];?></td>                    
+                    <td style = "text-align: right;">  
+                    <!-- 'Ext.' column should display the work extension of the employee -->                                  
+                        <?php echo $row['workExt'];?>
                     </td>
 
                 </tr>
             <?php
+                    //Move on to the next row
                     $i++;            
                 }    
             }else {
-                echo "<br>" . "<p style='text-align:center; font-size:22px; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .25px; color: #f44336;'><br><br>You have no employees reporting to you.</p>";
+                //If no one reports to the manager/admin
+                echo "<br>" . "<p style='text-align:center; font-size:16px; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .1px; color: #F44336; font-weight: bold;'><br><br>You have no employees who report to you.</p>";
             }
             ?>
             </table>

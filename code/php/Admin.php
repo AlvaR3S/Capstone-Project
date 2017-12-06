@@ -1,4 +1,5 @@
 <?php
+//Establish connection to db and make sure only admin can see this page
 include('session.php');
 include('nav_check.php');
 include('admin_check.php');
@@ -31,10 +32,10 @@ include('admin_check.php');
         <div class="adminHead" align=center style="font-size: 45px; margin-top:150px; color:white;">Admin Control Panel</div>
         <div class="containerApps" align=center>
             <h1> Choose an Action to Perform </h1>
-            <hr style="border-top:1px solid darkred;">
+            <hr style="border-top:1px solid darkred; width: 80%">
                  
                <button class="app" onclick="window.location.href='Manager_Panel.php'">
-					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Access Requests</img>
+					<img padding="10px" src="../../assets/rq-icon.png"><br><br>Manage Privileges and Teams</img>
 				</button>
 
 				<button class="app" onclick="window.location.href='HR-panel.php'">

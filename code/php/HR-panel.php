@@ -38,7 +38,7 @@ include('HR_check.php');
 				</button>
 
 				<button class="app" onclick="window.location.href='HR_Modify.php'">
-					<img padding="10px" src="../../assets/edit-icon.png"><br><br>Modify Employees</img>
+					<img padding="10px" src="../../assets/modifyemployee.png"><br><br>Modify Employees</img>
 				</button>
             
 				<button class="app" onclick="window.location.href='HR_Fire.php'">
