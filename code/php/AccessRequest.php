@@ -15,7 +15,7 @@ $user = $_SESSION['login_user'];
 
             //Run a query to grab the eid of the username inserted
             $queryUser = "SELECT eid from employee WHERE username = '" . $user . "'";
-            echo $queryUser;
+            //echo $queryUser;
             $result = mysqli_query($db,$queryUser);
             if (!mysqli_query($db,$queryUser)) {
                 echo "User query error: " . mysqli_error($db) . "<br>";
