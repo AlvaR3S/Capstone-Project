@@ -100,6 +100,7 @@ if($check !== false) {
 
 echo $uploadOk;
 echo "<br>" . $target_file . "<br>";
+echo "<br>" . $_FILES['photo']['tmp_name'];
 
 if ($uploadOk == 0) {
 	echo "Sorry, your file was not uploaded.";
