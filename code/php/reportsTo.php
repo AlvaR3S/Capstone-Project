@@ -74,7 +74,7 @@ include('manager_check.php');
                 }    
             }else {
                 //If no one reports to the manager/admin
-                echo "<br>" . "<p style='text-align:center; font-size:16px; -webkit-text-stroke-color: white; -webkit-text-stroke-width: .2px; color: black; font-weight: bold;'><br><br>You have no employees who report to you.</p>";
+                echo "<br>" . "<p style='text-align:center; font-size:16px; -webkit-text-stroke-color: black; -webkit-text-stroke-width: .1px; color: #F44336; font-weight: bold;'><br><br>You have no employees who report to you.</p>";
             }
             ?>
             </table>
