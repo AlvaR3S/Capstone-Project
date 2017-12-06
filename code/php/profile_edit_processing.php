@@ -94,10 +94,10 @@ if($check !== false) {
 	$uploadOk = 1;
 } else {
 	echo "File is not an image.";
-	$uploadOk = 0;
+	//$uploadOk = 0;
 }
 
-if ($uploadOk == 1) {
+if ($uploadOk !== 1) {
 	echo "Sorry, your file was not uploaded.";
 	// if everything is ok, try to upload file
 } else {
