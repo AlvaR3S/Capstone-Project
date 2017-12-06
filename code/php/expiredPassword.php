@@ -10,8 +10,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = mysqli_real_escape_string($db, $_POST['newPW']);
     //Set the encryption
     $options = [
-        'cost' => 11,
-        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+        'cost' => 11
+        //'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
     ];
     //Hash the password
     $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
