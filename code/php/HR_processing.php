@@ -1,7 +1,6 @@
 <?php
+ include("HR.php");
  include("config.php");
- 
-
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['photo']['name']);
@@ -47,7 +46,7 @@ $options = [
 
 $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
-echo $reportsTo;
+//echo $reportsTo;
 
 if ($password == $verifypw) {
     $sql = "INSERT INTO employee (oid, tid, did, username, reportsTo, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
