@@ -1,24 +1,18 @@
-
 <?php
+include("config.php");
+//Get the reqid of the request being processed
 $id = $_GET['id'];
-
-$db=mysqli_connect("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error());
-//-select  the database to use
-$mydb=mysqli_select_db($db,"corporate_directory");
-
+//Grab the reqid we're processing
 $sql = "SELECT * FROM application_request WHERE reqid = '" . $id . "'";
 
 $result = mysqli_query($db,$sql);
 
 while ($row = mysqli_fetch_array($result)) {
-
+    //Delete the entry from the table
 	$clean = "DELETE FROM application_request WHERE reqid = '" . $id . "'";
 	if(!mysqli_query($db, $clean)) {
 		echo "Oh no!: " . mysqli_error($db);
-	} else {
-		//echo "Request processed.";
-		//header("location:Manager.php");
-	}
+	} 
 }
 ?>
 
@@ -52,14 +46,16 @@ while ($row = mysqli_fetch_array($result)) {
             <h3>You have denied the employee's access request.</h3>
             <p id="counter-container">Redirecting in: <span id="counter">3</span></p>
             <script type="text/javascript">
-            	function countdown () {
-            		var i = document.getElementById("counter");
-            		if (parseInt(i.innerHTML)<=1) {
-            			location.href = 'Manager.php';
-					}
-					i.innerHTML = parseInt(i.innerHTML)-1;
-            	}
-            	setInterval(function() {countdown(); }, 1000);
+                //Create a function that redirects the manager back to managing app requests when the counter reaches 0
+                function countdown () {
+                    var i = document.getElementById("counter");
+                    if (parseInt(i.innerHTML)<=1) {
+                        location.href = 'Manager.php';
+                    }
+                    i.innerHTML = parseInt(i.innerHTML)-1;
+                }
+                //Count down the counter every second
+                setInterval(function() {countdown(); }, 1000);
             </script>          
         </div>
     </body>

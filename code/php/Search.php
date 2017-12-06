@@ -1,4 +1,5 @@
 <?php
+ //Ensure db connection and begin session
 include("session.php");
 include("nav_check.php");
 ?>
@@ -6,14 +7,6 @@ include("nav_check.php");
 <html>
     
 <title>ACME Search</title>
-
-<?php
-//    $db_connection = pg_connect("host=10.10.7.168 dbname='Corporate_Directory' user=postgres password=password");
-//    
-//if (!$db_connection) {
-//    die("Connection failed: ");
-//
-?>
 
 <head>
     <meta charset="UTF-8">

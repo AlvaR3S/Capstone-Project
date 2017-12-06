@@ -1,45 +1,33 @@
 <?php
- /*define('DB_SERVER', 'localhost');
- define('DB_USERNAME', 'root');
- define('DB_PASSWORD', '');
- define('DB_DATABASE', 'corporate_directory');*/
+ //Ensure db connection and begin session
  include("config.php");
  session_start();
- //echo $_SESSION['userPWChange'];
 
+// 
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
-     //$link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-
-    /*if (!$link) {
-        dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
-    }
-
-    $db_selected = mysqli_select_db($link, "corporate_directory");
-
-    if (!$link) {
-        dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
-    }*/
-   
-   
-   
-
+    //Make sure the password didn't do anything tricky to bypass requirements
     $password = mysqli_real_escape_string($db, $_POST['newPW']);
+    //Set the encryption
     $options = [
         'cost' => 11,
         'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
     ];
-
+    //Hash the password
     $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
+    //Make sure the verified password didn't do anything tricky to bypass requirements
     $verify = mysqli_real_escape_string($db, $_POST['verifyPW']);  
 
+    //If the new password matches the verified password entry
     if ($password == $verify)  {
+        //Update the table with the new password
         $sql = "UPDATE login SET pwd = '$hashedpassword' WHERE username = '" . $_SESSION['userPWchange'] . "'";
-        //echo $sql;
         $res = mysqli_query($db, $sql);
         if ($res) {
+           //If the query runs successfully forward user to redirect back to login
            header("location:passwordChanged.php");
         }
         else {
+            //The query is broken and the user shouldn't see this
             echo "u dun goofed";
         }
 
@@ -48,9 +36,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
         <div class="pwd_match_err" style=center>
         <span class="fa fa-warning">
-          <?php  
-             //$error = "Your Login Name or Password is invalid";
-
+          <?php 
+            //If the new password doesn't match the verify entry, let the user know. 
              echo 'Passwords do not match. Please try again.
             </span>
             <span class="fa fa-warning"></span>';
@@ -80,13 +67,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <body>
-        
+        <!-- Navbar -->
         <header class="topnav" role="banner">
             
             <nav class="topnav container" role="navigation">
                 
                 <div id="main">
-                    <!--<span style="font-size:30px;cursor:pointer;" align=left onclick="openNav()">&#9776;</span>-->
                     <img src="../../assets/ACMElogo.png" alt="ACMElogo" style="width:100px;height:83px"></img>
                 </div>
                 

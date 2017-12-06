@@ -1,4 +1,5 @@
 <?php
+//Establish connection to db and make sure only admin can see this page
 include('session.php');
 include('nav_check.php');
 include('admin_check.php');
