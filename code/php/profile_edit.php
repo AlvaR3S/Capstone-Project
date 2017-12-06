@@ -29,7 +29,7 @@
 			<h4 class="personalInfo" style="color: gray;">Personal Information</h4>
 				
 			<h3 class="personalInfo">Username:</h3>
-			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[A-Za-z0-9]{6,}" name="username" placeholder="Enter Username"></h5> 
+			<h5 class="personalInfo"><input style="width: 70%;" type="text" pattern="[a-zA-Z_0-9@\!#\$\^%&*()+=-.]{6,}" name="username" placeholder="Enter Username"></h5> 
 			  
 			<img class="picInfo" style="margin-top: -100px; margin-bottom: -150px;" src="uploads/<?php echo $login_picture;?>">
 			  
