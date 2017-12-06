@@ -1,21 +1,5 @@
 <?php
- define('DB_SERVER', 'localhost');
- define('DB_USERNAME', 'root');
- define('DB_PASSWORD', '');
- define('DB_DATABASE', 'corporate_directory');
- 
- $link = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the host. Please contact Tech Support. Error: ' . mysql_error());    
-}
-
-$db_selected = mysqli_select_db($link, "corporate_directory");
-
-if (!$link) {
-    dir('There was a problem when trying to connect to the database. Please contact Tech Support. Error: ' . mysql_error());    
-}
-
+ include("session.php");
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES['photo']['name']);
@@ -23,37 +7,37 @@ $uploadOk = 1;
 
 
 
-$firstname = mysqli_real_escape_string($link, $_POST['firstname']);
-$lastname = mysqli_real_escape_string($link, $_POST['lastname']);
-$dob = mysqli_real_escape_string($link, $_POST['dob']);
+$firstname = mysqli_real_escape_string($db, $_POST['firstname']);
+$lastname = mysqli_real_escape_string($db, $_POST['lastname']);
+$dob = mysqli_real_escape_string($db, $_POST['dob']);
 $date = strtotime($dob);
 $birthdate =  date("Y-m-d",$date);
-$phone = mysqli_real_escape_string($link, $_POST['phone']);
-$ext = mysqli_real_escape_string($link, $_POST['ext']);
+$phone = mysqli_real_escape_string($db, $_POST['phone']);
+$ext = mysqli_real_escape_string($db, $_POST['ext']);
 // gender? 
-$reportsTo = mysqli_real_escape_string($link, $_POST['reportsTo']);
-$location = mysqli_real_escape_string($link, $_POST['location']);
-$title = mysqli_real_escape_string($link, $_POST['title']);
-$dept = mysqli_real_escape_string($link, $_POST['department']);
-$address = mysqli_real_escape_string($link, $_POST['address']);
-$country = mysqli_real_escape_string($link, $_POST['country']);
-$state = mysqli_real_escape_string($link, $_POST['state']);
-$city = mysqli_real_escape_string($link, $_POST['city']);
-$zip = mysqli_real_escape_string($link, $_POST['zip']);
-$username = mysqli_real_escape_string($link, $_POST['username']);
-$password = mysqli_real_escape_string($link, $_POST['password']);
-$verifypw = mysqli_real_escape_string($link, $_POST['verifypw']);
+$reportsTo = mysqli_real_escape_string($db, $_POST['reportsTo']);
+$location = mysqli_real_escape_string($db, $_POST['location']);
+$title = mysqli_real_escape_string($db, $_POST['title']);
+$dept = mysqli_real_escape_string($db, $_POST['department']);
+$address = mysqli_real_escape_string($db, $_POST['address']);
+$country = mysqli_real_escape_string($db, $_POST['country']);
+$state = mysqli_real_escape_string($db, $_POST['state']);
+$city = mysqli_real_escape_string($db, $_POST['city']);
+$zip = mysqli_real_escape_string($db, $_POST['zip']);
+$username = mysqli_real_escape_string($db, $_POST['username']);
+$password = mysqli_real_escape_string($db, $_POST['password']);
+$verifypw = mysqli_real_escape_string($db, $_POST['verifypw']);
 $hashedpassword = hash('sha512', $_POST['password']);
-$email = mysqli_real_escape_string($link, $_POST['email']);
-$hiredate = mysqli_real_escape_string($link, $_POST['hiredate']);
+$email = mysqli_real_escape_string($db, $_POST['email']);
+$hiredate = mysqli_real_escape_string($db, $_POST['hiredate']);
 $hired = strtotime($hiredate);
 $joined = date("Y-m-d", $hired);
 
 //profile picture
-$pic = mysqli_real_escape_string($link,($_FILES['photo']['name']));
+$pic = mysqli_real_escape_string($db,($_FILES['photo']['name']));
 
 //password hash
-$password = mysqli_real_escape_string($link, $_POST['password']);
+$password = mysqli_real_escape_string($db, $_POST['password']);
 $options = [
     'cost' => 11,
     'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
@@ -61,29 +45,29 @@ $options = [
 
 $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
 
-echo $reportsTo;
+//echo $reportsTo;
 
 if ($password == $verifypw) {
     $sql = "INSERT INTO employee (oid, tid, did, username, reportsTo, firstname, lastname, dob, hireDate, homePhone, workExt, email, streetAddress, city_town, state, country, zip) 
     VALUES ('$location', '$title', '$dept', '$username', '$reportsTo', '$firstname', '$lastname', '$birthdate', '$joined', '$phone', '$ext', '$email', '$address', '$city', '$state', '$country', '$zip')";
 
-    if (!mysqli_query($link, $sql)) {
-        die('Error: ' . mysqli_error($link)); 
+    if (!mysqli_query($db, $sql)) {
+        die('Error: ' . mysqli_error($db)); 
     } 
 
     $query = "INSERT INTO login (username, pwd, pwdset)
               VALUES ('$username', '$hashedpassword', CURRENT_TIMESTAMP)";
 
 
-    if (!mysqli_query($link, $query)) {
-        die('Error: ' . mysqli_error($link));
+    if (!mysqli_query($db, $query)) {
+        die('Error: ' . mysqli_error($db));
     }
 
     if ($pic) {
         $picInsert = "UPDATE employee SET picture = '$pic' WHERE username = '$username'";
 
-        if (!mysqli_query($link, $picInsert)) {
-            die('Error: ' . mysqli_error($link));
+        if (!mysqli_query($db, $picInsert)) {
+            die('Error: ' . mysqli_error($db));
         }
     }
 
@@ -115,7 +99,7 @@ if ($password == $verifypw) {
 
 
 
-mysqli_close($link);
+mysqli_close($db);
 
 
 ?>
