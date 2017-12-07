@@ -75,12 +75,29 @@ mysqli_close($link);
 
 <style>
 
-	#counter {
-		font-size: 50px;
-	}
+    #counter-container {
+        font-size:50px;
+        color: #ffffff;
+    }
+    #counter {
+        font-size: 50px;
+        color: #ffffff;
+        text-shadow: 2px 2px black;
+    }
 
-	h1 {
-		font-weight: bold;
-		color: #c00000;
-	}
+    h1 {
+        font-weight: bold;
+        color: #c00000;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;
+    }
+    h3 {
+        color: #ffffff;
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:.5px;
+    }
+    p {
+        -webkit-text-stroke-color:black;
+        -webkit-text-stroke-width:1px;
+    }
 </style>

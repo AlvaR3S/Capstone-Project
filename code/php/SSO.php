@@ -26,18 +26,6 @@
 				
     
      if($count > 0) {
-		 
-				//password set date 
-	
-				/*$pwdset = mysqli_query($db, "SELECT TO_DAYS(CURDATE()) - TO_DAYS(pwdset) FROM login WHERE username = '$myusername'") or die ("Query fail: " . mysqli_error());
-				while ($pwdrow = mysqli_fetch_array($pwdset)){   
-					$NinetyDayCheck = $pwdrow[0];
-					//echo $NinetyDayCheck;
-					if ($NinetyDayCheck > 90){
-            $_SESSION['userPWChange'] = $myusername;
-						header("location: expiredPassword.php");
-					}else{*/
-
              $row = mysqli_fetch_array($result);
              $password_hash = $row['pwd'];
               if(password_verify($mypassword, $password_hash)){
@@ -51,12 +39,18 @@
                           }
                           else {
                             $_SESSION['login_user'] = $myusername;
+                            $query = "SELECT eid from employee where username = '$myusername'";
+                            $res = mysqli_query($db, $query);
+                            $r = mysqli_fetch_array($res);
+                            $access = "INSERT INTO access_log (eid) VALUES (" . $r['eid'] . ")";
+                            $mitchell = mysqli_query($db, $access);
+                            if (!$mitchell) {
+                              echo "oopsie";
+                            }
+                            echo "cool";
                             header("location: profile.php?login_user=$myusername");
                           }
                         }
-                /*$_SESSION['login_user'] = $myusername;
-                header("location: profile.php?login_user=$myusername");*/
-                //echo $mypassword . "<br>" . $myusername;
               }
              else{
               ?>
@@ -70,27 +64,6 @@
                 <span class="fa fa-warning"></span>';
 
               }
-				  //}
-				//}
-			
-					
-		 /*$row = mysqli_fetch_array($result);
-		 $password_hash = $row['pwd'];
-			if(password_verify($mypassword, $password_hash)){
-				$_SESSION['login_user'] = $myusername;
-				header("location: profile.php?login_user=$myusername");
-			}
-     }else{
-      ?>
-      <div class="login_err">
-        <span class="fa fa-warning">
-          <?php  
-         //$error = "Your Login Name or Password is invalid";
-
-         echo 'Your username or password is invalid. Try again.
-        </span>
-        <span class="fa fa-warning"></span>';*/
-
       }
     
    }
