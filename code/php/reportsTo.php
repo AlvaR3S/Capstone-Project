@@ -123,4 +123,8 @@ include('manager_check.php');
         text-align: center;
     }
 
+	.footer {
+		position: inherit;
+	}
+	
 </style>

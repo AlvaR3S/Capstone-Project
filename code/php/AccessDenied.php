@@ -95,4 +95,8 @@ include("nav_check.php");
     .inputAndButton {
         margin-bottom: -8%;
     }
+	
+	.footer {
+		position: inherit;
+	}
 </style>

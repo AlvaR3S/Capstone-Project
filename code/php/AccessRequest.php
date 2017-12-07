@@ -95,3 +95,9 @@ $user = $_SESSION['login_user'];
     </body>
 
 </html>
+
+<style>
+.footer {
+		position: inherit;
+	}
+</style>
