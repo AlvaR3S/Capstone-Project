@@ -97,6 +97,6 @@ include("nav_check.php");
     }
 	
 	.footer {
-		position: inherit;
+		position: relative;
 	}
 </style>
